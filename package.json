@@ -1,7 +1,27 @@
 {
   "name": "welcome-baby",
   "version": "0.1.0",
-  "private": true,
+  "description": "Invitation and RSVP web app for my baby shower",
+  "main": "./public/index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikandagonzales/welcome-baby.git"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "sass",
+    "javascript",
+    "react",
+    "redux",
+    "axios"
+  ],
+  "author": "Vikanda Gonzales <vikanda.gonzales@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vikandagonzales/welcome-baby/issues"
+  },
+  "homepage": "https://github.com/vikandagonzales/welcome-baby#readme",
   "dependencies": {
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
