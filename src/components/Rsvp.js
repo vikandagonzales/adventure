@@ -3,10 +3,22 @@ import React from 'react';
 
 // COMPONENTS
 import Guest from './Guest';
+import GuestAdd from './GuestAdd';
 
 // ==========
 
 class Rsvp extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      addGuest: false
+    };
+  };
+
+  toggle = () => {
+    this.setState({addGuest: !this.state.addGuest});
+  };
+
   render () {
     const group = this.props.group;
     return (
@@ -18,12 +30,13 @@ class Rsvp extends React.Component {
           })()
         }
         <div className="buttons">
-          <span className="button">Accept</span>
-          <span className="button">Decline</span>
-          <span className="button">Add Guest</span>
-        </div>       
+          <span className="button" disabled>Accept</span>
+          <span className="button" disabled>Decline</span>
+          <span className="button" onClick={this.toggle}>Add Guest</span>
+        </div>      
         <ul>
           {group.guests.map((guest, i) => <Guest key={i} guest={guest} />)}
+          {this.state.addGuest ? <GuestAdd toggle={this.toggle} /> : null}         
         </ul>       
       </div>
     );

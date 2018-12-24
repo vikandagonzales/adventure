@@ -21,6 +21,11 @@ class Guest extends React.Component {
             }
           })()
         }
+        <div className="buttons">
+          <span className="button">Edit</span>
+          <span className="button">Save</span>
+          <span className="button">Delete</span>          
+        </div>
       </li>
     );
   };
