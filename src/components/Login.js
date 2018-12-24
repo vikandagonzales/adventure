@@ -1,16 +1,79 @@
 // REACT
 import React from 'react';
 
+// REDUX
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+//import {login, loginReset} from '../../state/actions/auth';
+
 // ==========
 
 class Login extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      first_name: '',
+      last_name: ''
+    };
+  };
+
+  login = event => {
+    event.preventDefault();
+    const {shop_username, email, password} = this.state;
+    const credentials = {shop_username, email, password};
+//    this.props.login(credentials, this.props.history);
+  };
+
+  componentDidMount () {
+//    this.props.loginReset();
+  };
+
   render () {
     return (
       <div className={this.props.modalClasses}>
         <div className="modal-background" onClick={this.props.toggle}></div>
         <div className="modal-content">
           <div className="box">
-            login
+            <form onSubmit={this.login}>
+              <div className="field is-horizontal">
+                <div className="field-body">
+                  <div className="field">
+                    <p className="control">
+                      <input
+                        className="input"
+                        type="text"
+                        placeholder="First Name"
+                        value={this.state.first_name}
+                        onChange={event => this.setState({first_name: event.target.value})}
+                        required
+                      />
+                    </p>
+                  </div>
+                  <div className="field">
+                    <p className="control">
+                      <input
+                        className="input"
+                        type="text"
+                        placeholder="Last Name"
+                        value={this.state.last_name}
+                        onChange={event => this.setState({last_name: event.target.value})}
+                        required
+                      />
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {
+                this.props.loginError ? (
+                  <p className="help is-danger">
+                    Guest not found.
+                  </p>
+                ) : null
+              }
+              <div className="control has-text-centered">
+                <button className="button">Log In</button>
+              </div>
+            </form>
           </div>
         </div>
         <span className="modal-close is-large" onClick={this.props.toggle}></span>
@@ -19,4 +82,13 @@ class Login extends React.Component {
   };
 };
 
-export default Login;
+const mapStateToProps = state => ({
+//  loginError: state.auth.loginError
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+//  login,
+//  loginReset
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
