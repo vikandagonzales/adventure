@@ -63,7 +63,6 @@ class Invitation extends React.Component {
           </div>
           <span className="modal-close is-large" onClick={this.toggle}></span>
         </div>
-        
       </div>
     );
   };
