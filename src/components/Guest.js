@@ -50,7 +50,7 @@ class Guest extends React.Component {
           <span className="button">Edit</span>
           <span className="button">Save</span>
           <span className="button">Cancel</span>
-          <span className="button" onClick={this.toggle}>Delete</span>          
+          {guest.plus_one ? <span className="button" onClick={this.toggle}>Delete</span> : null}       
         </div>
         <GuestDelete modalClasses={this.state.modalClasses} toggle={this.toggle} guest={guest} />
       </li>
