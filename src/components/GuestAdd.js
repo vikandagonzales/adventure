@@ -58,7 +58,7 @@ class GuestAdd extends React.Component {
             <div className="field">
               <div className="buttons">
                 <button className="button">Save</button>
-                <span className="button" onClick={this.props.toggle}>Delete</span>
+                <span className="button" onClick={this.props.add}>Delete</span>
               </div>
             </div>
           </div>

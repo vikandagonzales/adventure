@@ -11,12 +11,12 @@ class Rsvp extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      addGuest: false
+      add: false
     };
   };
 
-  toggle = () => {
-    this.setState({addGuest: !this.state.addGuest});
+  add = () => {
+    this.setState({add: !this.state.add});
   };
 
   render () {
@@ -32,11 +32,11 @@ class Rsvp extends React.Component {
         <div className="buttons">
           <span className="button" disabled>Accept</span>
           <span className="button" disabled>Decline</span>
-          <span className="button" onClick={this.toggle}>Add Guest</span>
+          {group.allowance > 0 ? <span className="button" onClick={this.add}>Add Guest</span> : null}    
         </div>      
         <ul>
           {group.guests.map((guest, i) => <Guest key={i} guest={guest} />)}
-          {this.state.addGuest ? <GuestAdd toggle={this.toggle} /> : null}         
+          {this.state.add ? <GuestAdd add={this.add} /> : null}         
         </ul>       
       </div>
     );
