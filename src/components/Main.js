@@ -1,18 +1,23 @@
 // REACT
 import React from 'react';
 
+// ROUTER
+import {Link} from 'react-router-dom';
+
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-//import {logout} from '../../state/actions/auth';
 
 // ==========
 
-class Header extends React.Component {
+class Main extends React.Component {
   render () {
     return (
       <div>
-        this is navbar
+        this is main
+        <Link to="/invitation">
+          link to invitation
+        </Link>
       </div>
     );
   };
@@ -26,4 +31,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 
 }, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

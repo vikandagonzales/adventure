@@ -9,16 +9,24 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 // COMPONENTS
-// import CallbackEtsy from './components/CallbackEtsy';
+import Header from './components/Header';
+import Main from './components/Main';
+import Invitation from './components/Invitation';
 
 // ==========
 
 class App extends React.Component {
   render () {
     return (
-      <div>
-        hi
-      </div>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Switch>
+            <Route path="/invitation" component={Invitation} />
+            <Route path="/" component={Main} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   };
 };
