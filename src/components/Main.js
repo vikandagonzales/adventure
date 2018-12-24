@@ -44,7 +44,7 @@ class Main extends React.Component {
           link to invitation
         </Link>
         <span className="button" onClick={this.toggle}>login</span>
-        <Login modalClasses={this.state.modalClasses} toggle={this.toggle} />
+        <Login modalClasses={this.state.modalClasses} toggle={this.toggle} history={this.props.history} />
       </div>
     );
   };
