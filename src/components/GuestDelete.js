@@ -1,26 +1,12 @@
 // REACT
 import React from 'react';
 
-// REDUX
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-//import {archiveStaff, archiveStaffReset} from '../../../../../../../../state/actions/staff';
-//import {logout} from '../../../../../../../../state/actions/auth';
-
 // ==========
 
 class GuestDelete extends React.Component {
-  deleteStaff = async event => {
+  deleteGuest = event => {
     event.preventDefault();
-    // await this.props.archiveStaff(this.props.staff.id);
-    // if (!this.props.archiveStaffError) {
-    //   this.props.toggle();
-    //   if (this.props.staff.id === this.props.user.id) this.props.logout();
-    // }
-  };
-
-  componentDidMount () {
-//    this.props.archiveStaffReset();
+    this.props.deleteGuest(this.props.guest.id, this.props.guest.group_id);
   };
 
   render () {
@@ -30,12 +16,12 @@ class GuestDelete extends React.Component {
         <div className="modal-background" onClick={this.props.toggle}></div>
         <div className="modal-content">
           <div className="box">           
-            <form className="has-text-centered" onSubmit={this.deleteStaff}>
+            <form className="has-text-centered" onSubmit={this.deleteGuest}>
               <p>Are you sure you want to delete {guest.first_name} {guest.last_name}?</p>
               {
-                this.props.archiveStaffError ? (
+                this.props.deleteGuestError ? (
                   <p className="help is-danger">
-                    Unable to delete only shop owner.
+                    Could not delete guest.
                   </p>
                 ) : null
               }
@@ -52,16 +38,4 @@ class GuestDelete extends React.Component {
   };
 };
 
-const mapStateToProps = state => ({
-  // user: state.auth.user,
-  // staffs: state.staff.staffs,
-  // archiveStaffError: state.staff.archiveStaffError
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  // archiveStaff,
-  // archiveStaffReset,
-  // logout
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(GuestDelete);
+export default GuestDelete;

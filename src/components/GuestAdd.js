@@ -1,11 +1,6 @@
 // REACT
 import React from 'react';
 
-// REDUX
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {addGuestReset} from '../state/actions/guests';
-
 // ==========
 
 class GuestAdd extends React.Component {
@@ -23,10 +18,6 @@ class GuestAdd extends React.Component {
     const guest = {group_id: this.props.group.id, first_name, last_name, plus_one: true};
     await this.props.addGuest(guest, this.props.group.id);
     if (!this.props.addGuestError) this.props.add();
-  };
-
-  componentDidMount () {
-    this.props.addGuestReset();
   };
 
   render () {
@@ -80,12 +71,4 @@ class GuestAdd extends React.Component {
   };
 };
 
-const mapStateToProps = state => ({
-  addGuestError: state.main.addGuestError
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  addGuestReset
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(GuestAdd);
+export default GuestAdd;

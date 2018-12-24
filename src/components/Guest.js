@@ -4,8 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-//import {archiveStaff, archiveStaffReset} from '../../../../../../../../state/actions/staff';
-//import {logout} from '../../../../../../../../state/actions/auth';
+import {deleteGuest, deleteGuestReset} from '../state/actions/guests';
 
 // COMPONENTS
 import GuestDelete from './GuestDelete';
@@ -29,6 +28,7 @@ class Guest extends React.Component {
   };
 
   toggle = () => {
+    this.props.deleteGuestReset();
     if (!this.state.modal) {
       this.setState({
         modal: true,
@@ -40,19 +40,6 @@ class Guest extends React.Component {
         modalClasses: 'modal'
       });
     }
-  };
-
-  deleteStaff = async event => {
-    event.preventDefault();
-    // await this.props.archiveStaff(this.props.staff.id);
-    // if (!this.props.archiveStaffError) {
-    //   this.props.toggle();
-    //   if (this.props.staff.id === this.props.user.id) this.props.logout();
-    // }
-  };
-
-  componentDidMount () {
-    //    this.props.archiveStaffReset();
   };
 
   render () {
@@ -148,22 +135,25 @@ class Guest extends React.Component {
             ) : null
           }
         </form>       
-        <GuestDelete modalClasses={this.state.modalClasses} toggle={this.toggle} guest={guest} />
+        <GuestDelete
+          modalClasses={this.state.modalClasses}
+          toggle={this.toggle}
+          deleteGuest={this.props.deleteGuest}
+          deleteGuestError={this.props.deleteGuestError}
+          guest={guest}
+        />
       </li>
     );
   };
 };
 
 const mapStateToProps = state => ({
-  // user: state.auth.user,
-  // staffs: state.staff.staffs,
-  // archiveStaffError: state.staff.archiveStaffError
+  deleteGuestError: state.main.deleteGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  // archiveStaff,
-  // archiveStaffReset,
-  // logout
+  deleteGuest,
+  deleteGuestReset
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Guest);
