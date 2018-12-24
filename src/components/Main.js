@@ -2,9 +2,7 @@
 import React from 'react';
 
 // REDUX
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getUser} from '../state/actions/auth';
 
 // COMPONENTS
 import Login from './Login';
@@ -38,10 +36,6 @@ class Main extends React.Component {
     this.props.authorized ? this.props.history.push('/invitation') : this.toggle();
   };
 
-  componentDidMount () {
-    this.props.getUser();
-  };
-
   render () {
     return (
       <div>
@@ -53,12 +47,7 @@ class Main extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  user: state.auth.user,
   authorized: state.auth.authorized
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-  getUser
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, null)(Main);
