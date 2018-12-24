@@ -1,12 +1,10 @@
 // REACT
 import React from 'react';
 
-// ROUTER
-import {Link} from 'react-router-dom';
-
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {getUser} from '../state/actions/auth';
 
 // COMPONENTS
 import Login from './Login';
@@ -36,14 +34,18 @@ class Main extends React.Component {
     }
   };
 
+  invite = () => {
+    this.props.authorized ? this.props.history.push('/invitation') : this.toggle();
+  };
+
+  componentDidMount () {
+    this.props.getUser();
+  };
+
   render () {
     return (
       <div>
-        this is main
-        <Link to="/invitation">
-          link to invitation
-        </Link>
-        <span className="button" onClick={this.toggle}>login</span>
+        <span className="button" onClick={this.invite}>Invitation</span>
         <Login modalClasses={this.state.modalClasses} toggle={this.toggle} history={this.props.history} />
       </div>
     );
@@ -51,11 +53,12 @@ class Main extends React.Component {
 };
 
 const mapStateToProps = state => ({
-
+  user: state.auth.user,
+  authorized: state.auth.authorized
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-
+  getUser
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
