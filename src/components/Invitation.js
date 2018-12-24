@@ -44,8 +44,10 @@ class Invitation extends React.Component {
 
   render () {
     const group = {
-      guests: this.props.group.guests,
-      limit: this.props.group.limit
+      id: this.props.group.id,
+      name: this.props.group.name,
+      limit: this.props.group.limit + 1,
+      guests: this.props.group.guests
     };
     return (
       <div>
@@ -76,7 +78,7 @@ class Invitation extends React.Component {
                     case 'details':
                       return <Details />;
                     case 'rsvp':
-                      return <Rsvp />;
+                      return <Rsvp group={group} />;
                     default:
                       break;
                   }
