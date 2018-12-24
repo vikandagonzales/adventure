@@ -1,9 +1,34 @@
 // REACT
 import React from 'react';
 
+// COMPONENTS
+import GuestDelete from './GuestDelete';
+
 // ==========
 
 class Guest extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      modal: false,
+      modalClasses: 'modal'
+    };
+  };
+
+  toggle = () => {
+    if (!this.state.modal) {
+      this.setState({
+        modal: true,
+        modalClasses: this.state.modalClasses + ' is-active'
+      });
+    } else {
+      this.setState({
+        modal: false,
+        modalClasses: 'modal'
+      });
+    }
+  };
+
   render () {
     const guest = this.props.guest;
     return (
@@ -24,8 +49,10 @@ class Guest extends React.Component {
         <div className="buttons">
           <span className="button">Edit</span>
           <span className="button">Save</span>
-          <span className="button">Delete</span>          
+          <span className="button">Cancel</span>
+          <span className="button" onClick={this.toggle}>Delete</span>          
         </div>
+        <GuestDelete modalClasses={this.state.modalClasses} toggle={this.toggle} guest={guest} />
       </li>
     );
   };
