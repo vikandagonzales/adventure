@@ -1,6 +1,7 @@
 import Groups from '../models/groups';
 
 export const GET_GROUPS = 'GET_GROUPS';
+export const GET_GROUP = 'GET_GROUP';
 export const ADD_GROUP_SUCCESS = 'ADD_GROUP_SUCCESS';
 export const ADD_GROUP_FAILURE = 'ADD_GROUP_FAILURE';
 export const ADD_GROUP_RESET = 'ADD_GROUP_RESET';
@@ -15,6 +16,13 @@ export const getGroups = () => {
   return async dispatch => {
     const payload = await Groups.getGroups();
     dispatch({type: GET_GROUPS, payload});
+  };
+};
+
+export const getGroup = id => {
+  return async dispatch => {
+    const payload = await Groups.getGroup(id);
+    dispatch({type: GET_GROUP, payload});
   };
 };
 
@@ -35,10 +43,10 @@ export const addGroupReset = () => {
   };
 };
 
-export const editGroup = (group, group_id) => {
+export const editGroup = (group, id) => {
   return async dispatch => {
     try {
-      const payload = await Groups.editGroup(group, group_id);
+      const payload = await Groups.editGroup(group, id);
       dispatch({type: EDIT_GROUP_SUCCESS, payload});
     } catch (err) {
       dispatch({type: EDIT_GROUP_FAILURE, payload: err});
@@ -52,10 +60,10 @@ export const editGroupReset = () => {
   };
 };
 
-export const deleteGroup = group_id => {
+export const deleteGroup = id => {
   return async dispatch => {
     try {
-      const payload = await Groups.deleteGroup(group_id);
+      const payload = await Groups.deleteGroup(id);
       dispatch({type: DELETE_GROUP_SUCCESS, payload});
     } catch (err) {
       dispatch({type: DELETE_GROUP_FAILURE, payload: err});

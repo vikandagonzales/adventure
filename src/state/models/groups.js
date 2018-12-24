@@ -14,18 +14,23 @@ class Groups {
   //   return staffsSortedByRole;
   // };
 
+  static getGroup = async id => {
+    const group = await request(`/groups/${id}`);
+    return group.data.data;
+  };
+
   static addGroup = async group => {
     await request(`/groups`, 'post', group);
     return Groups.getGroups();
   };
 
-  static editGroup = async (group, group_id) => {
-    await request(`/groups/${group_id}`, 'put', group);
+  static editGroup = async (group, id) => {
+    await request(`/groups/${id}`, 'put', group);
     return Groups.getGroups();
   };
 
-  static deleteGroup = async group_id => {
-    await request(`/groups/${group_id}`, 'delete');
+  static deleteGroup = async id => {
+    await request(`/groups/${id}`, 'delete');
     return Groups.getGroups();
   };
 };

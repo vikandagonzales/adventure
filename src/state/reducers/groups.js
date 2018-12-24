@@ -1,5 +1,6 @@
 import {
   GET_GROUPS,
+  GET_GROUP,
   ADD_GROUP_SUCCESS,
   ADD_GROUP_FAILURE,
   ADD_GROUP_RESET,
@@ -13,6 +14,7 @@ import {
 
 let initial = {
   groups: [],
+  group: {},
   addGroupError: false,
   editGroupError: false,
   deleteGroupError: false
@@ -22,6 +24,8 @@ export default (state = initial, action) => {
   switch (action.type) {
     case GET_GROUPS:
       return {...state, groups: action.payload};
+    case GET_GROUP:
+      return {...state, group: action.payload};
     case ADD_GROUP_SUCCESS:
       return {...state, groups: action.payload, addGroupError: false};
     case ADD_GROUP_FAILURE:
