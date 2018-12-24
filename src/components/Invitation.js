@@ -46,7 +46,7 @@ class Invitation extends React.Component {
     const group = {
       id: this.props.group.id,
       name: this.props.group.name,
-      limit: this.props.group.limit + 1,
+      limit: this.props.group.limit,
       guests: this.props.group.guests
     };
     return (
@@ -78,7 +78,7 @@ class Invitation extends React.Component {
                     case 'details':
                       return <Details />;
                     case 'rsvp':
-                      return <Rsvp group={group} />;
+                      return <Rsvp allowance={group.allowance} />;
                     default:
                       break;
                   }
@@ -95,7 +95,7 @@ class Invitation extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.auth.user,
-  group: state.groups.group
+  group: state.main.group
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

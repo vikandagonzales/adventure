@@ -58,23 +58,31 @@ class Guest extends React.Component {
   render () {
     const guest = this.props.guest;
     return (
-      <li>
-        (checkbox)
-        {
-          (() => {
-            switch (guest.accepted) {
-              case true:
-                return 'yes';
-              case false:
-                return 'no';
-              default:
-                return '?';
-            }
-          })()
-        }
+      <li>        
         <form onSubmit={this.login}>
           <div className="field is-horizontal">
             <div className="field-body">
+              <div className="field">
+                <p className="control">
+                  (checkbox)
+                </p>
+              </div>
+              <div className="field">
+                <p className="control">
+                  {
+                    (() => {
+                      switch (guest.accepted) {
+                        case true:
+                          return 'yes';
+                        case false:
+                          return 'no';
+                        default:
+                          return '?';
+                      }
+                    })()
+                  }
+                </p>
+              </div>
               <div className="field">
                 <p className="control">
                   {

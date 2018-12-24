@@ -1,6 +1,11 @@
 // REACT
 import React from 'react';
 
+// REDUX
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {addGuest} from '../state/actions/guests';
+
 // COMPONENTS
 import Guest from './Guest';
 import GuestAdd from './GuestAdd';
@@ -21,6 +26,7 @@ class Rsvp extends React.Component {
 
   render () {
     const group = this.props.group;
+    group.allowance = this.props.allowance;
     return (
       <div>
         <h1>{group.name}</h1>
@@ -36,11 +42,19 @@ class Rsvp extends React.Component {
         </div>      
         <ul>
           {group.guests.map((guest, i) => <Guest key={i} guest={guest} />)}
-          {this.state.add ? <GuestAdd add={this.add} /> : null}         
+          {this.state.add ? <GuestAdd add={this.add} addGuest={this.props.addGuest} group={group} /> : null}         
         </ul>       
       </div>
     );
   };
 };
 
-export default Rsvp;
+const mapStateToProps = state => ({
+  group: state.main.group
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  addGuest
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Rsvp);

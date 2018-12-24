@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-//import {login, loginReset} from '../state/actions/auth';
+import {addGuestReset} from '../state/actions/guests';
 
 // ==========
 
@@ -17,17 +17,22 @@ class GuestAdd extends React.Component {
     };
   };
 
-  login = event => {
+  addGuest = async event => {
     event.preventDefault();
     const {first_name, last_name} = this.state;
-    const credentials = {first_name, last_name};
-    // this.props.login(credentials, this.props.history);
+    const guest = {group_id: this.props.group.id, first_name, last_name, plus_one: true};
+    await this.props.addGuest(guest, this.props.group.id);
+    if (!this.props.addGuestError) this.props.add();
+  };
+
+  componentDidMount () {
+    this.props.addGuestReset();
   };
 
   render () {
     return (
       <li>
-        <form onSubmit={this.login}>
+        <form onSubmit={this.addGuest}>
           <div className="field is-horizontal">
             <div className="field-body">
               <div className="field">
@@ -76,12 +81,11 @@ class GuestAdd extends React.Component {
 };
 
 const mapStateToProps = state => ({
-//  loginError: state.auth.loginError
+  addGuestError: state.main.addGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-//  login,
-//  loginReset
+  addGuestReset
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(GuestAdd);

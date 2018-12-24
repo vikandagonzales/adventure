@@ -1,4 +1,5 @@
 import request from '../../helpers/request';
+import Groups from './groups';
 
 class Guests {
   static getGuests = async () => {
@@ -14,19 +15,19 @@ class Guests {
   //   return staffsSortedByRole;
   // };
 
-  static addGuest = async guest => {
+  static addGuest = async (guest, group_id) => {
     await request(`/guests`, 'post', guest);
-    return Guests.getGuests();
+    return Groups.getGroup(group_id);
   };
 
-  static editGuest = async (guest, guest_id) => {
+  static editGuest = async (guest, guest_id, group_id) => {
     await request(`/guests/${guest_id}`, 'put', guest);
-    return Guests.getGuests();
+    return Groups.getGroup(group_id);
   };
 
-  static deleteGuest = async guest_id => {
+  static deleteGuest = async (guest_id, group_id) => {
     await request(`/guests/${guest_id}`, 'delete');
-    return Guests.getGuests();
+    return Groups.getGroup(group_id);
   };
 };
 

@@ -18,10 +18,10 @@ export const getGuests = () => {
   };
 };
 
-export const addGuest = guest => {
+export const addGuest = (guest, group_id) => {
   return async dispatch => {
     try {
-      const payload = await Guests.addGuest(guest);
+      const payload = await Guests.addGuest(guest, group_id);
       dispatch({type: ADD_GUEST_SUCCESS, payload});
     } catch (err) {
       dispatch({type: ADD_GUEST_FAILURE, payload: err});
@@ -35,10 +35,10 @@ export const addGuestReset = () => {
   };
 };
 
-export const editGuest = (guest, guest_id) => {
+export const editGuest = (guest, guest_id, group_id) => {
   return async dispatch => {
     try {
-      const payload = await Guests.editGuest(guest, guest_id);
+      const payload = await Guests.editGuest(guest, guest_id, group_id);
       dispatch({type: EDIT_GUEST_SUCCESS, payload});
     } catch (err) {
       dispatch({type: EDIT_GUEST_FAILURE, payload: err});
@@ -52,10 +52,10 @@ export const editGuestReset = () => {
   };
 };
 
-export const deleteGuest = guest_id => {
+export const deleteGuest = (guest_id, group_id) => {
   return async dispatch => {
     try {
-      const payload = await Guests.deleteGuest(guest_id);
+      const payload = await Guests.deleteGuest(guest_id, group_id);
       dispatch({type: DELETE_GUEST_SUCCESS, payload});
     } catch (err) {
       dispatch({type: DELETE_GUEST_FAILURE, payload: err});
