@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-//import {login, loginReset} from '../../state/actions/auth';
+import {login, loginReset} from '../state/actions/auth';
 
 // ==========
 
@@ -19,13 +19,13 @@ class Login extends React.Component {
 
   login = event => {
     event.preventDefault();
-    const {shop_username, email, password} = this.state;
-    const credentials = {shop_username, email, password};
-//    this.props.login(credentials, this.props.history);
+    const {first_name, last_name} = this.state;
+    const credentials = {first_name, last_name};
+    this.props.login(credentials, this.props.history);
   };
 
   componentDidMount () {
-//    this.props.loginReset();
+    this.props.loginReset();
   };
 
   render () {
@@ -83,12 +83,12 @@ class Login extends React.Component {
 };
 
 const mapStateToProps = state => ({
-//  loginError: state.auth.loginError
+  loginError: state.auth.loginError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-//  login,
-//  loginReset
+  login,
+  loginReset
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
