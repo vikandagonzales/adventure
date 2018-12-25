@@ -9,7 +9,7 @@ import {getGroup} from '../state/actions/groups';
 // COMPONENTS
 import Details from './Details';
 import Rsvp from './Rsvp';
-import Admin from './Admin';
+import Admin from './admin/Admin';
 
 // ==========
 
