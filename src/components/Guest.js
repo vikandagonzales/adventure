@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {editGuest, deleteGuest, deleteGuestReset} from '../state/actions/guests';
+import {deleteGuest, deleteGuestReset} from '../state/actions/guests';
 import {getUser} from '../state/actions/auth';
 
 // COMPONENTS
@@ -48,6 +48,10 @@ class Guest extends React.Component {
     }
   };
 
+  componentDidUpdate (prevProps) {
+    if (prevProps.refresh !== this.props.refresh) this.setState({checked: false});
+  };
+
   render () {
     const guest = this.props.guest;
     return (
@@ -57,20 +61,20 @@ class Guest extends React.Component {
             <div>
               <input id={`guest-${guest.id}`} className="is-checkradio" type="checkbox" checked={this.state.checked} onChange={event => event.preventDefault()} />
               <label htmlFor={`guest-${guest.id}`} onClick={this.check}>
+                {
+                  (() => {
+                    switch (guest.accepted) {
+                      case true:
+                        return 'yes';
+                      case false:
+                        return 'no';
+                      default:
+                        return '?';
+                    }
+                  })()
+                }
                 {guest.first_name} {guest.last_name}
-              </label>
-              {
-                (() => {
-                  switch (guest.accepted) {
-                    case true:
-                      return 'yes';
-                    case false:
-                      return 'no';
-                    default:
-                      return '?';
-                  }
-                })()
-              }             
+              </label>              
               <span className="button" onClick={this.edit}>Edit</span>
             </div>
           ) : (
@@ -104,7 +108,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getUser,
-  editGuest,
   deleteGuest,
   deleteGuestReset
 }, dispatch);

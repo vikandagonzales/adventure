@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addGuest, addGuestReset, editGuestReset} from '../state/actions/guests';
+import {addGuest, addGuestReset, editGuest, editGuestReset} from '../state/actions/guests';
 
 // COMPONENTS
 import Guest from './Guest';
@@ -17,6 +17,7 @@ class Rsvp extends React.Component {
     super(props);
     this.state = {
       selected: [],
+      refresh: false,
       add: false
     };
   };
@@ -32,6 +33,24 @@ class Rsvp extends React.Component {
   add = () => {
     this.props.addGuestReset();
     this.setState({add: !this.state.add});
+  };
+
+  editGuest = event => {
+    switch (event.target.id) {
+      case 'accept':
+        this.state.selected.forEach(id => {
+          this.props.editGuest({accepted: true}, id, this.props.group.id);
+        });
+        break;
+      case 'decline':
+        this.state.selected.forEach(id => {
+          this.props.editGuest({accepted: false}, id, this.props.group.id);
+        });
+        break;
+      default:
+        break;
+    }
+    this.setState({selected: [], refresh: !this.state.refresh});
   };
 
   componentDidMount = () => {
@@ -50,8 +69,22 @@ class Rsvp extends React.Component {
           })()
         }
         <div className="buttons">
-          <span className="button" disabled>Accept</span>
-          <span className="button" disabled>Decline</span>
+          <span
+            className="button"
+            id="accept"
+            onClick={this.editGuest}
+            disabled={this.state.selected.length > 0 ? false : true}
+          >
+            Accept
+          </span>
+          <span
+            className="button"
+            id="decline"
+            onClick={this.editGuest}
+            disabled={this.state.selected.length > 0 ? false : true}
+          >
+            Decline
+          </span>
           {group.allowance > 0 ? <span className="button" onClick={this.add}>Add Guest</span> : null}    
         </div>      
         <ul>
@@ -62,7 +95,9 @@ class Rsvp extends React.Component {
                   key={i}
                   guest={guest}
                   select={this.select}
+                  editGuest={this.props.editGuest}
                   editGuestError={this.props.editGuestError}
+                  refresh={this.state.refresh}
                 />
               );
             })
@@ -99,6 +134,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
   addGuest,
   addGuestReset,
+  editGuest,
   editGuestReset
 }, dispatch);
 
