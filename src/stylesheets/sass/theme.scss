@@ -1,0 +1,26 @@
+html {
+  overflow-y: auto;
+}
+
+body {
+  background-color: $indigo;
+  min-height: 100vh;
+}
+
+#header {
+  color: $white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 1.5rem;
+
+  .pointer:hover {
+    color: $yellow;
+  }
+
+  .fa {
+    margin-left: 1rem;
+  }
+}

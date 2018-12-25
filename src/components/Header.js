@@ -15,12 +15,14 @@ class Header extends React.Component {
       last_name: this.props.user.last_name
     };
     return (
-      <div>
+      <div id="header">
         {
           this.props.authorized ? (
             <div>
               {user.first_name} {user.last_name}
-              <span className="button" onClick={this.props.logout}>Log Out</span>
+              <span className="pointer" onClick={this.props.logout}>
+                <i className="fa fas fa-sign-out-alt"></i>
+              </span>
             </div>            
           ) : null
         }

@@ -31,11 +31,11 @@ class Admin extends React.Component {
                               (() => {
                                 switch (guest.accepted) {
                                   case true:
-                                    return 'yes';
+                                    return (<i class="fa fas fa-check-circle"></i>);
                                   case false:
-                                    return 'no';
+                                    return (<i class="fa fas fa-times-circle"></i>);
                                   default:
-                                    return '?';
+                                    return (<i class="fa fas fa-question-circle"></i>);
                                 }
                               })()
                             }
