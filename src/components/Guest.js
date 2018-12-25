@@ -17,10 +17,16 @@ class Guest extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
+      checked: false,
       edit: false,
       modal: false,
       modalClasses: 'modal'
     };
+  };
+
+  check = async () => {
+    await this.setState({checked: !this.state.checked});
+    this.props.select(this.props.guest.id);
   };
 
   edit = () => {
@@ -49,7 +55,10 @@ class Guest extends React.Component {
         {
           !this.state.edit ? (
             <div>
-              (checkbox)
+              <input id={`guest-${guest.id}`} className="is-checkradio" type="checkbox" checked={this.state.checked} onChange={event => event.preventDefault()} />
+              <label htmlFor={`guest-${guest.id}`} onClick={this.check}>
+                {guest.first_name} {guest.last_name}
+              </label>
               {
                 (() => {
                   switch (guest.accepted) {
@@ -61,8 +70,7 @@ class Guest extends React.Component {
                       return '?';
                   }
                 })()
-              }
-              {guest.first_name} {guest.last_name}
+              }             
               <span className="button" onClick={this.edit}>Edit</span>
             </div>
           ) : (

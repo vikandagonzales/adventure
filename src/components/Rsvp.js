@@ -16,8 +16,17 @@ class Rsvp extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
+      selected: [],
       add: false
     };
+  };
+
+  select = id => {
+    if (this.state.selected.find(existing => existing === id)) {
+      this.setState({selected: this.state.selected.filter(existing => existing !== id)});
+    } else {
+      this.setState({selected: [...this.state.selected, id]});
+    }
   };
 
   add = () => {
@@ -46,7 +55,18 @@ class Rsvp extends React.Component {
           {group.allowance > 0 ? <span className="button" onClick={this.add}>Add Guest</span> : null}    
         </div>      
         <ul>
-          {group.guests.map((guest, i) => <Guest key={i} guest={guest} editGuestError={this.props.editGuestError} />)}
+          {
+            group.guests.map((guest, i) => {
+              return (
+                <Guest
+                  key={i}
+                  guest={guest}
+                  select={this.select}
+                  editGuestError={this.props.editGuestError}
+                />
+              );
+            })
+          }
           {
             this.props.editGuestError ? (
               <p className="help is-danger">
