@@ -7,14 +7,6 @@ class Guests {
     return guests.data.data;
   };
 
-  // static getStaffs = async () => {
-  //   const shop_id = await Auth._authenticatedRequest();
-  //   const staffs = await request(`/shops/${shop_id}/staff`);
-  //   const staffsSortedByName = await staffs.data.data.sort((a, b) => a.first_name.localeCompare(b.first_name));
-  //   const staffsSortedByRole = await staffsSortedByName.sort((a, b) => a.role_id.toString().localeCompare(b.role_id.toString()));
-  //   return staffsSortedByRole;
-  // };
-
   static addGuest = async (guest, group_id) => {
     await request(`/guests`, 'post', guest);
     return Groups.getGroup(group_id);

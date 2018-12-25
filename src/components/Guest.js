@@ -4,9 +4,11 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {deleteGuest, deleteGuestReset} from '../state/actions/guests';
+import {editGuest, deleteGuest, deleteGuestReset} from '../state/actions/guests';
+import {getUser} from '../state/actions/auth';
 
 // COMPONENTS
+import GuestEdit from './GuestEdit';
 import GuestDelete from './GuestDelete';
 
 // ==========
@@ -17,9 +19,7 @@ class Guest extends React.Component {
     this.state = {
       edit: false,
       modal: false,
-      modalClasses: 'modal',
-      first_name: this.props.guest.first_name,
-      last_name: this.props.guest.last_name
+      modalClasses: 'modal'
     };
   };
 
@@ -46,95 +46,37 @@ class Guest extends React.Component {
     const guest = this.props.guest;
     return (
       <li>        
-        <form onSubmit={this.login}>
-          <div className="field is-horizontal">
-            <div className="field-body">
-              <div className="field">
-                <p className="control">
-                  (checkbox)
-                </p>
-              </div>
-              <div className="field">
-                <p className="control">
-                  {
-                    (() => {
-                      switch (guest.accepted) {
-                        case true:
-                          return 'yes';
-                        case false:
-                          return 'no';
-                        default:
-                          return '?';
-                      }
-                    })()
+        {
+          !this.state.edit ? (
+            <div>
+              (checkbox)
+              {
+                (() => {
+                  switch (guest.accepted) {
+                    case true:
+                      return 'yes';
+                    case false:
+                      return 'no';
+                    default:
+                      return '?';
                   }
-                </p>
-              </div>
-              <div className="field">
-                <p className="control">
-                  {
-                    !this.state.edit ? (
-                      <span>
-                        {guest.first_name}
-                      </span>
-                    ) : (
-                      <input
-                        className="input"
-                        type="text"
-                        placeholder="First Name"
-                        value={this.state.first_name}
-                        onChange={event => this.setState({first_name: event.target.value})}
-                        required
-                      />
-                    )
-                  }                 
-                </p>
-              </div>
-              <div className="field">
-                <p className="control">
-                  {
-                    !this.state.edit ? (
-                      <span>
-                        {guest.last_name}
-                      </span>
-                    ) : (
-                      <input
-                        className="input"
-                        type="text"
-                        placeholder="Last Name"
-                        value={this.state.last_name}
-                        onChange={event => this.setState({last_name: event.target.value})}
-                        required
-                      />
-                    )
-                  }
-                </p>
-              </div>
+                })()
+              }
+              {guest.first_name} {guest.last_name}
+              <span className="button" onClick={this.edit}>Edit</span>
             </div>
-            <div className="field">
-              <div className="buttons">
-                {
-                  !this.state.edit ? (
-                    <span className="button" onClick={this.edit}>Edit</span>
-                  ) : (
-                    <div>
-                      <button className="button">Save</button>
-                      <span className="button" onClick={this.edit}>Cancel</span>
-                      {guest.plus_one ? <span className="button" onClick={this.toggle}>Delete</span> : null}
-                    </div>                    
-                  )
-                }                
-              </div>
-            </div>
-          </div>
-          {
-            this.props.addGuestError ? (
-              <p className="help is-danger">
-                Could not add guest.
-              </p>
-            ) : null
-          }
-        </form>       
+          ) : (
+            <GuestEdit
+              toggle={this.toggle}
+              edit={this.edit}
+              editGuest={this.props.editGuest}
+              editGuestError={this.props.editGuestError}
+              guest={guest}
+              user={this.props.user}
+              getUser={this.props.getUser}
+            />
+          )
+        }
         <GuestDelete
           modalClasses={this.state.modalClasses}
           toggle={this.toggle}
@@ -148,10 +90,13 @@ class Guest extends React.Component {
 };
 
 const mapStateToProps = state => ({
+  user: state.auth.user,
   deleteGuestError: state.main.deleteGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  getUser,
+  editGuest,
   deleteGuest,
   deleteGuestReset
 }, dispatch);

@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addGuest, addGuestReset} from '../state/actions/guests';
+import {addGuest, addGuestReset, editGuestReset} from '../state/actions/guests';
 
 // COMPONENTS
 import Guest from './Guest';
@@ -25,6 +25,10 @@ class Rsvp extends React.Component {
     this.setState({add: !this.state.add});
   };
 
+  componentDidMount = () => {
+    this.props.editGuestReset();
+  };
+
   render () {
     const group = this.props.group;
     group.allowance = this.props.allowance;
@@ -42,7 +46,14 @@ class Rsvp extends React.Component {
           {group.allowance > 0 ? <span className="button" onClick={this.add}>Add Guest</span> : null}    
         </div>      
         <ul>
-          {group.guests.map((guest, i) => <Guest key={i} guest={guest} />)}
+          {group.guests.map((guest, i) => <Guest key={i} guest={guest} editGuestError={this.props.editGuestError} />)}
+          {
+            this.props.editGuestError ? (
+              <p className="help is-danger">
+                Could not edit guest.
+              </p>
+            ) : null
+          }
           {
             this.state.add ? (
               <GuestAdd
@@ -52,7 +63,7 @@ class Rsvp extends React.Component {
                 group={group}
               />
             ) : null
-          }         
+          }
         </ul>       
       </div>
     );
@@ -61,12 +72,14 @@ class Rsvp extends React.Component {
 
 const mapStateToProps = state => ({
   group: state.main.group,
-  addGuestError: state.main.addGuestError
+  addGuestError: state.main.addGuestError,
+  editGuestError: state.main.editGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   addGuest,
-  addGuestReset
+  addGuestReset,
+  editGuestReset
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Rsvp);
