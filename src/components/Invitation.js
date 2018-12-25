@@ -9,6 +9,7 @@ import {getGroup} from '../state/actions/groups';
 // COMPONENTS
 import Details from './Details';
 import Rsvp from './Rsvp';
+import Admin from './Admin';
 
 // ==========
 
@@ -66,8 +67,11 @@ class Invitation extends React.Component {
             })()
           }
         </ul>
-        <span className="button" onClick={this.toggle} id="rsvp">rsvp</span>
-        <span className="button" onClick={this.toggle} id="details">details</span>
+        <div className="buttons">
+          <span className="button" onClick={this.toggle} id="details">details</span>
+          <span className="button" onClick={this.toggle} id="rsvp">rsvp</span>
+          {this.props.user.admin ? <span className="button" onClick={this.toggle} id="admin">admin</span> : null}
+        </div>        
         <div className={this.state.modalClasses}>
           <div className="modal-background" onClick={this.toggle}></div>
           <div className="modal-content">
@@ -79,11 +83,13 @@ class Invitation extends React.Component {
                       return <Details />;
                     case 'rsvp':
                       return <Rsvp allowance={group.allowance} />;
+                    case 'admin':
+                      return <Admin />;
                     default:
                       break;
                   }
                 })()
-              }              
+              }
             </div>
           </div>
           <span className="modal-close is-large" onClick={this.toggle}></span>
