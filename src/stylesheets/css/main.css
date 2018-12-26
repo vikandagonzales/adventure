@@ -7531,8 +7531,16 @@ body {
   text-transform: uppercase;
   display: flex;
   justify-content: flex-end;
-  padding: 1rem 1.5rem; }
+  align-items: center;
+  height: 60px;
+  padding: 0 1.5rem; }
   #header .pointer:hover {
     color: #ebcd6f; }
   #header .fa {
     margin-left: 1rem; }
+
+#main {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
