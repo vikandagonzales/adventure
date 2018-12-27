@@ -40,7 +40,9 @@ class Main extends React.Component {
     return (
       <div id="main">
         <div className="container has-text-centered">
-          <h1 className="title is-1">Welcome Baby</h1>
+          <figure className="image logo">
+            <img src="./assets/adventure-logo.png" alt="The Adventure Begins" />
+          </figure>
           <p className="subtitle is-3">Keeghan & Vika are having a baby!</p>
           <span className="button" onClick={this.invite}>Invitation</span>
         </div>       

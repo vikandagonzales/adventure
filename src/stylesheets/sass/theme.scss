@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: $turquoise;
+  background: $turquoise url('../assets/adventure-bg.jpg') no-repeat center/cover; 
   min-height: 100vh;
 }
 
@@ -12,14 +12,19 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 1px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   height: 60px;
   padding: 0 1.5rem;
 
+  .pointer {
+    color: $primary;
+  }
+
   .pointer:hover {
-    color: $yellow;
+    color: $crust;
   }
 
   .fa {
@@ -32,4 +37,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.logo {
+  max-width: 500px;
+  margin: auto;
 }

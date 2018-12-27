@@ -7521,7 +7521,7 @@ html {
   overflow-y: auto; }
 
 body {
-  background-color: #216055;
+  background: #216055 url("../assets/adventure-bg.jpg") no-repeat center/cover;
   min-height: 100vh; }
 
 #header {
@@ -7529,13 +7529,16 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
   text-transform: uppercase;
+  letter-spacing: 1px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   height: 60px;
   padding: 0 1.5rem; }
+  #header .pointer {
+    color: #f3c85f; }
   #header .pointer:hover {
-    color: #ebcd6f; }
+    color: #d8a32f; }
   #header .fa {
     margin-left: 1rem; }
 
@@ -7544,3 +7547,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
+
+.logo {
+  max-width: 500px;
+  margin: auto; }
