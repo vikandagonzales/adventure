@@ -7,7 +7,7 @@ body {
   min-height: 100vh;
 }
 
-.button {
+.button.is-primary.is-outlined {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -15,7 +15,7 @@ body {
   border-image: url(../assets/adventure-link.jpg) 30;
   padding: 1rem 1.5rem;
 
-  &.is-primary.is-outlined:hover {
+  &:hover {
     color: $turquoise;
     background: $primary url(../assets/adventure-link.jpg) no-repeat center/cover;
   }

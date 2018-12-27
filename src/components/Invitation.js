@@ -51,26 +51,45 @@ class Invitation extends React.Component {
       guests: this.props.group.guests
     };
     return (
-      <div>
-        <ul>
-          {
-            (() => {
-              if (group.guests) return group.guests.map((guest, i) => <li key={i}>{guest.first_name} {guest.last_name}</li>);
-            })()
-          }
-          {
-            (() => {
-              if (group.guests) {
-                group.allowance = group.limit - group.guests.length;
-                if (group.allowance > 0) return <li>+{group.allowance} guest{group.allowance > 1 ? 's' : null}</li>
-              }
-            })()
-          }
-        </ul>
-        <div className="buttons">
-          <span className="button" onClick={this.toggle} id="details">details</span>
-          <span className="button" onClick={this.toggle} id="rsvp">rsvp</span>
-          {this.props.user.admin ? <span className="button" onClick={this.toggle} id="admin">admin</span> : null}
+      <div id="invitation">
+        <div className="card invite">
+          <div className="card-content">
+            <figure className="image logo">
+              <img src="./assets/adventure-logo.png" alt="The Adventure Begins" />
+            </figure>
+            <div className="messaging has-text-centered">
+              <p className="intro">Join us for a <strong>baby shower</strong><br /> in honor of adventurers</p>
+              <span className="title is-5">Keeghan <i className="fa fas fa-plus"></i> Vika</span>
+              <p>Date and Time</p>
+              <p>Location</p>
+            </div>
+          </div>           
+        </div>
+        <div>
+          <div className="card envelope">
+            <div className="card-content has-text-centered">
+              <ul>
+                {
+                  (() => {
+                    if (group.guests) return group.guests.map((guest, i) => <li key={i}>{guest.first_name} {guest.last_name}</li>);
+                  })()
+                }
+                {
+                  (() => {
+                    if (group.guests) {
+                      group.allowance = group.limit - group.guests.length;
+                      if (group.allowance > 0) return <li className="guest">+{group.allowance} guest{group.allowance > 1 ? 's' : null}</li>
+                    }
+                  })()
+                }
+              </ul>
+            </div>           
+          </div>
+          <div className="buttons">
+            <span className="button is-primary is-outlined" onClick={this.toggle} id="details">details</span>
+            <span className="button is-primary is-outlined" onClick={this.toggle} id="rsvp">rsvp</span>
+            {this.props.user.admin ? <span className="button is-primary is-outlined" onClick={this.toggle} id="admin">admin</span> : null}
+          </div>
         </div>        
         <div className={this.state.modalClasses}>
           <div className="modal-background" onClick={this.toggle}></div>

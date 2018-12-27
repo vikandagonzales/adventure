@@ -3522,7 +3522,7 @@ a.tag:hover {
 
 .card {
   background-color: white;
-  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  box-shadow: 0 2px 5px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   color: #4a4a4a;
   max-width: 100%;
   position: relative; }
@@ -7514,9 +7514,6 @@ label.panel-block {
   border-color: #fff !important;
   background-color: #fff !important; }
 
-.pointer {
-  cursor: pointer; }
-
 html {
   overflow-y: auto; }
 
@@ -7524,7 +7521,7 @@ body {
   background: #216055 url(../assets/adventure-bg.jpg) no-repeat center/cover;
   min-height: 100vh; }
 
-.button {
+.button.is-primary.is-outlined {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -7534,6 +7531,9 @@ body {
   .button.is-primary.is-outlined:hover {
     color: #216055;
     background: #f3c85f url(../assets/adventure-link.jpg) no-repeat center/cover; }
+
+.pointer {
+  cursor: pointer; }
 
 #header {
   color: white;
@@ -7553,21 +7553,81 @@ body {
   #header .fa {
     margin-left: 1rem; }
 
-#main {
+#main, #invitation {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 60px);
   padding: 1.5rem; }
-  #main .subtitle {
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    max-width: 375px;
-    margin: 2rem auto; }
-  #main strong {
-    color: #95e9da; }
 
-.logo {
+#main .logo {
   max-width: 500px;
   margin: auto; }
+
+#main .subtitle {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 375px;
+  margin: 2rem auto; }
+
+#main strong {
+  color: #95e9da; }
+
+#invitation .invite {
+  background: #216055 url(../assets/adventure-bg2.jpg) no-repeat center/cover;
+  width: 400px;
+  height: 500px;
+  margin-right: -3rem;
+  border: 10px solid transparent;
+  border-image: url(../assets/adventure-link.jpg) 30;
+  transform: rotate(-5deg);
+  z-index: 2; }
+  #invitation .invite .card-content {
+    padding: 3rem; }
+  #invitation .invite .logo {
+    max-width: 300px;
+    margin: auto; }
+  #invitation .invite .messaging {
+    color: white;
+    margin: 2rem auto; }
+    #invitation .invite .messaging .intro {
+      font-size: 1.2rem; }
+    #invitation .invite .messaging strong {
+      color: #95e9da;
+      text-transform: uppercase; }
+    #invitation .invite .messaging .title {
+      background: #216055 url(../assets/adventure-link.jpg) no-repeat center/cover;
+      color: #012f41;
+      text-transform: uppercase;
+      display: inline-block;
+      margin: 1.25rem 0 3rem;
+      padding: .5rem 1rem; }
+    #invitation .invite .messaging .fa {
+      color: #337d70;
+      font-size: 1rem;
+      margin: 0 .3rem; }
+
+#invitation .envelope {
+  background: radial-gradient(top left, #12342E, #022735);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 400px;
+  margin: .5rem; }
+  #invitation .envelope li {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase; }
+    #invitation .envelope li.guest {
+      color: #95e9da;
+      font-size: .8rem;
+      margin-top: .5rem; }
+
+#invitation .buttons {
+  justify-content: flex-end; }
+  #invitation .buttons .button {
+    margin: .5rem; }
