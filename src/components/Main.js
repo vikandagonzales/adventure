@@ -41,6 +41,7 @@ class Main extends React.Component {
       <div id="main">
         <div className="container has-text-centered">
           <h1 className="title is-1">Welcome Baby</h1>
+          <p className="subtitle is-3">Keeghan & Vika are having a baby!</p>
           <span className="button" onClick={this.invite}>Invitation</span>
         </div>       
         <Login modalClasses={this.state.modalClasses} toggle={this.toggle} history={this.props.history} />
