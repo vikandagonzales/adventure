@@ -1,11 +1,11 @@
 {
-  "name": "welcome-baby",
+  "name": "adventure",
   "version": "0.1.0",
   "description": "Invitation and RSVP web app for my baby shower",
   "main": "./public/index.html",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vikandagonzales/welcome-baby.git"
+    "url": "git+https://github.com/vikandagonzales/adventure.git"
   },
   "keywords": [
     "html",
@@ -19,9 +19,9 @@
   "author": "Vikanda Gonzales <vikanda.gonzales@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vikandagonzales/welcome-baby/issues"
+    "url": "https://github.com/vikandagonzales/adventure/issues"
   },
-  "homepage": "https://github.com/vikandagonzales/welcome-baby#readme",
+  "homepage": "https://github.com/vikandagonzales/adventure#readme",
   "dependencies": {
     "autoprefixer": "^9.4.3",
     "axios": "^0.18.0",
