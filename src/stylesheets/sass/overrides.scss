@@ -1,32 +1,22 @@
-// // HEADER
-// $navbar-height: 5rem;
-// $navbar-item-img-max-height: 2.75rem;
-// $navbar-item-color: $quartz;
-// $navbar-dropdown-arrow: $periwinkle;
-// $navbar-dropdown-border-top: 2px solid $mist;
+html {
+  overflow-y: auto;
+}
 
-// // SIDEBAR
-// $menu-label-color: $slate;
-// $menu-item-color: $quartz;
-// $menu-item-hover-color: $quartz;
-// $menu-item-hover-background-color: lighten($koamaru, 5%);
-// $menu-item-active-background-color: lighten($koamaru, 10%);
+body {
+  background: $turquoise url(../assets/adventure-bg.jpg) no-repeat center/cover; 
+  min-height: 100vh;
+}
 
-// // TABS
-// $tabs-border-bottom-color: $mist;
-// $tabs-link-color: $quartz;
-// $tabs-link-hover-color: $quartz;
-// $tabs-link-hover-border-bottom-color: $periwinkle;
-// $tabs-link-active-color: $indigo;
-// $tabs-link-active-border-bottom-color: $indigo;
-// $tabs-border-bottom-width: 2px;
+.button {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid transparent;
+  border-image: url(../assets/adventure-link.jpg) 30;
+  padding: 1rem 1.5rem;
 
-// // PROGRESS
-// $progress-bar-background-color: $mist;
-// $progress-value-background-color: $periwinkle;
-
-// // FORM
-// $control-radius: 0;
-
-// // CARD
-// $card-shadow: none;
+  &.is-primary.is-outlined:hover {
+    color: $turquoise;
+    background: $primary url(../assets/adventure-link.jpg) no-repeat center/cover;
+  }
+}

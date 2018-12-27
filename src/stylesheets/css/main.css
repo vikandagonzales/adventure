@@ -126,7 +126,7 @@
   -webkit-appearance: none;
   align-items: center;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 0;
   box-shadow: none;
   display: inline-flex;
   font-size: 1rem;
@@ -7521,8 +7521,19 @@ html {
   overflow-y: auto; }
 
 body {
-  background: #216055 url("../assets/adventure-bg.jpg") no-repeat center/cover;
+  background: #216055 url(../assets/adventure-bg.jpg) no-repeat center/cover;
   min-height: 100vh; }
+
+.button {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid transparent;
+  border-image: url(../assets/adventure-link.jpg) 30;
+  padding: 1rem 1.5rem; }
+  .button.is-primary.is-outlined:hover {
+    color: #216055;
+    background: #f3c85f url(../assets/adventure-link.jpg) no-repeat center/cover; }
 
 #header {
   color: white;
@@ -7546,13 +7557,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 60px); }
+  min-height: calc(100vh - 60px);
+  padding: 1.5rem; }
   #main .subtitle {
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
     max-width: 375px;
-    margin: 1.5rem auto; }
+    margin: 2rem auto; }
   #main strong {
     color: #95e9da; }
 

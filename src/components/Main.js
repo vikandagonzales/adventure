@@ -46,7 +46,7 @@ class Main extends React.Component {
           <p className="subtitle is-4">
             Join <strong>Keeghan</strong> & <strong>Vika</strong> in welcoming the newest member of their party
           </p>
-          <span className="button" onClick={this.invite}>Invitation</span>
+          <span className="button is-primary is-outlined is-large" onClick={this.invite}>View Invitation</span>
         </div>       
         <Login modalClasses={this.state.modalClasses} toggle={this.toggle} history={this.props.history} />
       </div>
