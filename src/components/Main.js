@@ -43,7 +43,9 @@ class Main extends React.Component {
           <figure className="image logo">
             <img src="./assets/adventure-logo.png" alt="The Adventure Begins" />
           </figure>
-          <p className="subtitle is-3">Keeghan & Vika are having a baby!</p>
+          <p className="subtitle is-4">
+            Join <strong>Keeghan</strong> & <strong>Vika</strong> in welcoming the newest member of their party
+          </p>
           <span className="button" onClick={this.invite}>Invitation</span>
         </div>       
         <Login modalClasses={this.state.modalClasses} toggle={this.toggle} history={this.props.history} />
