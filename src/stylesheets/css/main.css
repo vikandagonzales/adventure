@@ -7606,7 +7606,7 @@ body {
     #invitation .invite .messaging .fa {
       color: #337d70;
       font-size: 1rem;
-      margin: 0 .3rem; }
+      margin: 0 .5rem; }
 
 #invitation .envelope {
   background: radial-gradient(top left, #12342E, #022735);

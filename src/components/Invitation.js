@@ -5,6 +5,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getGroup} from '../state/actions/groups';
+import {getDetails} from '../state/actions/details';
 
 // COMPONENTS
 import Details from './Details';
@@ -41,6 +42,7 @@ class Invitation extends React.Component {
 
   componentDidMount () {
     this.props.getGroup(this.props.user.group_id);
+    this.props.getDetails();
   };
 
   render () {
@@ -49,6 +51,16 @@ class Invitation extends React.Component {
       name: this.props.group.name,
       limit: this.props.group.limit,
       guests: this.props.group.guests
+    };
+    const details = {
+      mother: this.props.details.mother,
+      father: this.props.details.father,
+      host: this.props.details.host,
+      date: this.props.details.date,
+      time: this.props.details.time,
+      location: this.props.details.location,
+      registry: this.props.details.registry,
+      registry_link: this.props.details.registry_link
     };
     return (
       <div id="invitation">
@@ -59,9 +71,9 @@ class Invitation extends React.Component {
             </figure>
             <div className="messaging has-text-centered">
               <p className="intro">Join us for a <strong>baby shower</strong><br /> in honor of adventurers</p>
-              <span className="title is-5">Keeghan <i className="fa fas fa-plus"></i> Vika</span>
-              <p>Date and Time</p>
-              <p>Location</p>
+              <span className="title is-5">{details.father}<i className="fa fas fa-plus"></i>{details.mother}</span>
+              <p>{details.date} at {details.time}</p>
+              <p>{details.location}</p>
             </div>
           </div>           
         </div>
@@ -120,11 +132,13 @@ class Invitation extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.auth.user,
-  group: state.main.group
+  group: state.main.group,
+  details: state.details.details
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getGroup
+  getGroup,
+  getDetails
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Invitation);

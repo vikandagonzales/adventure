@@ -2,7 +2,9 @@
 import React from 'react';
 
 // REDUX
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {getDetails} from '../state/actions/details';
 
 // COMPONENTS
 import Login from './Login';
@@ -36,7 +38,15 @@ class Main extends React.Component {
     this.props.authorized ? this.props.history.push('/invitation') : this.toggle();
   };
 
+  componentDidMount () {
+    this.props.getDetails();
+  };
+
   render () {
+    const details = {
+      mother: this.props.details.mother,
+      father: this.props.details.father
+    };
     return (
       <div id="main">
         <div className="container has-text-centered">
@@ -44,7 +54,7 @@ class Main extends React.Component {
             <img src="./assets/adventure-logo.png" alt="The Adventure Begins" />
           </figure>
           <p className="subtitle is-4">
-            Join <strong>Keeghan</strong> & <strong>Vika</strong> in welcoming the newest member of their party
+            Join <strong>{details.father}</strong> & <strong>{details.mother}</strong> in welcoming the newest member of their party
           </p>
           <span className="button is-primary is-outlined is-large" onClick={this.invite}>View Invitation</span>
         </div>       
@@ -55,7 +65,12 @@ class Main extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  authorized: state.auth.authorized
+  authorized: state.auth.authorized,
+  details: state.details.details
 });
 
-export default connect(mapStateToProps, null)(Main);
+const mapDispatchToProps = dispatch => bindActionCreators({
+  getDetails
+}, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
