@@ -10,7 +10,7 @@ import {getDetails} from '../state/actions/details';
 // COMPONENTS
 import Details from './Details';
 import Rsvp from './Rsvp';
-import Admin from './admin/Admin';
+import Admin from './Admin';
 
 // ==========
 

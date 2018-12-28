@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addGuest, addGuestReset, editGuest, editGuestReset} from '../state/actions/guests';
+import {addGuest, addGuestReset, editGuest, editGuestReset} from '../../state/actions/guests';
 
 // COMPONENTS
 import Guest from './Guest';

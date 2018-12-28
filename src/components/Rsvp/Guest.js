@@ -4,8 +4,8 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {deleteGuest, deleteGuestReset} from '../state/actions/guests';
-import {getUser} from '../state/actions/auth';
+import {deleteGuest, deleteGuestReset} from '../../state/actions/guests';
+import {getUser} from '../../state/actions/auth';
 
 // COMPONENTS
 import GuestEdit from './GuestEdit';
