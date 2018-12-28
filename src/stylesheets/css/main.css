@@ -4981,20 +4981,20 @@ label.panel-block {
     border-bottom-color: #dbdbdb;
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    color: #4a4a4a;
+    color: #7a7a7a;
     display: flex;
     justify-content: center;
     margin-bottom: -1px;
     padding: 0.5em 1em;
     vertical-align: top; }
     .tabs a:hover {
-      border-bottom-color: #363636;
-      color: #363636; }
+      border-bottom-color: #f3c85f;
+      color: #f3c85f; }
   .tabs li {
     display: block; }
     .tabs li.is-active a {
-      border-bottom-color: #f3c85f;
-      color: #f3c85f; }
+      border-bottom-color: #012f41;
+      color: #012f41; }
   .tabs ul {
     align-items: center;
     border-bottom-color: #dbdbdb;
@@ -7631,3 +7631,22 @@ body {
   justify-content: flex-end; }
   #invitation .buttons .button {
     margin: .5rem; }
+
+#details .tabs li span {
+  color: #7a7a7a;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  padding: 0.5em 1em;
+  margin-bottom: -1px;
+  border-bottom: 1px solid #dbdbdb;
+  cursor: pointer; }
+  #details .tabs li span:hover {
+    color: #f3c85f;
+    border-bottom-color: #f3c85f; }
+
+#details .tabs li.is-active span {
+  color: #012f41;
+  border-bottom-color: #012f41; }

@@ -132,3 +132,28 @@
     }
   }
 }
+
+#details {
+  .tabs li span {   
+    color: $tabs-link-color;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    padding: 0.5em 1em;
+    margin-bottom: -1px;
+    border-bottom: 1px solid $tabs-border-bottom-color;
+    cursor: pointer;
+
+    &:hover {
+      color: $tabs-link-hover-color;
+      border-bottom-color: $tabs-link-hover-border-bottom-color;
+    }
+  }
+
+  .tabs li.is-active span {
+    color: $tabs-link-active-color;
+    border-bottom-color: $tabs-link-active-border-bottom-color;
+  }
+}

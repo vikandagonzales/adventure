@@ -111,7 +111,7 @@ class Invitation extends React.Component {
                 (() => {
                   switch (this.state.action) {
                     case 'details':
-                      return <Details />;
+                      return <Details details={details} />;
                     case 'rsvp':
                       return <Rsvp allowance={group.allowance} />;
                     case 'admin':
