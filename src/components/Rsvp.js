@@ -61,65 +61,67 @@ class Rsvp extends React.Component {
     const group = this.props.group;
     group.allowance = this.props.allowance;
     return (
-      <div>
-        <h1>{group.name}</h1>
-        {
-          (() => {
-            if (group.allowance > 0) return <small>+{group.allowance} guest{group.allowance > 1 ? 's' : null}</small>
-          })()
-        }
-        <div className="buttons">
-          <span
-            className="button"
-            id="accept"
-            onClick={this.editGuest}
-            disabled={this.state.selected.length > 0 ? false : true}
-          >
-            Accept
-          </span>
-          <span
-            className="button"
-            id="decline"
-            onClick={this.editGuest}
-            disabled={this.state.selected.length > 0 ? false : true}
-          >
-            Decline
-          </span>
-          {group.allowance > 0 ? <span className="button" onClick={this.add}>Add Guest</span> : null}    
-        </div>      
-        <ul>
+      <div className="modal-content">
+        <div className="box">
+          <h1>{group.name}</h1>
           {
-            group.guests.map((guest, i) => {
-              return (
-                <Guest
-                  key={i}
-                  guest={guest}
-                  select={this.select}
-                  editGuest={this.props.editGuest}
-                  editGuestError={this.props.editGuestError}
-                  refresh={this.state.refresh}
+            (() => {
+              if (group.allowance > 0) return <small>+{group.allowance} guest{group.allowance > 1 ? 's' : null}</small>
+            })()
+          }
+          <div className="buttons">
+            <span
+              className="button"
+              id="accept"
+              onClick={this.editGuest}
+              disabled={this.state.selected.length > 0 ? false : true}
+            >
+              Accept
+            </span>
+            <span
+              className="button"
+              id="decline"
+              onClick={this.editGuest}
+              disabled={this.state.selected.length > 0 ? false : true}
+            >
+              Decline
+            </span>
+            {group.allowance > 0 ? <span className="button" onClick={this.add}>Add Guest</span> : null}    
+          </div>      
+          <ul>
+            {
+              group.guests.map((guest, i) => {
+                return (
+                  <Guest
+                    key={i}
+                    guest={guest}
+                    select={this.select}
+                    editGuest={this.props.editGuest}
+                    editGuestError={this.props.editGuestError}
+                    refresh={this.state.refresh}
+                  />
+                );
+              })
+            }
+            {
+              this.props.editGuestError ? (
+                <p className="help is-danger">
+                  Could not edit guest.
+                </p>
+              ) : null
+            }
+            {
+              this.state.add ? (
+                <GuestAdd
+                  add={this.add}
+                  addGuest={this.props.addGuest}
+                  addGuestError={this.props.addGuestError}
+                  group={group}
                 />
-              );
-            })
-          }
-          {
-            this.props.editGuestError ? (
-              <p className="help is-danger">
-                Could not edit guest.
-              </p>
-            ) : null
-          }
-          {
-            this.state.add ? (
-              <GuestAdd
-                add={this.add}
-                addGuest={this.props.addGuest}
-                addGuestError={this.props.addGuestError}
-                group={group}
-              />
-            ) : null
-          }
-        </ul>       
+              ) : null
+            }
+          </ul>       
+        </div>
       </div>
     );
   };

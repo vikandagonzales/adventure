@@ -56,11 +56,14 @@ class Invitation extends React.Component {
       mother: this.props.details.mother,
       father: this.props.details.father,
       host: this.props.details.host,
+      host_contact: this.props.details.host_contact,
       date: this.props.details.date,
       time: this.props.details.time,
       location: this.props.details.location,
+      map: this.props.details.map,
       registry: this.props.details.registry,
-      registry_link: this.props.details.registry_link
+      registry_link: this.props.details.registry_link,
+      rsvp_date: this.props.details.rsvp_date
     };
     return (
       <div id="invitation">
@@ -105,24 +108,20 @@ class Invitation extends React.Component {
         </div>        
         <div className={this.state.modalClasses}>
           <div className="modal-background" onClick={this.toggle}></div>
-          <div className="modal-content">
-            <div className="box">
-              {
-                (() => {
-                  switch (this.state.action) {
-                    case 'details':
-                      return <Details details={details} />;
-                    case 'rsvp':
-                      return <Rsvp allowance={group.allowance} />;
-                    case 'admin':
-                      return <Admin />;
-                    default:
-                      break;
-                  }
-                })()
+          {
+            (() => {
+              switch (this.state.action) {
+                case 'details':
+                  return <Details details={details} />;
+                case 'rsvp':
+                  return <Rsvp allowance={group.allowance} />;
+                case 'admin':
+                  return <Admin />;
+                default:
+                  break;
               }
-            </div>
-          </div>
+            })()
+          }
           <span className="modal-close is-large" onClick={this.toggle}></span>
         </div>
       </div>

@@ -133,7 +133,10 @@
   }
 }
 
-#details {
+#details-modal {
+  width: 100%;
+  max-width: 800px;
+
   .tabs li span {   
     color: $tabs-link-color;
     text-transform: uppercase;
@@ -155,5 +158,41 @@
   .tabs li.is-active span {
     color: $tabs-link-active-color;
     border-bottom-color: $tabs-link-active-border-bottom-color;
+  }
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 275px;
+    border: 3px solid $white;
+    outline: 1px solid $light;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    li {
+      margin: .5rem 0;
+    }
+
+    .fa {
+      color: $primary;
+      text-align: center;
+      display: inline-block;
+      width: 25px;
+      margin-right: .5rem;
+    }
+
+    .footnote {
+      color: $grey-light;
+      font-size: .8rem;
+    }
+
+    strong {
+      color: $teal;
+      font-weight: 400;
+    }
   }
 }
