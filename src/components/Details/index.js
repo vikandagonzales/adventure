@@ -3,6 +3,8 @@ import React from 'react';
 
 // COMPONENTS
 import Info from './Info';
+import Requests from './Requests';
+import Registry from './Registry';
 
 // ==========
 
@@ -47,14 +49,15 @@ class Details extends React.Component {
               switch (this.state.tab) {
                 case 'info':
                   return <Info details={details} />;
+                case 'requests':
+                  return <Requests />;
+                case 'registry':
+                  return <Registry details={details} />;
                 default:
                   break;
               }
             })()
           }
-            {/* The parents-to-be would like to keep the baby's gender a secret and request that any gifts be gender-neutral.
-            In place of cards, they also request a children's book with your message written inside!
-          <a href={details.registry_link} target="_blank" rel="noopener noreferrer">{details.registry}</a> */}
         </div>
       </div>      
     );
