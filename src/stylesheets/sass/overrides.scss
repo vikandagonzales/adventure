@@ -21,3 +21,19 @@ body {
     background: $primary url(../assets/adventure-link.jpg) no-repeat center/cover;
   }
 }
+
+.input {
+  height: inherit;
+  border: 0;
+  border-bottom: 2px solid $teal;
+  border-radius: 0;
+  box-shadow: none;
+
+  &:hover {
+    border-color: $crust;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}

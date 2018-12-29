@@ -133,10 +133,10 @@
   height: 2.25em;
   justify-content: flex-start;
   line-height: 1.5;
-  padding-bottom: calc(0.375em - 1px);
-  padding-left: calc(0.625em - 1px);
-  padding-right: calc(0.625em - 1px);
-  padding-top: calc(0.375em - 1px);
+  padding-bottom: 0.1rem;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0.1rem;
   position: relative;
   vertical-align: top; }
   .button:focus, .input:focus,
@@ -7533,6 +7533,17 @@ body {
     color: #216055;
     background: #f3c85f url(../assets/adventure-link.jpg) no-repeat center/cover; }
 
+.input {
+  height: inherit;
+  border: 0;
+  border-bottom: 2px solid #337d70;
+  border-radius: 0;
+  box-shadow: none; }
+  .input:hover {
+    border-color: #d8a32f; }
+  .input:focus {
+    box-shadow: none; }
+
 .pointer {
   cursor: pointer; }
 
@@ -7721,14 +7732,17 @@ body {
   #rsvp-modal .subtitle {
     text-transform: uppercase; }
   #rsvp-modal li {
+    line-height: 1;
     display: flex;
     align-items: center;
-    height: 2.25em;
+    height: 2rem;
     margin: .5rem 0; }
     #rsvp-modal li:first-child {
       margin-top: 0; }
     #rsvp-modal li:last-child {
       margin-bottom: 0; }
+    #rsvp-modal li .field.is-horizontal {
+      margin-left: .5rem; }
   #rsvp-modal .guest-info {
     display: flex;
     justify-content: space-between;
