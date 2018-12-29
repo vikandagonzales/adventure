@@ -224,4 +224,25 @@
       text-transform: uppercase;
     }
   }
+
+  .registry {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+
+    >.column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    figure img {
+      max-height: 200px;
+      width: auto;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
 }

@@ -7693,3 +7693,16 @@ body {
     #details-modal .requests strong {
       color: #337d70;
       text-transform: uppercase; }
+  #details-modal .registry {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem; }
+    #details-modal .registry > .column {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    #details-modal .registry figure img {
+      max-height: 200px;
+      width: auto; }
+      #details-modal .registry figure img:hover {
+        transform: scale(1.05); }
