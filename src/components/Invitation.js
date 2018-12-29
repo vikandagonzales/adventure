@@ -6,6 +6,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getGroup} from '../state/actions/groups';
 import {getDetails} from '../state/actions/details';
+import {getRegistries} from '../state/actions/registries';
 
 // COMPONENTS
 import Details from './Details';
@@ -43,6 +44,7 @@ class Invitation extends React.Component {
   componentDidMount () {
     this.props.getGroup(this.props.user.group_id);
     this.props.getDetails();
+    this.props.getRegistries();
   };
 
   render () {
@@ -63,6 +65,7 @@ class Invitation extends React.Component {
       map: this.props.details.map,
       rsvp_date: this.props.details.rsvp_date
     };
+    const registries = this.props.registries;
     return (
       <div id="invitation">
         <div className="card invite">
@@ -110,7 +113,7 @@ class Invitation extends React.Component {
             (() => {
               switch (this.state.action) {
                 case 'details':
-                  return <Details details={details} />;
+                  return <Details details={details} registries={registries} />;
                 case 'rsvp':
                   return <Rsvp allowance={group.allowance} />;
                 case 'admin':
@@ -130,12 +133,14 @@ class Invitation extends React.Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   group: state.main.group,
-  details: state.details.details
+  details: state.details.details,
+  registries: state.registries.registries
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getGroup,
-  getDetails
+  getDetails,
+  getRegistries
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Invitation);

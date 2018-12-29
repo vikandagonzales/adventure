@@ -34,6 +34,7 @@ class Details extends React.Component {
 
   render () {
     const details = this.props.details;
+    const registries = this.props.registries;
     return (
       <div className="modal-content" id="details-modal">
         <div className="box">
@@ -52,7 +53,7 @@ class Details extends React.Component {
                 case 'requests':
                   return <Requests details={details} />;
                 case 'registry':
-                  return <Registry />;
+                  return <Registry registries={registries} />;
                 default:
                   break;
               }
