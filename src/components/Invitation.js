@@ -61,8 +61,6 @@ class Invitation extends React.Component {
       time: this.props.details.time,
       location: this.props.details.location,
       map: this.props.details.map,
-      registry: this.props.details.registry,
-      registry_link: this.props.details.registry_link,
       rsvp_date: this.props.details.rsvp_date
     };
     return (
