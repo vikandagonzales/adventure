@@ -51,10 +51,10 @@ class GuestAdd extends React.Component {
                 </p>
               </div>
             </div>
-            <div className="field">
+            <div className="field guest-actions">
               <div className="buttons">
-                <button className="button">Save</button>
-                <span className="button" onClick={this.props.add}>Delete</span>
+                <button className="pointer"><i className="fa fas fa-check"></i></button>
+                <span className="pointer" onClick={this.props.add}><i className="fa fas fa-times"></i></span>
               </div>
             </div>
           </div>

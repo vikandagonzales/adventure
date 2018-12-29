@@ -61,66 +61,95 @@ class Rsvp extends React.Component {
     const group = this.props.group;
     group.allowance = this.props.allowance;
     return (
-      <div className="modal-content">
+      <div id="rsvp-modal" className="modal-content">
         <div className="box">
-          <h1>{group.name}</h1>
-          {
-            (() => {
-              if (group.allowance > 0) return <small>+{group.allowance} guest{group.allowance > 1 ? 's' : null}</small>
-            })()
-          }
-          <div className="buttons">
-            <span
-              className="button"
-              id="accept"
-              onClick={this.editGuest}
-              disabled={this.state.selected.length > 0 ? false : true}
-            >
-              Accept
-            </span>
-            <span
-              className="button"
-              id="decline"
-              onClick={this.editGuest}
-              disabled={this.state.selected.length > 0 ? false : true}
-            >
-              Decline
-            </span>
-            {group.allowance > 0 ? <span className="button" onClick={this.add}>Add Guest</span> : null}    
-          </div>      
-          <ul>
-            {
-              group.guests.map((guest, i) => {
-                return (
-                  <Guest
-                    key={i}
-                    guest={guest}
-                    select={this.select}
-                    editGuest={this.props.editGuest}
-                    editGuestError={this.props.editGuestError}
-                    refresh={this.state.refresh}
-                  />
-                );
-              })
-            }
-            {
-              this.props.editGuestError ? (
-                <p className="help is-danger">
-                  Could not edit guest.
+          <div className="level">
+            <div className="level-left">
+              <div className="level-item">
+                <div>
+                  <h1 className="title is-spaced">{group.name}</h1>
+                  {
+                    (() => {
+                      if (group.allowance > 0) return <p className="subtitle is-7">+{group.allowance} guest{group.allowance > 1 ? 's' : null}</p>
+                    })()
+                  }
+                </div>                
+              </div>
+            </div>
+            <div className="level-right">
+              <div className="level-item">
+                <div className="buttons">
+                  <span
+                    className="button is-small is-success"
+                    id="accept"
+                    onClick={this.editGuest}
+                    disabled={this.state.selected.length > 0 ? false : true}
+                  >
+                    <span className="icon">
+                      <i className="fa fas fa-check"></i>
+                    </span>
+                  </span>
+                  <span
+                    className="button is-small is-danger"
+                    id="decline"
+                    onClick={this.editGuest}
+                    disabled={this.state.selected.length > 0 ? false : true}
+                  >
+                    <span className="icon">
+                      <i className="fa fas fa-times"></i>
+                    </span>
+                  </span>
+                  {
+                    group.allowance > 0 ? (
+                      <span
+                        className="button is-small is-primary"
+                        onClick={this.add}
+                      >
+                        <span className="icon">
+                          <i className="fa fas fa-plus"></i>
+                        </span>            
+                      </span>
+                    ) : null
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <ul>
+              {
+                group.guests.map((guest, i) => {
+                  return (
+                    <Guest
+                      key={i}
+                      guest={guest}
+                      select={this.select}
+                      editGuest={this.props.editGuest}
+                      editGuestError={this.props.editGuestError}
+                      refresh={this.state.refresh}
+                    />
+                  );
+                })
+              }
+              {
+                this.props.editGuestError ? (
+                  <p className="help is-danger">
+                    Could not edit guest.
                 </p>
-              ) : null
-            }
-            {
-              this.state.add ? (
-                <GuestAdd
-                  add={this.add}
-                  addGuest={this.props.addGuest}
-                  addGuestError={this.props.addGuestError}
-                  group={group}
-                />
-              ) : null
-            }
-          </ul>       
+                ) : null
+              }
+              {
+                this.state.add ? (
+                  <GuestAdd
+                    add={this.add}
+                    addGuest={this.props.addGuest}
+                    addGuestError={this.props.addGuestError}
+                    group={group}
+                  />
+                ) : null
+              }
+            </ul>
+          </div>
         </div>
       </div>
     );

@@ -58,24 +58,28 @@ class Guest extends React.Component {
       <li>        
         {
           !this.state.edit ? (
-            <div>
-              <input id={`guest-${guest.id}`} className="is-checkradio" type="checkbox" checked={this.state.checked} onChange={event => event.preventDefault()} />
-              <label htmlFor={`guest-${guest.id}`} onClick={this.check}>
-                {
-                  (() => {
-                    switch (guest.accepted) {
-                      case true:
-                        return (<i class="fa fas fa-check-circle"></i>);
-                      case false:
-                        return (<i class="fa fas fa-times-circle"></i>);
-                      default:
-                        return (<i class="fa fas fa-question-circle"></i>);
-                    }
-                  })()
-                }
-                {guest.first_name} {guest.last_name}
-              </label>              
-              <span className="button" onClick={this.edit}>Edit</span>
+            <div className="guest-info">
+              <div>
+                <input id={`guest-${guest.id}`} className="is-checkradio" type="checkbox" checked={this.state.checked} onChange={event => event.preventDefault()} />
+                <label htmlFor={`guest-${guest.id}`} onClick={this.check}>
+                  {
+                    (() => {
+                      switch (guest.accepted) {
+                        case true:
+                          return (<i className="fa fas fa-check-circle"></i>);
+                        case false:
+                          return (<i className="fa fas fa-times-circle"></i>);
+                        default:
+                          return (<i className="fa fas fa-question-circle"></i>);
+                      }
+                    })()
+                  }
+                  {guest.first_name} {guest.last_name}
+                </label>
+              </div>
+              <div className="guest-actions">
+                <span className="pointer" onClick={this.edit}><i className="fas fa-pen"></i></span>
+              </div>             
             </div>
           ) : (
             <GuestEdit

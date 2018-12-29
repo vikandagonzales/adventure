@@ -126,7 +126,7 @@
   -webkit-appearance: none;
   align-items: center;
   border: 1px solid transparent;
-  border-radius: 0;
+  border-radius: 4px;
   box-shadow: none;
   display: inline-flex;
   font-size: 1rem;
@@ -7527,6 +7527,7 @@ body {
   letter-spacing: 1px;
   border: 2px solid transparent;
   border-image: url(../assets/adventure-link.jpg) 30;
+  border-radius: 0;
   padding: 1rem 1.5rem; }
   .button.is-primary.is-outlined:hover {
     color: #216055;
@@ -7706,3 +7707,48 @@ body {
       width: auto; }
       #details-modal .registry figure img:hover {
         transform: scale(1.05); }
+
+#rsvp-modal {
+  max-width: 400px; }
+  #rsvp-modal .box {
+    padding: 2rem; }
+  #rsvp-modal .level {
+    align-items: flex-start; }
+    #rsvp-modal .level .button {
+      margin: .25rem; }
+  #rsvp-modal .title {
+    color: #337d70; }
+  #rsvp-modal .subtitle {
+    text-transform: uppercase; }
+  #rsvp-modal li {
+    display: flex;
+    align-items: center;
+    height: 2.25em;
+    margin: .5rem 0; }
+    #rsvp-modal li:first-child {
+      margin-top: 0; }
+    #rsvp-modal li:last-child {
+      margin-bottom: 0; }
+  #rsvp-modal .guest-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; }
+    #rsvp-modal .guest-info .fa {
+      color: #dbdbdb;
+      margin: 0 .5rem; }
+  #rsvp-modal .guest-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 1rem;
+    width: 65px; }
+    #rsvp-modal .guest-actions .buttons {
+      margin-bottom: 0; }
+    #rsvp-modal .guest-actions .pointer {
+      color: #f3c85f;
+      font-size: 1rem;
+      display: inline-block;
+      border: 0;
+      padding: 0;
+      margin: 0 .25rem; }
+      #rsvp-modal .guest-actions .pointer:hover {
+        color: #d8a32f; }
