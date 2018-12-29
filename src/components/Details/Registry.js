@@ -9,7 +9,7 @@ class Registry extends React.Component {
     return (
       <div className="columns details-container">
         <div className="column">
-          <a href={details.registry_link} target="_blank" rel="noopener noreferrer">{details.registry}</a>
+          {/* <a href={details.registry_link} target="_blank" rel="noopener noreferrer">{details.registry}</a> */}
         </div>
       </div>
     );

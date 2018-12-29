@@ -52,7 +52,7 @@ class Details extends React.Component {
                 case 'requests':
                   return <Requests details={details} />;
                 case 'registry':
-                  return <Registry details={details} />;
+                  return <Registry />;
                 default:
                   break;
               }
