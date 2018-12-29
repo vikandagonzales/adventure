@@ -23,6 +23,21 @@
   }
 }
 
+#login-modal {
+  .modal-content {
+    max-width: 350px;
+  }
+
+  .box {
+    padding: 2rem;
+  }
+
+  .buttons {
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+}
+
 #main, #invitation {
   display: flex;
   justify-content: center;
@@ -327,6 +342,5 @@
 }
 
 // can still update guest with same name   -- backend
-// edit form styles     -- css
 // style login modal    -- css
 // sometimes checking guest box does not register    -- react state

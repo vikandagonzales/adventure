@@ -7565,6 +7565,16 @@ body {
   #header .fa {
     margin-left: 1rem; }
 
+#login-modal .modal-content {
+  max-width: 350px; }
+
+#login-modal .box {
+  padding: 2rem; }
+
+#login-modal .buttons {
+  justify-content: center;
+  margin-top: 1.5rem; }
+
 #main, #invitation {
   display: flex;
   justify-content: center;

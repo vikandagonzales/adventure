@@ -30,7 +30,7 @@ class Login extends React.Component {
 
   render () {
     return (
-      <div className={this.props.modalClasses}>
+      <div id="login-modal" className={this.props.modalClasses}>
         <div className="modal-background" onClick={this.props.toggle}></div>
         <div className="modal-content">
           <div className="box">
@@ -70,8 +70,8 @@ class Login extends React.Component {
                   </p>
                 ) : null
               }
-              <div className="control has-text-centered">
-                <button className="button">Log In</button>
+              <div className="buttons has-text-centered">
+                <button className="button is-primary">Log In</button>
               </div>
             </form>
           </div>
