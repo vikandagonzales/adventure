@@ -137,6 +137,11 @@
   width: 100%;
   max-width: 800px;
 
+  .details-container {
+    padding-top: 1px;
+    min-height: 300px;
+  }
+
   .tabs li span {   
     color: $tabs-link-color;
     text-transform: uppercase;
@@ -193,6 +198,30 @@
     strong {
       color: $teal;
       font-weight: 400;
+    }
+  }
+
+  .requests {
+    padding: 2rem 1rem;
+
+    >.column {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .fa {
+      color: $cheesecake;
+      font-size: 5rem;
+      text-align: center;
+    }
+
+    p {
+      margin-top: 1.5rem;
+    }
+
+    strong {
+      color: $teal;
+      text-transform: uppercase;
     }
   }
 }

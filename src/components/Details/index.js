@@ -50,7 +50,7 @@ class Details extends React.Component {
                 case 'info':
                   return <Info details={details} />;
                 case 'requests':
-                  return <Requests />;
+                  return <Requests details={details} />;
                 case 'registry':
                   return <Registry details={details} />;
                 default:

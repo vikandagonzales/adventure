@@ -7,7 +7,7 @@ class Info extends React.Component {
   render () {
     const details = this.props.details;
     return (
-      <div className="columns">
+      <div className="columns details-container">
         <div className="column is-7">
           <iframe title="location" src={details.map}></iframe>
         </div>

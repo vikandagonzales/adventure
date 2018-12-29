@@ -7635,6 +7635,9 @@ body {
 #details-modal {
   width: 100%;
   max-width: 800px; }
+  #details-modal .details-container {
+    padding-top: 1px;
+    min-height: 300px; }
   #details-modal .tabs li span {
     color: #7a7a7a;
     text-transform: uppercase;
@@ -7676,3 +7679,17 @@ body {
     #details-modal .info strong {
       color: #337d70;
       font-weight: 400; }
+  #details-modal .requests {
+    padding: 2rem 1rem; }
+    #details-modal .requests > .column {
+      text-align: center;
+      padding: 1rem; }
+    #details-modal .requests .fa {
+      color: #f3c85f;
+      font-size: 5rem;
+      text-align: center; }
+    #details-modal .requests p {
+      margin-top: 1.5rem; }
+    #details-modal .requests strong {
+      color: #337d70;
+      text-transform: uppercase; }
