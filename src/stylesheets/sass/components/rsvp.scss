@@ -1,0 +1,81 @@
+#rsvp-modal {
+  max-width: 400px;
+
+  .box {
+    padding: 2rem;
+  }
+
+  .level {
+    align-items: flex-start;
+
+    .button {
+      margin: .25rem;
+    }
+  }
+
+  .title {
+    color: $teal;
+  }
+
+  .subtitle {
+    text-transform: uppercase;
+  }
+
+  li {
+    line-height: 1;
+    margin: .5rem 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .field.is-horizontal {
+      margin-left: .5rem;
+    }
+
+    > form {
+      height: 2rem;
+    }
+  }
+
+  .guest-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 2rem;
+
+    .fa {
+      color: $grey-lighter;
+      margin: 0 .5rem;
+    }
+  }
+
+  .guest-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 1rem;
+    width: 65px;
+
+    .buttons {
+      margin-bottom: 0;
+    }
+
+    .pointer {
+      color: $primary;
+      font-size: 1rem;
+      display: inline-block;
+      border: 0;
+      padding: 0;
+      margin: 0 .25rem;
+
+      &:hover {
+        color: $crust;
+      }
+    }
+  }
+}

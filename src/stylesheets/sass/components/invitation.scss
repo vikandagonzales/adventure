@@ -1,0 +1,82 @@
+#invitation {
+  .invite {
+    background: $turquoise url(../assets/adventure-bg2.jpg) no-repeat center/cover;
+    width: 400px;
+    height: 500px;
+    margin-right: -3rem;
+    border: 10px solid transparent;
+    border-image: url(../assets/adventure-link.jpg) 30;
+    transform: rotate(-5deg);
+    z-index: 2;
+
+    .card-content {
+      padding: 3rem;
+    }
+
+    .logo {
+      max-width: 300px;
+      margin: auto;
+    }
+
+    .messaging {
+      color: $white;
+      margin: 2rem auto;
+
+      .intro {
+        font-size: 1.2rem;
+      }
+
+      strong {
+        color: $cerulean;
+        text-transform: uppercase;
+      }
+
+      .title {
+        background: $turquoise url(../assets/adventure-link.jpg) no-repeat center/cover;
+        color: $navy;
+        text-transform: uppercase;
+        display: inline-block;
+        margin: 1.25rem 0 3rem;
+        padding: .5rem 1rem;
+      }
+
+      .fa {
+        color: $teal;
+        font-size: 1rem;
+        margin: 0 .5rem;
+      }
+    }    
+  }
+
+  .envelope {
+    background: radial-gradient(top left, #12342E, #022735);
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 400px;
+    margin: .5rem;
+
+    li {
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      &.guest {
+        color: $cerulean;
+        font-size: .8rem;
+        margin-top: .5rem;
+      }
+    }
+  }
+
+  > div > .buttons {
+    justify-content: flex-end;
+
+    .button {
+      margin: .5rem;
+    }
+  }
+}

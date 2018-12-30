@@ -7547,40 +7547,6 @@ body {
 .pointer {
   cursor: pointer; }
 
-#header {
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 60px;
-  padding: 0 1.5rem; }
-  #header .pointer {
-    color: #f3c85f; }
-  #header .pointer:hover {
-    color: #d8a32f; }
-  #header .fa {
-    margin-left: 1rem; }
-
-#login-modal .modal-content {
-  max-width: 350px; }
-
-#login-modal .box {
-  padding: 2rem; }
-
-#login-modal .buttons {
-  justify-content: center;
-  margin-top: 1.5rem; }
-
-.delete-modal {
-  max-width: 450px; }
-  .delete-modal .buttons {
-    justify-content: center;
-    margin-top: 1.5rem; }
-
 #main, #invitation {
   display: flex;
   justify-content: center;
@@ -7588,77 +7554,11 @@ body {
   min-height: calc(100vh - 60px);
   padding: 1.5rem; }
 
-#main .logo {
-  max-width: 500px;
-  margin: auto; }
-
-#main .subtitle {
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  max-width: 375px;
-  margin: 2rem auto; }
-
-#main strong {
-  color: #95e9da; }
-
-#invitation .invite {
-  background: #216055 url(../assets/adventure-bg2.jpg) no-repeat center/cover;
-  width: 400px;
-  height: 500px;
-  margin-right: -3rem;
-  border: 10px solid transparent;
-  border-image: url(../assets/adventure-link.jpg) 30;
-  transform: rotate(-5deg);
-  z-index: 2; }
-  #invitation .invite .card-content {
-    padding: 3rem; }
-  #invitation .invite .logo {
-    max-width: 300px;
-    margin: auto; }
-  #invitation .invite .messaging {
-    color: white;
-    margin: 2rem auto; }
-    #invitation .invite .messaging .intro {
-      font-size: 1.2rem; }
-    #invitation .invite .messaging strong {
-      color: #95e9da;
-      text-transform: uppercase; }
-    #invitation .invite .messaging .title {
-      background: #216055 url(../assets/adventure-link.jpg) no-repeat center/cover;
-      color: #012f41;
-      text-transform: uppercase;
-      display: inline-block;
-      margin: 1.25rem 0 3rem;
-      padding: .5rem 1rem; }
-    #invitation .invite .messaging .fa {
-      color: #337d70;
-      font-size: 1rem;
-      margin: 0 .5rem; }
-
-#invitation .envelope {
-  background: radial-gradient(top left, #12342E, #022735);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 500px;
-  height: 400px;
-  margin: .5rem; }
-  #invitation .envelope li {
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase; }
-    #invitation .envelope li.guest {
-      color: #95e9da;
-      font-size: .8rem;
-      margin-top: .5rem; }
-
-#invitation > div > .buttons {
-  justify-content: flex-end; }
-  #invitation > div > .buttons .button {
-    margin: .5rem; }
+.delete-modal {
+  max-width: 450px; }
+  .delete-modal .buttons {
+    justify-content: center;
+    margin-top: 1.5rem; }
 
 #details-modal {
   width: 100%;
@@ -7734,6 +7634,106 @@ body {
       width: auto; }
       #details-modal .registry figure img:hover {
         transform: scale(1.05); }
+
+#header {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 60px;
+  padding: 0 1.5rem; }
+  #header .pointer {
+    color: #f3c85f; }
+  #header .pointer:hover {
+    color: #d8a32f; }
+  #header .fa {
+    margin-left: 1rem; }
+
+#invitation .invite {
+  background: #216055 url(../assets/adventure-bg2.jpg) no-repeat center/cover;
+  width: 400px;
+  height: 500px;
+  margin-right: -3rem;
+  border: 10px solid transparent;
+  border-image: url(../assets/adventure-link.jpg) 30;
+  transform: rotate(-5deg);
+  z-index: 2; }
+  #invitation .invite .card-content {
+    padding: 3rem; }
+  #invitation .invite .logo {
+    max-width: 300px;
+    margin: auto; }
+  #invitation .invite .messaging {
+    color: white;
+    margin: 2rem auto; }
+    #invitation .invite .messaging .intro {
+      font-size: 1.2rem; }
+    #invitation .invite .messaging strong {
+      color: #95e9da;
+      text-transform: uppercase; }
+    #invitation .invite .messaging .title {
+      background: #216055 url(../assets/adventure-link.jpg) no-repeat center/cover;
+      color: #012f41;
+      text-transform: uppercase;
+      display: inline-block;
+      margin: 1.25rem 0 3rem;
+      padding: .5rem 1rem; }
+    #invitation .invite .messaging .fa {
+      color: #337d70;
+      font-size: 1rem;
+      margin: 0 .5rem; }
+
+#invitation .envelope {
+  background: radial-gradient(top left, #12342E, #022735);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 400px;
+  margin: .5rem; }
+  #invitation .envelope li {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase; }
+    #invitation .envelope li.guest {
+      color: #95e9da;
+      font-size: .8rem;
+      margin-top: .5rem; }
+
+#invitation > div > .buttons {
+  justify-content: flex-end; }
+  #invitation > div > .buttons .button {
+    margin: .5rem; }
+
+#login-modal .modal-content {
+  max-width: 350px; }
+
+#login-modal .box {
+  padding: 2rem; }
+
+#login-modal .buttons {
+  justify-content: center;
+  margin-top: 1.5rem; }
+
+#main .logo {
+  max-width: 500px;
+  margin: auto; }
+
+#main .subtitle {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 375px;
+  margin: 2rem auto; }
+
+#main strong {
+  color: #95e9da; }
 
 #rsvp-modal {
   max-width: 400px; }
