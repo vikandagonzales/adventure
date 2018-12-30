@@ -2,20 +2,20 @@
 
 // BULMA
 @import '../../../node_modules/bulma/sass/utilities/initial-variables';
-@import 'variables';
-@import 'custom';
+@import './variables';
+@import './custom';
 @import '../../../node_modules/bulma/bulma';
 @import '../../../node_modules/bulma-extensions/bulma-checkradio/dist/css/bulma-checkradio';
 
 // THEME
-@import 'overrides';
-@import 'utility';
-@import 'theme';
+@import './overrides';
+@import './utility';
+@import './theme';
 
 // COMPONENTS
-@import 'components/details';
-@import 'components/header';
-@import 'components/invitation';
-@import 'components/login';
-@import 'components/main';
-@import 'components/rsvp';
+@import './components/details';
+@import './components/header';
+@import './components/invitation';
+@import './components/login';
+@import './components/main';
+@import './components/rsvp';

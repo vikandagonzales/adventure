@@ -7521,6 +7521,9 @@ body {
   background: #216055 url(../assets/adventure-bg.jpg) no-repeat center/cover;
   min-height: 100vh; }
 
+.button {
+  transition: 300ms all ease; }
+
 .button.is-primary.is-outlined {
   font-weight: 600;
   text-transform: uppercase;
@@ -7538,11 +7541,17 @@ body {
   border: 0;
   border-bottom: 2px solid #337d70;
   border-radius: 0;
-  box-shadow: none; }
+  box-shadow: none;
+  transition: 300ms all ease; }
   .input:hover {
     border-color: #d8a32f; }
   .input:focus {
     box-shadow: none; }
+
+.is-checkradio[type="radio"] + label::before, .is-checkradio[type="radio"] + label:before,
+.is-checkradio[type="checkbox"] + label::before,
+.is-checkradio[type="checkbox"] + label:before {
+  transition: 300ms all ease; }
 
 .pointer {
   cursor: pointer; }
@@ -7576,7 +7585,8 @@ body {
     padding: 0.5em 1em;
     margin-bottom: -1px;
     border-bottom: 1px solid #dbdbdb;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: 300ms all ease; }
     #details-modal .tabs li span:hover {
       color: #f3c85f;
       border-bottom-color: #f3c85f; }
@@ -7631,7 +7641,8 @@ body {
       align-items: center; }
     #details-modal .registry figure img {
       max-height: 200px;
-      width: auto; }
+      width: auto;
+      transition: 300ms all ease; }
       #details-modal .registry figure img:hover {
         transform: scale(1.05); }
 
@@ -7647,7 +7658,8 @@ body {
   height: 60px;
   padding: 0 1.5rem; }
   #header .pointer {
-    color: #f3c85f; }
+    color: #f3c85f;
+    transition: 300ms all ease; }
   #header .pointer:hover {
     color: #d8a32f; }
   #header .fa {
@@ -7780,6 +7792,7 @@ body {
       display: inline-block;
       border: 0;
       padding: 0;
-      margin: 0 .25rem; }
+      margin: 0 .25rem;
+      transition: 300ms all ease; }
       #rsvp-modal .guest-actions .pointer:hover {
         color: #d8a32f; }

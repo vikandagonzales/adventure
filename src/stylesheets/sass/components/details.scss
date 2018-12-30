@@ -18,6 +18,7 @@
     margin-bottom: -1px;
     border-bottom: 1px solid $tabs-border-bottom-color;
     cursor: pointer;
+    transition: 300ms all ease;
 
     &:hover {
       color: $tabs-link-hover-color;
@@ -104,6 +105,7 @@
     figure img {
       max-height: 200px;
       width: auto;
+      transition: 300ms all ease;
 
       &:hover {
         transform: scale(1.05);

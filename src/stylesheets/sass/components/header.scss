@@ -12,6 +12,7 @@
 
   .pointer {
     color: $primary;
+    transition: 300ms all ease;
   }
 
   .pointer:hover {

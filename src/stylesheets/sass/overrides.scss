@@ -7,6 +7,10 @@ body {
   min-height: 100vh;
 }
 
+.button {
+  transition: 300ms all ease;
+}
+
 .button.is-primary.is-outlined {
   font-weight: 600;
   text-transform: uppercase;
@@ -28,6 +32,7 @@ body {
   border-bottom: 2px solid $teal;
   border-radius: 0;
   box-shadow: none;
+  transition: 300ms all ease;
 
   &:hover {
     border-color: $crust;
@@ -36,4 +41,11 @@ body {
   &:focus {
     box-shadow: none;
   }
+}
+
+.is-checkradio[type="radio"] + label::before, 
+.is-checkradio[type="radio"] + label:before, 
+.is-checkradio[type="checkbox"] + label::before, 
+.is-checkradio[type="checkbox"] + label:before {
+  transition: 300ms all ease;
 }
