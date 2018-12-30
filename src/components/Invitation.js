@@ -25,12 +25,12 @@ class Invitation extends React.Component {
     };
   };
 
-  toggle = event => {
+  toggle = action => {
     if (!this.state.modal) {
       this.setState({
         modal: true,
         modalClasses: this.state.modalClasses + ' is-active',
-        action: event.target.id
+        action
       });
     } else {
       this.setState({
@@ -102,9 +102,9 @@ class Invitation extends React.Component {
             </div>           
           </div>
           <div className="buttons">
-            <span className="button is-primary is-outlined" onClick={this.toggle} id="details">details</span>
-            <span className="button is-primary is-outlined" onClick={this.toggle} id="rsvp">rsvp</span>
-            {this.props.user.admin ? <span className="button is-primary is-outlined" onClick={this.toggle} id="admin">admin</span> : null}
+            <span className="button is-primary is-outlined" onClick={() => this.toggle('details')}>details</span>
+            <span className="button is-primary is-outlined" onClick={() => this.toggle('rsvp')}>rsvp</span>
+            {this.props.user.admin ? <span className="button is-primary is-outlined" onClick={() => this.toggle('admin')}>admin</span> : null}
           </div>
         </div>        
         <div className={this.state.modalClasses}>

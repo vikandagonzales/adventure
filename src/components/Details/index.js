@@ -16,8 +16,8 @@ class Details extends React.Component {
     };
   };
 
-  toggle = event => {
-    switch (event.target.id) {
+  toggle = action => {
+    switch (action) {
       case 'info':
         this.setState({tab: 'info'});
         break; 
@@ -40,9 +40,9 @@ class Details extends React.Component {
         <div className="box">
           <div className="tabs is-centered">
             <ul>
-              <li className={this.state.tab === 'info' ? 'is-active' : null}><span id="info" onClick={this.toggle}>Info</span></li>
-              <li className={this.state.tab === 'requests' ? 'is-active' : null}><span id="requests" onClick={this.toggle}>Requests</span></li>
-              <li className={this.state.tab === 'registry' ? 'is-active' : null}><span id="registry" onClick={this.toggle}>Registry</span></li>
+              <li className={this.state.tab === 'info' ? 'is-active' : null}><span onClick={() => this.toggle('info')}>Info</span></li>
+              <li className={this.state.tab === 'requests' ? 'is-active' : null}><span onClick={() => this.toggle('requests')}>Requests</span></li>
+              <li className={this.state.tab === 'registry' ? 'is-active' : null}><span onClick={() => this.toggle('registry')}>Registry</span></li>
             </ul>
           </div>
           {
