@@ -35,21 +35,19 @@ class Rsvp extends React.Component {
     this.setState({add: !this.state.add});
   };
 
-  editGuest = event => {
-    switch (event.target.id) {
-      case 'accept':
-        this.state.selected.forEach(id => {
+  editGuest = async action => {
+    await this.state.selected.forEach(id => {
+      switch (action) {
+        case 'accept':
           this.props.editGuest({accepted: true}, id, this.props.group.id);
-        });
-        break;
-      case 'decline':
-        this.state.selected.forEach(id => {
+          break;
+        case 'decline':
           this.props.editGuest({accepted: false}, id, this.props.group.id);
-        });
-        break;
-      default:
-        break;
-    }
+          break;
+        default:
+          break;
+      }
+    });
     this.setState({selected: [], refresh: !this.state.refresh});
   };
 
@@ -81,8 +79,7 @@ class Rsvp extends React.Component {
                 <div className="buttons">
                   <span
                     className="button is-small is-success"
-                    id="accept"
-                    onClick={this.editGuest}
+                    onClick={() => this.editGuest('accept')}
                     disabled={this.state.selected.length > 0 ? false : true}
                   >
                     <span className="icon">
@@ -91,8 +88,7 @@ class Rsvp extends React.Component {
                   </span>
                   <span
                     className="button is-small is-danger"
-                    id="decline"
-                    onClick={this.editGuest}
+                    onClick={() => this.editGuest('decline')}
                     disabled={this.state.selected.length > 0 ? false : true}
                   >
                     <span className="icon">
