@@ -121,6 +121,7 @@ class Rsvp extends React.Component {
                       guest={guest}
                       select={this.select}
                       editGuest={this.props.editGuest}
+                      editGuestReset={this.props.editGuestReset}
                       editGuestError={this.props.editGuestError}
                       refresh={this.state.refresh}
                     />

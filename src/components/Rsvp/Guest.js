@@ -30,6 +30,7 @@ class Guest extends React.Component {
   };
 
   edit = () => {
+    this.props.editGuestReset();
     this.setState({edit: !this.state.edit});
   };
 
