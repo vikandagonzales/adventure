@@ -7575,6 +7575,12 @@ body {
   justify-content: center;
   margin-top: 1.5rem; }
 
+.delete-modal {
+  max-width: 450px; }
+  .delete-modal .buttons {
+    justify-content: center;
+    margin-top: 1.5rem; }
+
 #main, #invitation {
   display: flex;
   justify-content: center;
@@ -7649,9 +7655,9 @@ body {
       font-size: .8rem;
       margin-top: .5rem; }
 
-#invitation .buttons {
+#invitation > .buttons {
   justify-content: flex-end; }
-  #invitation .buttons .button {
+  #invitation > .buttons .button {
     margin: .5rem; }
 
 #details-modal {

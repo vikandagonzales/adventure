@@ -38,6 +38,15 @@
   }
 }
 
+.delete-modal {
+  max-width: 450px;
+
+  .buttons {
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+}
+
 #main, #invitation {
   display: flex;
   justify-content: center;
@@ -139,7 +148,7 @@
     }
   }
 
-  .buttons {
+  >.buttons {
     justify-content: flex-end;
 
     .button {

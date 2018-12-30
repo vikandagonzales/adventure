@@ -14,7 +14,7 @@ class GuestDelete extends React.Component {
     return (
       <div className={this.props.modalClasses}>
         <div className="modal-background" onClick={this.props.toggle}></div>
-        <div className="modal-content">
+        <div className="modal-content delete-modal">
           <div className="box">           
             <form className="has-text-centered" onSubmit={this.deleteGuest}>
               <p>Are you sure you want to delete {guest.first_name} {guest.last_name}?</p>
