@@ -7613,7 +7613,8 @@ body {
       margin-right: .5rem; }
     #details-modal .info .footnote {
       color: #b5b5b5;
-      font-size: .8rem; }
+      font-size: .8rem;
+      margin-top: 1rem; }
     #details-modal .info strong {
       color: #337d70;
       font-weight: 400; }
@@ -7640,9 +7641,12 @@ body {
       justify-content: center;
       align-items: center; }
     #details-modal .registry figure img {
-      max-height: 200px;
       width: auto;
+      max-height: 200px;
       transition: 300ms all ease; }
+      @media (max-width: 768px) {
+        #details-modal .registry figure img {
+          max-width: 300px; } }
       #details-modal .registry figure img:hover {
         transform: scale(1.05); }
 

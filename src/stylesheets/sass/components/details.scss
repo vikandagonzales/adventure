@@ -59,6 +59,7 @@
     .footnote {
       color: $grey-light;
       font-size: .8rem;
+      margin-top: 1rem;
     }
 
     strong {
@@ -103,9 +104,13 @@
     }
 
     figure img {
-      max-height: 200px;
       width: auto;
+      max-height: 200px;
       transition: 300ms all ease;
+
+       @media (max-width: 768px) {
+        max-width: 300px;
+      }
 
       &:hover {
         transform: scale(1.05);

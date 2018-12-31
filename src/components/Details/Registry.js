@@ -11,7 +11,7 @@ class Registry extends React.Component {
         {
           registries.map((registry, i) => {
             return (
-              <div key={i} className="column is-4">
+              <div key={i} className="column is-4-tablet is-12-mobile">
                 <figure className="image">
                   <a href={registry.url} target="_blank" rel="noopener noreferrer">
                     <img src={registry.logo} alt={registry.store} />
