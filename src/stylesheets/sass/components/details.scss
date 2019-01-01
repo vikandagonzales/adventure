@@ -7,14 +7,6 @@
     min-height: 300px;
   }
 
-  iframe {
-    display: block;
-    width: 100%;
-    height: 275px;
-    border: 3px solid $white;
-    outline: 1px solid $light;
-  }
-
   .info {
     display: flex;
     flex-direction: column;

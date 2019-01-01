@@ -9,6 +9,7 @@ import {getGroups} from '../../state/actions/groups';
 // COMPONENTS
 import Guests from './Guests';
 import Details from './Details';
+import Registry from './Registry';
 
 // ==========
 
@@ -27,6 +28,9 @@ class Admin extends React.Component {
         break;
       case 'details':
         this.setState({tab: 'details'});
+        break;
+      case 'registry':
+        this.setState({tab: 'registry'});
         break;
       default:
         break;
@@ -48,6 +52,7 @@ class Admin extends React.Component {
             <ul>
               <li className={this.state.tab === 'guests' ? 'is-active' : null}><span onClick={() => this.toggle('guests')}>Guests</span></li>
               <li className={this.state.tab === 'details' ? 'is-active' : null}><span onClick={() => this.toggle('details')}>Details</span></li>
+              <li className={this.state.tab === 'registry' ? 'is-active' : null}><span onClick={() => this.toggle('registry')}>Registry</span></li>            
             </ul>
           </div>
           {
@@ -56,7 +61,9 @@ class Admin extends React.Component {
                 case 'guests':
                   return <Guests groups={groups} />;
                 case 'details':
-                  return <Details details={details} registries={registries} />;
+                  return <Details details={details} />;
+                case 'registry':
+                  return <Registry registries={registries} />;
                 default:
                   break;
               }
