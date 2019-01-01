@@ -13,7 +13,7 @@ class Details extends React.Component {
     const registries = this.props.registries;
     return (
       <div>
-        <div className="columns details-container">
+        <div className="columns">
           <div className="column is-7">
             <iframe title="location" src={details.map}></iframe>
           </div>

@@ -7581,30 +7581,39 @@ body {
     justify-content: center;
     margin-top: 1.5rem; }
 
+.tabs li span {
+  color: #7a7a7a;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  padding: 0.5em 1em;
+  margin-bottom: -1px;
+  border-bottom: 1px solid #dbdbdb;
+  cursor: pointer;
+  transition: 300ms all ease; }
+  .tabs li span:hover {
+    color: #f3c85f;
+    border-bottom-color: #f3c85f; }
+
+.tabs li.is-active span {
+  color: #012f41;
+  border-bottom-color: #012f41; }
+
+iframe {
+  display: block;
+  width: 100%;
+  height: 275px;
+  border: 3px solid white;
+  outline: 1px solid whitesmoke; }
+
 #details-modal {
   width: 100%;
   max-width: 800px; }
   #details-modal .details-container {
     padding-top: 1px;
     min-height: 300px; }
-  #details-modal .tabs li span {
-    color: #7a7a7a;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1px;
-    display: flex;
-    justify-content: center;
-    padding: 0.5em 1em;
-    margin-bottom: -1px;
-    border-bottom: 1px solid #dbdbdb;
-    cursor: pointer;
-    transition: 300ms all ease; }
-    #details-modal .tabs li span:hover {
-      color: #f3c85f;
-      border-bottom-color: #f3c85f; }
-  #details-modal .tabs li.is-active span {
-    color: #012f41;
-    border-bottom-color: #012f41; }
   #details-modal iframe {
     display: block;
     width: 100%;
