@@ -130,7 +130,7 @@ class Rsvp extends React.Component {
               }
               {
                 this.props.editGuestError ? (
-                  <p className="help is-danger">
+                  <p className="help is-danger has-text-centered">
                     Could not edit guest.
                 </p>
                 ) : null

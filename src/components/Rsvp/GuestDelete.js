@@ -17,7 +17,11 @@ class GuestDelete extends React.Component {
         <div className="modal-content delete-modal">
           <div className="box">           
             <form className="has-text-centered" onSubmit={this.deleteGuest}>
-              <p>Are you sure you want to delete {guest.first_name} {guest.last_name}?</p>
+              <p>Are you sure you want to delete {guest.first_name} {guest.last_name}?</p>           
+              <div className="buttons">
+                <span className="button" onClick={this.props.toggle}>Cancel</span>
+                <button className="button is-danger">Delete</button>
+              </div>
               {
                 this.props.deleteGuestError ? (
                   <p className="help is-danger">
@@ -25,10 +29,6 @@ class GuestDelete extends React.Component {
                   </p>
                 ) : null
               }
-              <div className="buttons">
-                <span className="button" onClick={this.props.toggle}>Cancel</span>
-                <button className="button is-danger">Delete</button>
-              </div>
             </form>
           </div>
         </div>

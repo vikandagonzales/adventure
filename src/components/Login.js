@@ -65,7 +65,7 @@ class Login extends React.Component {
               </div>
               {
                 this.props.loginError ? (
-                  <p className="help is-danger">
+                  <p className="help is-danger has-text-centered">
                     Guest not found.
                   </p>
                 ) : null

@@ -60,7 +60,7 @@ class GuestAdd extends React.Component {
           </div>
           {
             this.props.addGuestError ? (
-              <p className="help is-danger">
+              <p className="help is-danger has-text-centered">
                 Could not add guest.
               </p>
             ) : null
