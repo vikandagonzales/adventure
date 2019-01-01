@@ -7548,6 +7548,18 @@ body {
   .input:focus {
     box-shadow: none; }
 
+.field.is-horizontal {
+  display: flex; }
+
+.field-body {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 5;
+  flex-shrink: 1; }
+
+.field-body > .field:not(:last-child) {
+  margin-right: 0.75rem; }
+
 .is-checkradio[type="radio"] + label::before, .is-checkradio[type="radio"] + label:before,
 .is-checkradio[type="checkbox"] + label::before,
 .is-checkradio[type="checkbox"] + label:before {
@@ -7825,6 +7837,9 @@ body {
     color: #337d70; }
   #rsvp-modal .subtitle {
     text-transform: uppercase; }
+    @media (max-width: 768px) {
+      #rsvp-modal .subtitle {
+        text-align: center; } }
   #rsvp-modal li {
     line-height: 1;
     margin: .5rem 0; }
@@ -7853,6 +7868,7 @@ body {
     #rsvp-modal .guest-actions .buttons {
       margin-bottom: 0; }
     #rsvp-modal .guest-actions .pointer {
+      background-color: transparent;
       color: #f3c85f;
       font-size: 1rem;
       display: inline-block;

@@ -43,6 +43,21 @@ body {
   }
 }
 
+.field.is-horizontal {
+  display: flex;
+}
+
+.field-body {
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 5;
+  flex-shrink: 1;
+}
+
+.field-body > .field:not(:last-child) {
+  margin-right: 0.75rem;
+}
+
 .is-checkradio[type="radio"] + label::before, 
 .is-checkradio[type="radio"] + label:before, 
 .is-checkradio[type="checkbox"] + label::before, 
