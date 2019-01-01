@@ -39,6 +39,8 @@ class Admin extends React.Component {
 
   render () {
     const groups = this.props.groups;
+    const details = this.props.details;
+    const registries = this.props.registries;
     return (
       <div className="modal-content">
         <div className="box">
@@ -54,7 +56,7 @@ class Admin extends React.Component {
                 case 'guests':
                   return <Guests groups={groups} />;
                 case 'details':
-                  return <Details />;
+                  return <Details details={details} registries={registries} />;
                 default:
                   break;
               }

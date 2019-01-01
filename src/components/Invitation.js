@@ -117,7 +117,7 @@ class Invitation extends React.Component {
                 case 'rsvp':
                   return <Rsvp allowance={group.allowance} />;
                 case 'admin':
-                  return <Admin />;
+                  return <Admin details={details} registries={registries} />;
                 default:
                   break;
               }
