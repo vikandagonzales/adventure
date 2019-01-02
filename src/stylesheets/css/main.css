@@ -7608,6 +7608,24 @@ iframe {
   border: 3px solid white;
   outline: 1px solid whitesmoke; }
 
+#admin-modal .buttons {
+  justify-content: flex-end; }
+
+#admin-modal .details {
+  padding: 2rem;
+  margin-top: -4rem; }
+  #admin-modal .details > .columns > .column:first-child {
+    color: #337d70;
+    font-weight: 600;
+    text-transform: uppercase; }
+    #admin-modal .details > .columns > .column:first-child .fa {
+      color: #f3c85f;
+      text-align: center;
+      width: 20px;
+      margin-right: .75rem; }
+  #admin-modal .details > .columns > .column:last-child {
+    word-wrap: break-word; }
+
 #details-modal {
   width: 100%;
   max-width: 800px; }

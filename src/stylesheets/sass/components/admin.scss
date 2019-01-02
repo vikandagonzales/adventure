@@ -1,3 +1,27 @@
 #admin-modal {
-  
+  .buttons {
+      justify-content: flex-end;
+    }
+
+  .details {
+    padding: 2rem;
+    margin-top: -4rem;
+
+    > .columns > .column:first-child {
+      color: $teal;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      .fa {
+        color: $cheesecake;
+        text-align: center;
+        width: 20px;
+        margin-right: .75rem;       
+      }
+    }
+
+    > .columns > .column:last-child {
+      word-wrap: break-word;
+    }
+  }
 }
