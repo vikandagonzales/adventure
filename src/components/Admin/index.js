@@ -46,7 +46,7 @@ class Admin extends React.Component {
     const details = this.props.details;
     const registries = this.props.registries;
     return (
-      <div className="modal-content">
+      <div className="modal-content admin-modal">
         <div className="box">
           <div className="tabs is-centered">
             <ul>
