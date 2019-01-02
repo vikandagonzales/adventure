@@ -10,21 +10,48 @@ import {connect} from 'react-redux';
 class Details extends React.Component {
   render () {
     const details = this.props.details;
+    const leftColumn = 'column is-3';
+    const rightColumn = 'column is-9';
     return (
-      <div className="columns">
-        <div className="column is-7">
-          <iframe title="location" src={details.map}></iframe>
+      <div>
+        <div className="columns">
+          <div className={leftColumn}><i className="fa fas fa-male"></i>Father</div>
+          <div className={rightColumn}>{details.father}</div>
         </div>
-        <div className="column is-5 info">
-          <ul>
-            <li><i className="fa fas fa-user-friends"></i>{details.father} & {details.mother}</li>
-            <li><i className="fa fas fa-concierge-bell"></i>Hosted by {details.host}</li>
-            <li><i className="fa fas fa-calendar"></i>{details.date}</li>
-            <li><i className="fa fas fa-clock"></i>{details.time}</li>
-            <li><i className="fa fas fa-map-marker-alt"></i>{details.location}</li>
-            <li><i className="fa fas fa-envelope"></i>RSVP by {details.rsvp_date}</li>
-          </ul>
-          <p className="footnote has-text-centered">For questions, contact <strong>{details.host}</strong> at {details.host_contact}.</p>
+        <div className="columns">
+          <div className={leftColumn}><i className="fa fas fa-female"></i>Mother</div>
+          <div className={rightColumn}>{details.mother}</div>
+        </div>
+        <div className="columns">
+          <div className={leftColumn}><i className="fa fas fa-concierge-bell"></i>Host</div>
+          <div className={rightColumn}>{details.host}</div>
+        </div>
+        <div className="columns">
+          <div className={leftColumn}><i className="fa fas fa-phone"></i>Contact</div>
+          <div className={rightColumn}>{details.host_contact}</div>
+        </div>
+        <div className="columns">
+          <div className={leftColumn}><i className="fa fas fa-envelope"></i>Deadline</div>
+          <div className={rightColumn}>{details.rsvp_date}</div>
+        </div>
+        <div className="columns">
+          <div className={leftColumn}><i className="fa fas fa-calendar"></i>Date</div>
+          <div className={rightColumn}>{details.date}</div>
+        </div>
+        <div className="columns">
+          <div className={leftColumn}><i className="fa fas fa-clock"></i>Time</div>
+          <div className={rightColumn}>{details.time}</div>
+        </div>
+        <div className="columns">
+          <div className={leftColumn}><i className="fa fas fa-map-marker-alt"></i>Location</div>
+          <div className={rightColumn}>{details.location}</div>
+        </div>
+        <div className="columns">
+          <div className={leftColumn}><i className="fa fas fa-map"></i>Map</div>
+          <div className={rightColumn}>{details.map}</div>
+        </div>       
+        <div>
+          <iframe title="location" src={details.map}></iframe>
         </div>
       </div>
     );
