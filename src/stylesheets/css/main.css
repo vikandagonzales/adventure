@@ -7617,6 +7617,19 @@ iframe {
 .buttons.is-right {
   justify-content: flex-end; }
 
+#admin-modal .guests .group-title {
+  display: flex;
+  align-items: center; }
+  #admin-modal .guests .group-title .title {
+    color: #337d70;
+    margin: 0; }
+  #admin-modal .guests .group-title .menu-label {
+    background-color: whitesmoke;
+    line-height: 1;
+    padding: .25rem;
+    margin: 0 0 0 .5rem;
+    border-radius: 4px; }
+
 #admin-modal .details {
   padding: 1rem; }
   #admin-modal .details > .columns > .column:first-child {

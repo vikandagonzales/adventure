@@ -41,16 +41,11 @@ class Guests extends React.Component {
         <ul>
           {
             groups.map((group, i) => {
-              const allowance = group.limit - group.guests.length;
               return (
                 <li key={i}>
-                  <div>
-                    <p className="title is-5">{group.name}</p>
-                    {
-                      (() => {
-                        if (allowance > 0) return <p className="subtitle is-7">+{allowance} guest{allowance > 1 ? 's' : null}</p>
-                      })()
-                    }
+                  <div className="group-title">
+                    <p className="title is-4">{group.name}</p>
+                    <p className="menu-label">{group.guests.length}/{group.limit}</p>
                   </div>
                   <ul>
                     {
