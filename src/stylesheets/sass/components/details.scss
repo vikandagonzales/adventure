@@ -13,15 +13,15 @@
     justify-content: space-between;
 
     li {
-      margin: .5rem 0;
+      text-indent: -1.5rem;
+      margin: .5rem 0 .5rem 2.5rem;
     }
 
     .fa {
-      color: $primary;
+      color: $cheesecake;
       text-align: center;
       display: inline-block;
       width: 25px;
-      margin-right: .5rem;
     }
 
     .footnote {

@@ -7698,13 +7698,13 @@ iframe {
     flex-direction: column;
     justify-content: space-between; }
     #details-modal .info li {
-      margin: .5rem 0; }
+      text-indent: -1.5rem;
+      margin: .5rem 0 .5rem 2.5rem; }
     #details-modal .info .fa {
       color: #f3c85f;
       text-align: center;
       display: inline-block;
-      width: 25px;
-      margin-right: .5rem; }
+      width: 25px; }
     #details-modal .info .footnote {
       color: #b5b5b5;
       font-size: .8rem;
