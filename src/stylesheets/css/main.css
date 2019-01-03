@@ -7626,37 +7626,37 @@ iframe {
   #admin-modal .details > .columns > .column:last-child li {
     word-break: break-all; }
 
-#admin-modal .registry > .columns {
+#admin-modal .registry > div > .columns {
   background-color: whitesmoke;
-  margin: 1rem;
+  margin: 1rem 1rem .5rem;
   padding: .5rem;
   border-radius: 4px; }
   @media (max-width: 768px) {
-    #admin-modal .registry > .columns {
+    #admin-modal .registry > div > .columns {
       max-width: 430px;
       margin: 2rem auto; } }
 
-#admin-modal .registry > .columns > .column:first-child {
+#admin-modal .registry > div > .columns > .column:first-child {
   display: flex;
   justify-content: center;
   align-items: center; }
   @media (max-width: 768px) {
-    #admin-modal .registry > .columns > .column:first-child {
+    #admin-modal .registry > div > .columns > .column:first-child {
       padding: 2rem 2rem 1rem; } }
 
-#admin-modal .registry > .columns > .column:last-child {
+#admin-modal .registry > div > .columns > .column:last-child {
   display: flex;
   align-items: center; }
-  #admin-modal .registry > .columns > .column:last-child li {
+  #admin-modal .registry > div > .columns > .column:last-child li {
     word-break: break-all;
     text-indent: -1.5rem;
     margin-left: 2.5rem; }
-  #admin-modal .registry > .columns > .column:last-child .fa {
+  #admin-modal .registry > div > .columns > .column:last-child .fa {
     color: #f3c85f;
     text-align: center;
     width: 20px;
     margin-right: .25rem; }
-  #admin-modal .registry > .columns > .column:last-child a {
+  #admin-modal .registry > div > .columns > .column:last-child a {
     color: #4a4a4a; }
 
 #admin-modal .registry img {
@@ -7665,6 +7665,12 @@ iframe {
   @media (max-width: 768px) {
     #admin-modal .registry img {
       max-height: 150px; } }
+
+#admin-modal .registry .buttons {
+  margin: 0 1rem; }
+
+#admin-modal .registry .buttons.is-centered {
+  justify-content: center; }
 
 #details-modal {
   width: 100%;

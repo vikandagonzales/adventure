@@ -14,35 +14,57 @@ class Registry extends React.Component {
     const rightColumn = "column is-9";
     return (
       <div className="registry">
+        <div className="buttons is-centered">
+          <span className="button is-success">
+            <span class="icon">
+              <i class="fa fas fa-plus"></i>
+            </span>
+            <span>Add Registry</span>
+          </span>
+        </div>       
         {
           registries.map((registry, i) => {
             return (
-              <div key={i} className="columns">
-                <div className={leftColumn}>
-                  <figure className="image">
-                    <img src={registry.logo} alt={registry.store} />
-                  </figure>
+              <div>
+                <div key={i} className="columns">
+                  <div className={leftColumn}>
+                    <figure className="image">
+                      <img src={registry.logo} alt={registry.store} />
+                    </figure>
+                  </div>
+                  <div className={rightColumn}>
+                    <ul>
+                      <li>
+                        <i className="fa fas fa-store"></i>
+                        {registry.store}
+                      </li>
+                      <li>
+                        <i className="fa fas fa-image"></i>
+                        <a href={registry.logo} target="_blank" rel="noopener noreferrer">
+                          {registry.logo.length > 5 ? registry.logo.substring(0, 43) + '...' : registry.logo}
+                        </a>
+                      </li>
+                      <li>
+                        <i className="fa fas fa-link"></i>
+                        <a href={registry.url} target="_blank" rel="noopener noreferrer">
+                          {registry.url.length > 5 ? registry.url.substring(0, 43) + '...' : registry.url}
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <div className={rightColumn}>
-                  <ul>
-                    <li>
-                      <i className="fa fas fa-store"></i>
-                      {registry.store}
-                    </li>
-                    <li>
-                      <i className="fa fas fa-image"></i>
-                      <a href={registry.logo} target="_blank" rel="noopener noreferrer">
-                        {registry.logo.length > 5 ? registry.logo.substring(0, 43) + '...' : registry.logo}
-                      </a>
-                    </li>
-                    <li>
-                      <i className="fa fas fa-link"></i>
-                      <a href={registry.url} target="_blank" rel="noopener noreferrer">
-                        {registry.url.length > 5 ? registry.url.substring(0, 43) + '...' : registry.url}
-                      </a>
-                    </li>
-                  </ul>
-                </div>             
+                <div className="buttons">
+                  <span className="button is-primary">
+                    <span className="icon">
+                      <i className="fa fas fa-pen"></i>
+                    </span>
+                  </span>
+                  <span className="button is-danger">
+                    <span className="icon">
+                      <i className="fa fas fa-trash-alt"></i>
+                    </span>
+                  </span>
+                </div>
               </div>
             );
           })
