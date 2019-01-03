@@ -16,8 +16,8 @@ class Registry extends React.Component {
       <div className="registry">
         <div className="buttons is-centered">
           <span className="button is-success">
-            <span class="icon">
-              <i class="fa fas fa-plus"></i>
+            <span className="icon">
+              <i className="fa fas fa-plus"></i>
             </span>
             <span>Add Registry</span>
           </span>
@@ -25,8 +25,8 @@ class Registry extends React.Component {
         {
           registries.map((registry, i) => {
             return (
-              <div>
-                <div key={i} className="columns">
+              <div key={i}>
+                <div className="columns">
                   <div className={leftColumn}>
                     <figure className="image">
                       <img src={registry.logo} alt={registry.store} />
