@@ -1,8 +1,4 @@
 #admin-modal {
-  .buttons {
-      justify-content: flex-end;
-    }
-
   .details {
     padding: 2rem;
     margin-top: -4rem;
@@ -83,10 +79,6 @@
 
     .buttons {
       margin: 0 1rem;
-    }
-
-    .buttons.is-centered {
-      justify-content: center;
     }
   }
 }

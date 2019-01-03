@@ -53,7 +53,7 @@ class Registry extends React.Component {
                     </ul>
                   </div>
                 </div>
-                <div className="buttons">
+                <div className="buttons is-right">
                   <span className="button is-primary">
                     <span className="icon">
                       <i className="fa fas fa-pen"></i>

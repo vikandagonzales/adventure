@@ -7608,7 +7608,13 @@ iframe {
   border: 3px solid white;
   outline: 1px solid whitesmoke; }
 
-#admin-modal .buttons {
+.buttons.is-left {
+  justify-content: flex-start; }
+
+.buttons.is-centered {
+  justify-content: center; }
+
+.buttons.is-right {
   justify-content: flex-end; }
 
 #admin-modal .details {
@@ -7668,9 +7674,6 @@ iframe {
 
 #admin-modal .registry .buttons {
   margin: 0 1rem; }
-
-#admin-modal .registry .buttons.is-centered {
-  justify-content: center; }
 
 #details-modal {
   width: 100%;

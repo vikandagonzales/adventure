@@ -47,3 +47,17 @@ iframe {
   border: 3px solid $white;
   outline: 1px solid $light;
 }
+
+.buttons {
+  &.is-left {
+    justify-content: flex-start;
+  }
+
+  &.is-centered {
+    justify-content: center;
+  }
+
+  &.is-right {
+    justify-content: flex-end;
+  }
+}
