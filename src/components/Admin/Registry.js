@@ -10,17 +10,25 @@ import {connect} from 'react-redux';
 class Registry extends React.Component {
   render () {
     const registries = this.props.registries;
+    const leftColumn = "column is-3";
+    const rightColumn = "column is-9";
     return (
-      <div className="columns details-container registry">
+      <div className="registry">
         {
           registries.map((registry, i) => {
             return (
-              <div key={i} className="column is-4-tablet is-12-mobile">
-                <figure className="image">
-                  <a href={registry.url} target="_blank" rel="noopener noreferrer">
+              <div key={i} className="columns">
+                <div className={leftColumn}>
+                  <figure className="image">
                     <img src={registry.logo} alt={registry.store} />
-                  </a>
-                </figure>
+                  </figure>
+                </div>
+                <div className={rightColumn}>
+                  <ul>
+                    <li><i className="fa fas fa-store"></i>{registry.store}</li>
+                    <li><i className="fa fas fa-link"></i><a href={registry.url} target="_blank" rel="noopener noreferrer">{registry.url}</a></li>
+                  </ul>
+                </div>             
               </div>
             );
           })
