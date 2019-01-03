@@ -25,6 +25,12 @@ class Guests extends React.Component {
             </span>
             <span>Decline</span>
           </span>
+          <span className="button is-info">
+            <span className="icon">
+              <i className="fa fas fa-redo"></i>
+            </span>
+            <span>Reset</span>
+          </span>
           <span className="button is-primary">
             <span className="icon">
               <i className="fa fas fa-plus"></i>
