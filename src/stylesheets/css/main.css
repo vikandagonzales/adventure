@@ -7862,12 +7862,19 @@ iframe {
           font-size: .7rem;
           margin-top: .3rem; } }
 
-#invitation > div > .buttons {
+#invitation .buttons-container {
+  display: flex;
   justify-content: flex-end; }
+
+#invitation .buttons-container > .buttons {
+  justify-content: flex-end; }
+  @media (max-width: 1023px) {
+    #invitation .buttons-container > .buttons {
+      max-width: 300px; } }
   @media (max-width: 768px) {
-    #invitation > div > .buttons {
+    #invitation .buttons-container > .buttons {
       justify-content: center; } }
-  #invitation > div > .buttons .button {
+  #invitation .buttons-container > .buttons .button {
     margin: .5rem; }
 
 #login-modal .modal-content {

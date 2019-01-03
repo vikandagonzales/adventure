@@ -101,11 +101,14 @@ class Invitation extends React.Component {
               </ul>
             </div>           
           </div>
-          <div className="buttons">
-            <span className="button is-primary is-outlined" onClick={() => this.toggle('details')}>details</span>
-            <span className="button is-primary is-outlined" onClick={() => this.toggle('rsvp')}>rsvp</span>
-            {this.props.user.admin ? <span className="button is-primary is-outlined" onClick={() => this.toggle('admin')}>admin</span> : null}
+          <div className="buttons-container">
+            <div className="buttons">
+              <span className="button is-primary is-outlined" onClick={() => this.toggle('details')}>details</span>
+              <span className="button is-primary is-outlined" onClick={() => this.toggle('rsvp')}>rsvp</span>
+              {this.props.user.admin ? <span className="button is-primary is-outlined" onClick={() => this.toggle('admin')}>admin</span> : null}
+            </div>
           </div>
+          
         </div>        
         <div className={this.state.modalClasses}>
           <div className="modal-background" onClick={this.toggle}></div>

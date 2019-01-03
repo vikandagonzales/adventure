@@ -150,11 +150,20 @@
     }
   }
 
-  > div > .buttons {
+  .buttons-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .buttons-container > .buttons {
     justify-content: flex-end;
 
+    @media (max-width: 1023px) {
+      max-width: 300px;
+    }
+
     @media (max-width: 768px) {
-      justify-content: center;
+      justify-content: center;    
     }
 
     .button {
