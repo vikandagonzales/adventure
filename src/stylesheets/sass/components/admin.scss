@@ -21,7 +21,64 @@
     }
 
     > .columns > .column:last-child {
-      word-wrap: break-word;
+      li {
+        word-break: break-all;
+      }
+    }
+  }
+
+  .registry {
+    > .columns {
+      background-color: $light;
+      margin: 1rem;
+      padding: .5rem;
+      border-radius: $radius;
+
+      @media (max-width: 768px) {
+        max-width: 430px;
+        margin: 2rem auto;
+      }
+    }
+
+    > .columns > .column:first-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 768px) {
+        padding: 2rem 2rem 1rem;
+      }
+    }
+
+    > .columns > .column:last-child {     
+      display: flex;
+      align-items: center;
+
+      li {
+        word-break: break-all;
+        text-indent: -1.5rem;
+        margin-left: 2.5rem;
+      }
+
+      .fa {
+        color: $cheesecake;
+        text-align: center;
+        width: 20px;
+        margin-right: .25rem;       
+      }
+
+      a {
+        color: $text;
+      }
+    }
+
+    img {
+      width: auto;
+      max-height: 70px;
+
+      @media (max-width: 768px) {
+        max-height: 150px;
+      }
     }
   }
 }

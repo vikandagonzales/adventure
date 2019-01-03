@@ -25,8 +25,22 @@ class Registry extends React.Component {
                 </div>
                 <div className={rightColumn}>
                   <ul>
-                    <li><i className="fa fas fa-store"></i>{registry.store}</li>
-                    <li><i className="fa fas fa-link"></i><a href={registry.url} target="_blank" rel="noopener noreferrer">{registry.url}</a></li>
+                    <li>
+                      <i className="fa fas fa-store"></i>
+                      {registry.store}
+                    </li>
+                    <li>
+                      <i className="fa fas fa-image"></i>
+                      <a href={registry.logo} target="_blank" rel="noopener noreferrer">
+                        {registry.logo.length > 5 ? registry.logo.substring(0, 43) + '...' : registry.logo}
+                      </a>
+                    </li>
+                    <li>
+                      <i className="fa fas fa-link"></i>
+                      <a href={registry.url} target="_blank" rel="noopener noreferrer">
+                        {registry.url.length > 5 ? registry.url.substring(0, 43) + '...' : registry.url}
+                      </a>
+                    </li>
                   </ul>
                 </div>             
               </div>
