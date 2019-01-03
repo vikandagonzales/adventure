@@ -15,7 +15,7 @@ class Registry extends React.Component {
     return (
       <div className="registry">
         <div className="buttons is-centered">
-          <span className="button is-success">
+          <span className="button is-primary">
             <span className="icon">
               <i className="fa fas fa-plus"></i>
             </span>
