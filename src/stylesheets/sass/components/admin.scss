@@ -1,7 +1,6 @@
 #admin-modal {
   .details {
-    padding: 2rem;
-    margin-top: -4rem;
+    padding: 1rem;
 
     > .columns > .column:first-child {
       color: $teal;
@@ -17,9 +16,7 @@
     }
 
     > .columns > .column:last-child {
-      li {
-        word-break: break-all;
-      }
+      word-break: break-all;
     }
   }
 

@@ -14,11 +14,12 @@ class Details extends React.Component {
     const rightColumn = 'column is-9';
     return (
       <div>
-        <div className="buttons">
+        <div className="buttons is-centered">
           <span className="button is-primary">
             <span className="icon">
               <i className="fa fas fa-pen"></i>
             </span>
+            <span>Edit Details</span>
           </span>
         </div>
         <div className="details">

@@ -7618,8 +7618,7 @@ iframe {
   justify-content: flex-end; }
 
 #admin-modal .details {
-  padding: 2rem;
-  margin-top: -4rem; }
+  padding: 1rem; }
   #admin-modal .details > .columns > .column:first-child {
     color: #337d70;
     font-weight: 600;
@@ -7629,7 +7628,7 @@ iframe {
       text-align: center;
       width: 20px;
       margin-right: .75rem; }
-  #admin-modal .details > .columns > .column:last-child li {
+  #admin-modal .details > .columns > .column:last-child {
     word-break: break-all; }
 
 #admin-modal .registry > div > .columns {
