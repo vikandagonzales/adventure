@@ -24,12 +24,12 @@ class Details extends React.Component {
         </div>
         <div className="details">
           <div className="columns">
-            <div className={leftColumn}><i className="fa fas fa-male"></i>Father</div>
-            <div className={rightColumn}>{details.father}</div>
-          </div>
-          <div className="columns">
             <div className={leftColumn}><i className="fa fas fa-female"></i>Mother</div>
             <div className={rightColumn}>{details.mother}</div>
+          </div>
+          <div className="columns">
+            <div className={leftColumn}><i className="fa fas fa-male"></i>Father</div>
+            <div className={rightColumn}>{details.father}</div>
           </div>
           <div className="columns">
             <div className={leftColumn}><i className="fa fas fa-concierge-bell"></i>Host</div>
