@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {editGuest, editGuestReset} from '../../state/actions/admin';
+import {editGuest, editGuestReset, deleteGuest, deleteGuestReset} from '../../state/actions/admin';
 
 // COMPONENTS
 import Group from './Group';
@@ -104,6 +104,9 @@ class Guests extends React.Component {
                   editGuest={this.props.editGuest}
                   editGuestReset={this.props.editGuestReset}
                   editGuestError={this.props.editGuestError}
+                  deleteGuest={this.props.deleteGuest}
+                  deleteGuestReset={this.props.deleteGuestReset}
+                  deleteGuestError={this.props.deleteGuestError}
                   refresh={this.state.refresh}
                   getGroup={this.props.getGroup}
                   getGroups={this.props.getGroups}
@@ -119,13 +122,15 @@ class Guests extends React.Component {
 
 const mapStateToProps = state => ({
   groups: state.admin.groups,
-  addGuestError: state.admin.addGuestError,
-  editGuestError: state.admin.editGuestError
+  editGuestError: state.admin.editGuestError,
+  deleteGuestError: state.admin.deleteGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   editGuest,
-  editGuestReset
+  editGuestReset,
+  deleteGuest,
+  deleteGuestReset
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Guests);
