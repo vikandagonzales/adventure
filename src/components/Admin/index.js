@@ -4,7 +4,6 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getGroups} from '../../state/actions/admin';
 
 // COMPONENTS
 import Guests from './Guests';
@@ -35,10 +34,6 @@ class Admin extends React.Component {
       default:
         break;
     }
-  };
-
-  componentDidMount () {
-    this.props.getGroups();
   };
 
   render () {
@@ -76,11 +71,11 @@ class Admin extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  groups: state.admin.groups
+
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getGroups
+
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);

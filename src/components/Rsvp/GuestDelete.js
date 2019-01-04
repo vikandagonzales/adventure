@@ -4,9 +4,13 @@ import React from 'react';
 // ==========
 
 class GuestDelete extends React.Component {
-  deleteGuest = event => {
+  deleteGuest = async event => {
     event.preventDefault();
-    this.props.deleteGuest(this.props.guest.id, this.props.guest.group_id);
+    await this.props.deleteGuest(this.props.guest.id);
+    if (!this.props.deleteGuestError) {
+      await this.props.getGroup(this.props.guest.group_id);
+      this.props.getGroups();
+    } 
   };
 
   render () {

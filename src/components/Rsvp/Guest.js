@@ -4,7 +4,6 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {deleteGuest, deleteGuestReset} from '../../state/actions/guests';
 import {getUser} from '../../state/actions/auth';
 
 // COMPONENTS
@@ -56,7 +55,7 @@ class Guest extends React.Component {
   render () {
     const guest = this.props.guest;
     return (
-      <li>        
+      <li className="guest-li">        
         {
           !this.state.edit ? (
             <div className="guest-info">
@@ -91,6 +90,8 @@ class Guest extends React.Component {
               guest={guest}
               user={this.props.user}
               getUser={this.props.getUser}
+              getGroup={this.props.getGroup}
+              getGroups={this.props.getGroups}
             />
           )
         }
@@ -100,6 +101,8 @@ class Guest extends React.Component {
           deleteGuest={this.props.deleteGuest}
           deleteGuestError={this.props.deleteGuestError}
           guest={guest}
+          getGroup={this.props.getGroup}
+          getGroups={this.props.getGroups}
         />
       </li>
     );
@@ -107,14 +110,11 @@ class Guest extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  user: state.auth.user,
-  deleteGuestError: state.guests.deleteGuestError
+  user: state.auth.user
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getUser,
-  deleteGuest,
-  deleteGuestReset
+  getUser
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Guest);

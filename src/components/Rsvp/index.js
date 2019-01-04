@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addGuest, addGuestReset, editGuest, editGuestReset} from '../../state/actions/guests';
+import {addGuest, addGuestReset, editGuest, editGuestReset, deleteGuest, deleteGuestReset} from '../../state/actions/guests';
 
 // COMPONENTS
 import Guest from './Guest';
@@ -49,6 +49,10 @@ class Rsvp extends React.Component {
       }
     });
     this.setState({selected: [], refresh: !this.state.refresh});
+  };
+
+  deleteGuest = id => {
+    this.props.deleteGuest(id, this.props.group.id);
   };
 
   componentDidMount = () => {
@@ -123,7 +127,12 @@ class Rsvp extends React.Component {
                       editGuest={this.props.editGuest}
                       editGuestReset={this.props.editGuestReset}
                       editGuestError={this.props.editGuestError}
+                      deleteGuest={this.deleteGuest}
+                      deleteGuestReset={this.props.deleteGuestReset}
+                      deleteGuestError={this.props.deleteGuestError}
                       refresh={this.state.refresh}
+                      getGroup={this.props.getGroup}
+                      getGroups={this.props.getGroups}
                     />
                   );
                 })
@@ -142,6 +151,8 @@ class Rsvp extends React.Component {
                     addGuest={this.props.addGuest}
                     addGuestError={this.props.addGuestError}
                     group={group}
+                    getGroup={this.props.getGroup}
+                    getGroups={this.props.getGroups}
                   />
                 ) : null
               }
@@ -156,14 +167,17 @@ class Rsvp extends React.Component {
 const mapStateToProps = state => ({
   group: state.guests.group,
   addGuestError: state.guests.addGuestError,
-  editGuestError: state.guests.editGuestError
+  editGuestError: state.guests.editGuestError,
+  deleteGuestError: state.guests.deleteGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   addGuest,
   addGuestReset,
   editGuest,
-  editGuestReset
+  editGuestReset,
+  deleteGuest,
+  deleteGuestReset
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Rsvp);

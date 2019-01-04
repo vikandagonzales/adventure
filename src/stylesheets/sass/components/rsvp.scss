@@ -24,30 +24,29 @@
       text-align: center;
     }
   }
-
-  li {
-    line-height: 1;
-    margin: .5rem 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-
-    .field.is-horizontal {
-      margin-left: .5rem;
-    }
-
-    > form {
-      height: 2rem;
-    }
-  }
 }
 
-.guest-info {
+.guest-li {
+  line-height: 1;
+  margin: .5rem 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .field.is-horizontal {
+    margin-left: .5rem;
+  }
+
+  > form {
+    height: 2rem;
+  }
+
+  .guest-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -85,3 +84,4 @@
       }
     }
   }
+}

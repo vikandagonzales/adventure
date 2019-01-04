@@ -5,6 +5,7 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getGroup} from '../state/actions/guests';
+import {getGroups} from '../state/actions/admin';
 import {getDetails} from '../state/actions/details';
 import {getRegistries} from '../state/actions/registries';
 
@@ -43,6 +44,7 @@ class Invitation extends React.Component {
 
   componentDidMount () {
     this.props.getGroup(this.props.user.group_id);
+    this.props.getGroups();
     this.props.getDetails();
     this.props.getRegistries();
   };
@@ -66,6 +68,7 @@ class Invitation extends React.Component {
       rsvp_date: this.props.details.rsvp_date
     };
     const registries = this.props.registries;
+    const groups = this.props.groups;
     return (
       <div id="invitation">
         <div className="card invite">
@@ -116,11 +119,30 @@ class Invitation extends React.Component {
             (() => {
               switch (this.state.action) {
                 case 'details':
-                  return <Details details={details} registries={registries} />;
+                  return (
+                    <Details
+                      details={details}
+                      registries={registries}
+                    />
+                  );
                 case 'rsvp':
-                  return <Rsvp allowance={group.allowance} />;
+                  return (
+                    <Rsvp
+                      allowance={group.allowance}
+                      getGroup={this.props.getGroup}
+                      getGroups={this.props.getGroups}
+                    />
+                  );
                 case 'admin':
-                  return <Admin details={details} registries={registries} />;
+                  return (
+                    <Admin
+                      groups={groups}
+                      getGroup={this.props.getGroup}
+                      getGroups={this.props.getGroups}
+                      details={details}
+                      registries={registries}
+                    />
+                  );
                 default:
                   break;
               }
@@ -136,12 +158,14 @@ class Invitation extends React.Component {
 const mapStateToProps = state => ({
   user: state.auth.user,
   group: state.guests.group,
+  groups: state.admin.groups,
   details: state.details.details,
   registries: state.registries.registries
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getGroup,
+  getGroups,
   getDetails,
   getRegistries
 }, dispatch);
