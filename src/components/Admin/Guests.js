@@ -5,6 +5,9 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
+// COMPONENTS
+import Group from './Group';
+
 // ==========
 
 class Guests extends React.Component {
@@ -42,35 +45,7 @@ class Guests extends React.Component {
           {
             groups.map((group, i) => {
               return (
-                <li key={i}>
-                  <div className="group-title">
-                    <p className="title is-4">{group.name}</p>
-                    <p className="menu-label">{group.guests.length}/{group.limit}</p>
-                  </div>
-                  <ul>
-                    {
-                      group.guests.map((guest, i) => {
-                        return (
-                          <li key={i}>
-                            {
-                              (() => {
-                                switch (guest.accepted) {
-                                  case true:
-                                    return (<i className="fa fas fa-check-circle"></i>);
-                                  case false:
-                                    return (<i className="fa fas fa-times-circle"></i>);
-                                  default:
-                                    return (<i className="fa fas fa-question-circle"></i>);
-                                }
-                              })()
-                            }
-                            {guest.first_name} {guest.last_name}
-                          </li>
-                        );
-                      })
-                    }
-                  </ul>
-                </li>
+                <Group key={i} group={group} />
               );
             })
           }
