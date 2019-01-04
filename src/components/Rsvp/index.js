@@ -154,9 +154,9 @@ class Rsvp extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  group: state.main.group,
-  addGuestError: state.main.addGuestError,
-  editGuestError: state.main.editGuestError
+  group: state.guests.group,
+  addGuestError: state.guests.addGuestError,
+  editGuestError: state.guests.editGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

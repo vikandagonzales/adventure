@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getGroup} from '../state/actions/groups';
+import {getGroup} from '../state/actions/guests';
 import {getDetails} from '../state/actions/details';
 import {getRegistries} from '../state/actions/registries';
 
@@ -135,7 +135,7 @@ class Invitation extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.auth.user,
-  group: state.main.group,
+  group: state.guests.group,
   details: state.details.details,
   registries: state.registries.registries
 });

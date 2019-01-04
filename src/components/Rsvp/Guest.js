@@ -108,7 +108,7 @@ class Guest extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.auth.user,
-  deleteGuestError: state.main.deleteGuestError
+  deleteGuestError: state.guests.deleteGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

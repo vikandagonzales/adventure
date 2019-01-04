@@ -1,16 +1,18 @@
 import auth from './auth';
-import main from './main';
+import guests from './guests';
 import details from './details';
 import registries from './registries';
+import admin from './admin';
 
 import {combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 
 const rootReducer = combineReducers({
   auth,
-  main,
+  guests,
   details,
   registries,
+  admin,
   form: formReducer
 });
 

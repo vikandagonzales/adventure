@@ -1,6 +1,6 @@
 import Guests from '../models/guests';
 
-export const GET_GUESTS = 'GET_GUESTS';
+export const GET_GROUP = 'GET_GROUP';
 export const ADD_GUEST_SUCCESS = 'ADD_GUEST_SUCCESS';
 export const ADD_GUEST_FAILURE = 'ADD_GUEST_FAILURE';
 export const ADD_GUEST_RESET = 'ADD_GUEST_RESET';
@@ -11,10 +11,10 @@ export const DELETE_GUEST_SUCCESS = 'DELETE_GUEST_SUCCESS';
 export const DELETE_GUEST_FAILURE = 'DELETE_GUEST_FAILURE';
 export const DELETE_GUEST_RESET = 'DELETE_GUEST_RESET';
 
-export const getGuests = () => {
+export const getGroup = id => {
   return async dispatch => {
-    const payload = await Guests.getGuests();
-    dispatch({type: GET_GUESTS, payload});
+    const payload = await Guests.getGroup(id);
+    dispatch({type: GET_GROUP, payload});
   };
 };
 

@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getGroups} from '../../state/actions/groups';
+import {getGroups} from '../../state/actions/admin';
 
 // COMPONENTS
 import Guests from './Guests';
@@ -76,7 +76,7 @@ class Admin extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  groups: state.main.groups
+  groups: state.admin.groups
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

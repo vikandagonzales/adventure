@@ -6,7 +6,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 // COMPONENTS
-import Guest from './Guest';
+import Guest from '../Rsvp/Guest';
 
 // ==========
 
@@ -23,7 +23,15 @@ class Group extends React.Component {
           {
             group.guests.map((guest, i) => {
               return (
-                <Guest key={i} guest={guest} />
+                <Guest
+                  key={i}
+                  guest={guest}
+                  select={this.props.select}
+                  editGuest={this.props.editGuest}
+                  editGuestReset={this.props.editGuestReset}
+                  editGuestError={this.props.editGuestError}
+                  refresh={this.props.refresh}
+                />
               );
             })
           }
