@@ -31,6 +31,8 @@ class Group extends React.Component {
                   editGuestReset={this.props.editGuestReset}
                   editGuestError={this.props.editGuestError}
                   refresh={this.props.refresh}
+                  getGroup={this.props.getGroup}
+                  getGroups={this.props.getGroups}
                 />
               );
             })

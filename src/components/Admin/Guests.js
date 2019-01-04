@@ -105,6 +105,8 @@ class Guests extends React.Component {
                   editGuestReset={this.props.editGuestReset}
                   editGuestError={this.props.editGuestError}
                   refresh={this.state.refresh}
+                  getGroup={this.props.getGroup}
+                  getGroups={this.props.getGroups}
                 />
               );
             })

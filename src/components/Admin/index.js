@@ -54,7 +54,7 @@ class Admin extends React.Component {
             (() => {
               switch (this.state.tab) {
                 case 'guests':
-                  return <Guests groups={groups} />;
+                  return <Guests groups={groups} getGroup={this.props.getGroup} getGroups={this.props.getGroups} />;
                 case 'details':
                   return <Details details={details} />;
                 case 'registry':
