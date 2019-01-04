@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {editGuest, editGuestReset} from '../../state/actions/guests';
+import {editGuest, editGuestReset} from '../../state/actions/admin';
 
 // COMPONENTS
 import Group from './Group';
@@ -32,10 +32,13 @@ class Guests extends React.Component {
     await this.state.selected.forEach(id => {
       switch (action) {
         case 'accept':
-          this.props.editGuest({accepted: true}, id, this.props.group.id);
+          this.props.editGuest({accepted: true}, id);
           break;
         case 'decline':
-          this.props.editGuest({accepted: false}, id, this.props.group.id);
+          this.props.editGuest({accepted: false}, id);
+          break;
+        case 'reset':
+          this.props.editGuest({accepted: null}, id);
           break;
         default:
           break;
@@ -73,7 +76,11 @@ class Guests extends React.Component {
             </span>
             <span>Decline</span>
           </span>
-          <span className="button is-info">
+          <span
+            className="button is-info"
+            onClick={() => this.editGuest('reset')}
+            disabled={this.state.selected.length > 0 ? false : true}
+          >
             <span className="icon">
               <i className="fa fas fa-redo"></i>
             </span>
