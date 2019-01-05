@@ -7685,6 +7685,13 @@ iframe {
     width: 50px; }
   #admin-modal .details {
     padding: 1rem; }
+    #admin-modal .details > .columns > .column {
+      display: flex;
+      align-items: center;
+      min-height: 3rem;
+      padding: 0 .75rem; }
+      #admin-modal .details > .columns > .column .field {
+        width: 100%; }
     #admin-modal .details > .columns > .column:first-child {
       color: #337d70;
       font-weight: 600;

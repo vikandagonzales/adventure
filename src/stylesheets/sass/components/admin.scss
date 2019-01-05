@@ -72,6 +72,17 @@
   .details {
     padding: 1rem;
 
+    > .columns > .column {
+      display: flex;
+      align-items: center;
+      min-height: 3rem;
+      padding: 0 .75rem;
+
+      .field {
+        width: 100%;
+      }
+    }
+
     > .columns > .column:first-child {
       color: $teal;
       font-weight: 600;
