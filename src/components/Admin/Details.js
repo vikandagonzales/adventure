@@ -4,24 +4,54 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {editDetails, editDetailsReset} from '../../state/actions/details';
 
 // ==========
 
 class Details extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      edit: false
+    };
+  };
+
+  edit = () => {
+    this.props.editDetailsReset();
+    this.setState({edit: !this.state.edit});
+  };
+
   render () {
     const details = this.props.details;
     const leftColumn = 'column is-4';
     const rightColumn = 'column is-8';
     return (
       <div>
-        <div className="buttons is-centered">
-          <span className="button is-primary">
-            <span className="icon">
-              <i className="fa fas fa-pen"></i>
-            </span>
-            <span>Edit Details</span>
-          </span>
-        </div>
+        
+        {
+          !this.state.edit ? (
+            <div className="buttons is-centered">
+              <span className="button is-primary" onClick={this.edit}>
+                <span className="icon">
+                  <i className="fa fas fa-pen"></i>
+                </span>
+                <span>Edit Details</span>
+              </span>
+            </div>
+          ) : (
+            <div className="buttons is-centered">
+              <span className="button" onClick={this.edit}>Cancel</span>
+              <span className="button is-success" onClick={this.edit}>Save</span>
+            </div>
+          )
+        }
+        {
+          this.props.editGuestError ? (
+            <p className="help is-danger has-text-centered">
+              Could not edit details.
+              </p>
+          ) : null
+        }
         <div className="details">
           <div className="columns">
             <div className={leftColumn}><i className="fa fas fa-female"></i>Mother</div>
@@ -69,11 +99,12 @@ class Details extends React.Component {
 };
 
 const mapStateToProps = state => ({
-
+  editDetailsError: state.details.editDetailsError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-
+  editDetails,
+  editDetailsReset
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Details);
