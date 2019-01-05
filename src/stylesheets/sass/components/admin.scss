@@ -7,7 +7,15 @@
     }
 
     > ul > li > ul {
-      padding: 1rem;
+      padding: 1rem 1rem 1rem .5rem;
+    }
+
+    .level {
+      margin-bottom: 0;
+    }
+
+    .level-right {
+      margin-right: 1rem;
     }
 
     .group-title {
@@ -25,16 +33,6 @@
         padding: .25rem;
         margin: 0 0 0 .5rem;
         border-radius: $radius;
-      }
-
-      .add-guest {
-        color: $cheesecake;
-        margin-left: .5rem;
-        transition: all ease 300ms;
-
-        &:hover {
-          color: $crust;
-        }
       }
     }
   }

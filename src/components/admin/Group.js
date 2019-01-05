@@ -28,16 +28,36 @@ class Group extends React.Component {
     const group = this.props.group;
     return (
       <li>
-        <div className="group-title">
-          <p className="title is-4">{group.name}</p>
-          <p className="menu-label">{group.guests.length}/{group.limit}</p>
-          {
-            group.limit - group.guests.length > 0 ? (
-              <span className="pointer add-guest" onClick={this.add}>
-                <i className="fa fas fa-plus"></i>
+        <div className="level">
+          <div className="level-left">
+            <div className="group-title">
+              <p className="title is-4">{group.name}</p>
+              <p className="menu-label">{group.guests.length}/{group.limit}</p>
+            </div>
+          </div>
+          <div className="level-right">
+            <div className="buttons">
+              {
+                group.limit - group.guests.length > 0 ? (
+                  <span className="button is-small is-success" onClick={this.add}>
+                    <span className="icon">
+                      <i className="fa fas fa-plus"></i>
+                    </span>
+                  </span>
+                ) : null
+              }
+              <span className="button is-small is-primary" onClick={this.edit}>
+                <span className="icon">
+                  <i className="fa fas fa-pen"></i>
+                </span>               
               </span>
-            ) : null
-          }          
+              <span className="button is-small is-danger" onClick={this.delete}>
+                <span className="icon">
+                  <i className="fa fas fa-trash-alt"></i>
+                </span>
+              </span>
+            </div>
+          </div>
         </div>
         <ul>
           {
