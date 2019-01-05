@@ -29,7 +29,6 @@ class Guests extends React.Component {
   };
 
   editGuest = async action => {
-    console.log('step 1')
     await this.state.selected.forEach(id => {
       switch (action) {
         case 'accept':
@@ -45,19 +44,7 @@ class Guests extends React.Component {
           break;
       }
     });
-    console.log('step 2')
-    await this.setState({selected: [], refresh: !this.state.refresh});
-    console.log('step 3')
-    this.props.getGroup();
-    console.log('step 4')
-    this.props.getGroups();
-    console.log('all done')
-  };
-
-  deleteGuest = async id => {
-    await this.props.deleteGuest(id);
-    this.props.getGroup();
-    this.props.getGroups();
+    this.setState({selected: [], refresh: !this.state.refresh});
   };
 
   componentDidMount = () => {
@@ -117,12 +104,10 @@ class Guests extends React.Component {
                   editGuest={this.props.editGuest}
                   editGuestReset={this.props.editGuestReset}
                   editGuestError={this.props.editGuestError}
-                  deleteGuest={this.deleteGuest}
+                  deleteGuest={this.props.deleteGuest}
                   deleteGuestReset={this.props.deleteGuestReset}
                   deleteGuestError={this.props.deleteGuestError}
                   refresh={this.state.refresh}
-                  getGroup={this.props.getGroup}
-                  getGroups={this.props.getGroups}
                 />
               );
             })
@@ -134,7 +119,6 @@ class Guests extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  groups: state.groups.groups,
   editGuestError: state.groups.editGuestError,
   deleteGuestError: state.groups.deleteGuestError
 });
