@@ -22,6 +22,7 @@ class Login extends React.Component {
     const {first_name, last_name} = this.state;
     const credentials = {first_name, last_name};
     this.props.login(credentials, this.props.history);
+    this.props.toggle();
   };
 
   componentDidMount () {

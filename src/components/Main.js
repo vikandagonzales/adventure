@@ -9,6 +9,9 @@ import {getDetails} from '../state/actions/details';
 // COMPONENTS
 import Login from './Login';
 
+// HELPERS
+import {modalOpen, modalClose} from '../helpers/modal';
+
 // ==========
 
 class Main extends React.Component {
@@ -26,11 +29,13 @@ class Main extends React.Component {
         modal: true,
         modalClasses: this.state.modalClasses + ' is-active'
       });
+      modalOpen();
     } else {
       this.setState({
         modal: false,
         modalClasses: 'modal'
       });
+      modalClose();
     }
   };
 

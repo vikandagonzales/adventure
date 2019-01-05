@@ -13,6 +13,9 @@ import Details from './Details';
 import Rsvp from './Rsvp';
 import Admin from './Admin';
 
+// HELPERS
+import {modalOpen, modalClose} from '../helpers/modal';
+
 // ==========
 
 class Invitation extends React.Component {
@@ -32,12 +35,14 @@ class Invitation extends React.Component {
         modalClasses: this.state.modalClasses + ' is-active',
         action
       });
+      modalOpen();
     } else {
       this.setState({
         modal: false,
         modalClasses: 'modal',
         action: ''
       });
+      modalClose();
     }
   };
 
