@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {editGuest, editGuestReset, deleteGuest, deleteGuestReset} from '../../state/actions/groups';
+import {addGuest, addGuestReset, editGuest, editGuestReset, deleteGuest, deleteGuestReset} from '../../state/actions/groups';
 
 // COMPONENTS
 import Group from './Group';
@@ -93,6 +93,13 @@ class Guests extends React.Component {
             <span>Add Group</span>
           </span>
         </div>
+        {
+          this.props.addGuestError ? (
+            <p className="help is-danger has-text-centered">
+              Could not add guest.
+              </p>
+          ) : null
+        }
         <ul>
           {
             groups.map((group, i) => {
@@ -101,6 +108,9 @@ class Guests extends React.Component {
                   key={i}
                   group={group}
                   select={this.select}
+                  addGuest={this.props.addGuest}
+                  addGuestReset={this.props.addGuestReset}
+                  addGuestError={this.props.addGuestError}
                   editGuest={this.props.editGuest}
                   editGuestReset={this.props.editGuestReset}
                   editGuestError={this.props.editGuestError}
@@ -119,11 +129,14 @@ class Guests extends React.Component {
 };
 
 const mapStateToProps = state => ({
+  addGuestError: state.groups.addGuestError,
   editGuestError: state.groups.editGuestError,
   deleteGuestError: state.groups.deleteGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  addGuest,
+  addGuestReset,
   editGuest,
   editGuestReset,
   deleteGuest,

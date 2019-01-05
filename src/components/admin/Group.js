@@ -7,10 +7,23 @@ import {connect} from 'react-redux';
 
 // COMPONENTS
 import Guest from '../Rsvp/Guest';
+import GuestAdd from '../Rsvp/GuestAdd';
 
 // ==========
 
 class Group extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      add: false
+    };
+  };
+
+  add = () => {
+    this.props.addGuestReset();
+    this.setState({add: !this.state.add});
+  };
+
   render () {
     const group = this.props.group;
     return (
@@ -18,6 +31,13 @@ class Group extends React.Component {
         <div className="group-title">
           <p className="title is-4">{group.name}</p>
           <p className="menu-label">{group.guests.length}/{group.limit}</p>
+          {
+            group.limit - group.guests.length > 0 ? (
+              <span className="pointer add-guest" onClick={this.add}>
+                <i className="fa fas fa-plus"></i>
+              </span>
+            ) : null
+          }          
         </div>
         <ul>
           {
@@ -37,6 +57,16 @@ class Group extends React.Component {
                 />
               );
             })
+          }
+          {
+            this.state.add ? (
+              <GuestAdd
+                add={this.add}
+                addGuest={this.props.addGuest}
+                addGuestError={this.props.addGuestError}
+                group={group}
+              />
+            ) : null
           }
         </ul>
       </li>

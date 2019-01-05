@@ -7629,6 +7629,12 @@ iframe {
     padding: .25rem;
     margin: 0 0 0 .5rem;
     border-radius: 4px; }
+  #admin-modal .guests .group-title .add-guest {
+    color: #f3c85f;
+    margin-left: .5rem;
+    transition: all ease 300ms; }
+    #admin-modal .guests .group-title .add-guest:hover {
+      color: #d8a32f; }
 
 #admin-modal .details {
   padding: 1rem; }
