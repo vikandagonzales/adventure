@@ -30,6 +30,14 @@ class Details extends React.Component {
     this.setState({edit: !this.state.edit});
   };
 
+  editDetails = async event => {
+    event.preventDefault();
+    const {mother, father, host, host_contact, rsvp_date, date, time, location, map} = this.state;
+    const details = {mother, father, host, host_contact, rsvp_date, date, time, location, map};
+    await this.props.editDetails(details);
+    if (!this.props.editDetailsError) this.edit();
+  };
+
   render () {
     const details = this.props.details;
     const leftColumn = 'column is-4';

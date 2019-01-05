@@ -27,7 +27,6 @@ class GuestEdit extends React.Component {
     const guest = this.props.guest;
     const user = this.props.user;
     const admin = this.props.admin;
-    console.log(admin)
     return (
       <form onSubmit={this.editGuest}>
         <div className="field is-horizontal">
