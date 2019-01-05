@@ -13,6 +13,8 @@ import {
   deleteGuestReset,
   addGroup,
   addGroupReset,
+  editGroup,
+  editGroupReset,
   deleteGroup,
   deleteGroupReset
 } from '../../state/actions/groups';
@@ -147,6 +149,9 @@ class Guests extends React.Component {
                   deleteGuest={this.props.deleteGuest}
                   deleteGuestReset={this.props.deleteGuestReset}
                   deleteGuestError={this.props.deleteGuestError}
+                  editGroup={this.props.editGroup}
+                  editGroupReset={this.props.editGroupReset}
+                  editGroupError={this.props.editGroupError}
                   deleteGroup={this.props.deleteGroup}
                   deleteGroupReset={this.props.deleteGroupReset}
                   deleteGroupError={this.props.deleteGroupError}
@@ -166,6 +171,7 @@ const mapStateToProps = state => ({
   editGuestError: state.groups.editGuestError,
   deleteGuestError: state.groups.deleteGuestError,
   addGroupError: state.groups.addGroupError,
+  editGroupError: state.groups.editGroupError,
   deleteGroupError: state.groups.deleteGroupError
 });
 
@@ -178,6 +184,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   deleteGuestReset,
   addGroup,
   addGroupReset,
+  editGroup,
+  editGroupReset,
   deleteGroup,
   deleteGroupReset,
 }, dispatch);

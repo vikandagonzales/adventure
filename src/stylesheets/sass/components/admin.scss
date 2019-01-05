@@ -18,7 +18,14 @@
       padding: 1rem 1rem 1rem .5rem;
     }
 
+    .group-title-container {
+      display: flex;
+      align-items: center;
+      min-height: 2rem;
+    }
+
     .level {
+      width: 100%;
       margin-bottom: 0;
     }
 
@@ -48,12 +55,17 @@
       background-color: $light;
       padding: 1rem;
       margin: 0 1.5rem 1rem;
-      border-radius: $radius;
+      border-radius: $radius;    
+    }
 
-      .group-limit {
-        text-align: center;
-        width: 50px;
-      }
+    .edit-group {
+      width: 100%;
+      margin-right: 1rem;
+    }
+
+    .group-limit {
+      text-align: center;
+      width: 50px;
     }
   }
 

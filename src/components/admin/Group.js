@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 // COMPONENTS
 import Guest from '../Rsvp/Guest';
 import GuestAdd from '../Rsvp/GuestAdd';
+import GroupEdit from './GroupEdit';
 import GroupDelete from './GroupDelete';
 
 // ==========
@@ -17,9 +18,20 @@ class Group extends React.Component {
     super(props);
     this.state = {
       add: false,
+      edit: false,
       modal: false,
       modalClasses: 'modal'
     };
+  };
+
+  add = () => {
+    this.props.addGuestReset();
+    this.setState({add: !this.state.add});
+  };
+
+  edit = () => {
+    this.props.editGroupReset();
+    this.setState({edit: !this.state.edit});
   };
 
   toggle = () => {
@@ -37,49 +49,57 @@ class Group extends React.Component {
     }
   };
 
-  add = () => {
-    this.props.addGuestReset();
-    this.setState({add: !this.state.add});
-  };
-
   render () {
     const group = this.props.group;
     return (
       <li>
-        <div className="level">
-          <div className="level-left">
-            <div className="group-title">
-              <p className="title is-4">{group.name}</p>
-              <p className="menu-label">{group.guests.length}/{group.limit}</p>
-            </div>
-          </div>
-          <div className="level-right">
-            <div className="buttons">
-              {
-                group.limit - group.guests.length > 0 ? (
-                  <span className="button is-small is-success" onClick={this.add}>
-                    <span className="icon">
-                      <i className="fa fas fa-plus"></i>
+        <div className="group-title-container">
+          {
+            !this.state.edit ? (
+              <div className="level">
+                <div className="level-left">
+                  <div className="group-title">
+                    <p className="title is-4">{group.name}</p>
+                    <p className="menu-label">{group.guests.length}/{group.limit}</p>
+                  </div>
+                </div>
+                <div className="level-right">
+                  <div className="buttons">
+                    {
+                      group.limit - group.guests.length > 0 ? (
+                        <span className="button is-small is-success" onClick={this.add}>
+                          <span className="icon">
+                            <i className="fa fas fa-plus"></i>
+                          </span>
+                        </span>
+                      ) : null
+                    }
+                    <span className="button is-small is-primary" onClick={this.edit}>
+                      <span className="icon">
+                        <i className="fa fas fa-pen"></i>
+                      </span>
                     </span>
-                  </span>
-                ) : null
-              }
-              <span className="button is-small is-primary" onClick={this.edit}>
-                <span className="icon">
-                  <i className="fa fas fa-pen"></i>
-                </span>
-              </span>
-              {
-                group.guests.length === 0 ? (
-                  <span className="button is-small is-danger" onClick={this.toggle}>
-                    <span className="icon">
-                      <i className="fa fas fa-trash-alt"></i>
-                    </span>
-                  </span>
-                ) : null
-              }            
-            </div>
-          </div>
+                    {
+                      group.guests.length === 0 ? (
+                        <span className="button is-small is-danger" onClick={this.toggle}>
+                          <span className="icon">
+                            <i className="fa fas fa-trash-alt"></i>
+                          </span>
+                        </span>
+                      ) : null
+                    }
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <GroupEdit
+                edit={this.edit}
+                editGroup={this.props.editGroup}
+                editGroupError={this.props.editGroupError}
+                group={group}
+              />
+            )
+          }
         </div>
         <ul>
           {
