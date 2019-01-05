@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 // COMPONENTS
 import Guest from '../Rsvp/Guest';
 import GuestAdd from '../Rsvp/GuestAdd';
+import GroupDelete from './GroupDelete';
 
 // ==========
 
@@ -15,8 +16,25 @@ class Group extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      add: false
+      add: false,
+      modal: false,
+      modalClasses: 'modal'
     };
+  };
+
+  toggle = () => {
+    this.props.deleteGroupReset();
+    if (!this.state.modal) {
+      this.setState({
+        modal: true,
+        modalClasses: this.state.modalClasses + ' is-active'
+      });
+    } else {
+      this.setState({
+        modal: false,
+        modalClasses: 'modal'
+      });
+    }
   };
 
   add = () => {
@@ -49,13 +67,17 @@ class Group extends React.Component {
               <span className="button is-small is-primary" onClick={this.edit}>
                 <span className="icon">
                   <i className="fa fas fa-pen"></i>
-                </span>               
-              </span>
-              <span className="button is-small is-danger" onClick={this.delete}>
-                <span className="icon">
-                  <i className="fa fas fa-trash-alt"></i>
                 </span>
               </span>
+              {
+                group.guests.length === 0 ? (
+                  <span className="button is-small is-danger" onClick={this.toggle}>
+                    <span className="icon">
+                      <i className="fa fas fa-trash-alt"></i>
+                    </span>
+                  </span>
+                ) : null
+              }            
             </div>
           </div>
         </div>
@@ -89,6 +111,13 @@ class Group extends React.Component {
             ) : null
           }
         </ul>
+        <GroupDelete
+          modalClasses={this.state.modalClasses}
+          toggle={this.toggle}
+          deleteGroup={this.props.deleteGroup}
+          deleteGroupError={this.props.deleteGroupError}
+          group={group}
+        />
       </li>
     );
   };

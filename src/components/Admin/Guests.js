@@ -12,7 +12,9 @@ import {
   deleteGuest,
   deleteGuestReset,
   addGroup,
-  addGroupReset
+  addGroupReset,
+  deleteGroup,
+  deleteGroupReset
 } from '../../state/actions/groups';
 
 // COMPONENTS
@@ -145,6 +147,9 @@ class Guests extends React.Component {
                   deleteGuest={this.props.deleteGuest}
                   deleteGuestReset={this.props.deleteGuestReset}
                   deleteGuestError={this.props.deleteGuestError}
+                  deleteGroup={this.props.deleteGroup}
+                  deleteGroupReset={this.props.deleteGroupReset}
+                  deleteGroupError={this.props.deleteGroupError}
                   refresh={this.state.refresh}
                 />
               );
@@ -160,7 +165,8 @@ const mapStateToProps = state => ({
   addGuestError: state.groups.addGuestError,
   editGuestError: state.groups.editGuestError,
   deleteGuestError: state.groups.deleteGuestError,
-  addGroupError: state.groups.addGroupError
+  addGroupError: state.groups.addGroupError,
+  deleteGroupError: state.groups.deleteGroupError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -171,7 +177,9 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   deleteGuest,
   deleteGuestReset,
   addGroup,
-  addGroupReset
+  addGroupReset,
+  deleteGroup,
+  deleteGroupReset,
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Guests);
