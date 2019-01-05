@@ -25,6 +25,9 @@ class GuestEdit extends React.Component {
 
   render () {
     const guest = this.props.guest;
+    const user = this.props.user;
+    const admin = this.props.admin;
+    console.log(admin)
     return (
       <form onSubmit={this.editGuest}>
         <div className="field is-horizontal">
@@ -56,9 +59,26 @@ class GuestEdit extends React.Component {
           </div>
           <div className="field actions">
             <div className="buttons">
-              {guest.plus_one ? <span className="pointer" onClick={this.props.toggle}><i className="fa fas fa-trash-alt"></i></span> : null}
-              <button className="pointer"><i className="fa fas fa-check"></i></button>
-              <span className="pointer" onClick={this.props.edit}><i className="fa fas fa-times"></i></span>
+              {
+                admin && user.id !== guest.id && !guest.plus_one ? (
+                  <span className="pointer is-danger" onClick={this.props.toggle}>
+                    <i className="fa fas fa-trash-alt"></i>
+                  </span>
+                ) : null
+              }
+              {
+                guest.plus_one ? (
+                  <span className="pointer" onClick={this.props.toggle}>
+                    <i className="fa fas fa-trash-alt"></i>
+                  </span>
+                ) : null
+              }
+              <button className="pointer">
+                <i className="fa fas fa-check"></i>
+              </button>
+              <span className="pointer" onClick={this.props.edit}>
+                <i className="fa fas fa-times"></i>
+              </span>
             </div>
           </div>
         </div>

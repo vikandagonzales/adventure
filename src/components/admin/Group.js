@@ -116,6 +116,7 @@ class Group extends React.Component {
                   deleteGuestReset={this.props.deleteGuestReset}
                   deleteGuestError={this.props.deleteGuestError}
                   refresh={this.props.refresh}
+                  admin={true}
                 />
               );
             })

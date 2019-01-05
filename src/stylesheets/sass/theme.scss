@@ -86,4 +86,12 @@ iframe {
         color: $crust;
       }
     }
+
+    .pointer.is-danger {
+      color: $red;
+
+      &:hover {
+        color: darken($red, 10%);
+      }
+    }
   }

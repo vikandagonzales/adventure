@@ -90,6 +90,7 @@ class Guest extends React.Component {
               guest={guest}
               user={this.props.user}
               getUser={this.props.getUser}
+              admin={this.props.admin}
             />
           )
         }

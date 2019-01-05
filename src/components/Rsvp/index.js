@@ -126,6 +126,7 @@ class Rsvp extends React.Component {
                       deleteGuestReset={this.props.deleteGuestReset}
                       deleteGuestError={this.props.deleteGuestError}
                       refresh={this.state.refresh}
+                      admin={false}
                     />
                   );
                 })

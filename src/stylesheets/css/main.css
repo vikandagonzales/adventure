@@ -7636,6 +7636,10 @@ iframe {
     transition: 300ms all ease; }
     .actions .pointer:hover {
       color: #d8a32f; }
+  .actions .pointer.is-danger {
+    color: #d66667; }
+    .actions .pointer.is-danger:hover {
+      color: #cb3e3f; }
 
 #admin-modal {
   max-width: 500px; }
