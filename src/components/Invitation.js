@@ -55,7 +55,8 @@ class Invitation extends React.Component {
       id: groups.length !== 0 ? userGroup.id : null,
       name: groups.length !== 0 ? userGroup.name : null,
       limit: groups.length !== 0 ? userGroup.limit : null,
-      guests: groups.length !== 0 ? userGroup.guests : null
+      allowance: groups.length !== 0 ? userGroup.limit - userGroup.guests.length : null,
+      guests: groups.length !== 0 ? userGroup.guests : null,
     };   
     const details = {
       mother: this.props.details.mother,
@@ -96,7 +97,6 @@ class Invitation extends React.Component {
                 {
                   (() => {
                     if (group.guests) {
-                      group.allowance = group.limit - group.guests.length;
                       if (group.allowance > 0) return <li className="guest">+{group.allowance} guest{group.allowance > 1 ? 's' : null}</li>
                     }
                   })()
@@ -118,27 +118,11 @@ class Invitation extends React.Component {
             (() => {
               switch (this.state.action) {
                 case 'details':
-                  return (
-                    <Details
-                      details={details}
-                      registries={registries}
-                    />
-                  );
+                  return <Details details={details} registries={registries} />;
                 case 'rsvp':
-                  return (
-                    <Rsvp
-                      group={group}
-                      allowance={group.allowance}
-                    />
-                  );
+                  return <Rsvp group={group} />;
                 case 'admin':
-                  return (
-                    <Admin
-                      groups={groups}
-                      details={details}
-                      registries={registries}
-                    />
-                  );
+                  return <Admin groups={groups} details={details} registries={registries} />;
                 default:
                   break;
               }

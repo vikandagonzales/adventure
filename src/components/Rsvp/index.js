@@ -57,7 +57,6 @@ class Rsvp extends React.Component {
 
   render () {
     const group = this.props.group;
-    group.allowance = this.props.allowance;
     return (
       <div id="rsvp-modal" className="modal-content">
         <div className="box">
