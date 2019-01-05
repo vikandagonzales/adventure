@@ -4,10 +4,20 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addGuest, addGuestReset, editGuest, editGuestReset, deleteGuest, deleteGuestReset} from '../../state/actions/groups';
+import {
+  addGuest,
+  addGuestReset,
+  editGuest,
+  editGuestReset,
+  deleteGuest,
+  deleteGuestReset,
+  addGroup,
+  addGroupReset
+} from '../../state/actions/groups';
 
 // COMPONENTS
 import Group from './Group';
+import GroupAdd from './GroupAdd';
 
 // ==========
 
@@ -16,7 +26,8 @@ class Guests extends React.Component {
     super(props);
     this.state = {
       selected: [],
-      refresh: false
+      refresh: false,
+      add: false
     };
   };
 
@@ -26,6 +37,11 @@ class Guests extends React.Component {
     } else {
       this.setState({selected: [...this.state.selected, id]});
     }
+  };
+
+  add = () => {
+    this.props.addGroupReset();
+    this.setState({add: !this.state.add});
   };
 
   editGuest = async action => {
@@ -86,13 +102,25 @@ class Guests extends React.Component {
             </span>
             <span>Reset</span>
           </span>
-          <span className="button is-primary">
+          <span
+            className="button is-primary"
+            onClick={this.add}
+          >
             <span className="icon">
               <i className="fa fas fa-plus"></i>
             </span>
             <span>Add Group</span>
           </span>
         </div>
+        {
+          this.state.add ? (
+            <GroupAdd
+              add={this.add}
+              addGroup={this.props.addGroup}
+              addGroupError={this.props.addGroupError}
+            />
+          ) : null
+        }
         {
           this.props.addGuestError ? (
             <p className="help is-danger has-text-centered">
@@ -131,7 +159,8 @@ class Guests extends React.Component {
 const mapStateToProps = state => ({
   addGuestError: state.groups.addGuestError,
   editGuestError: state.groups.editGuestError,
-  deleteGuestError: state.groups.deleteGuestError
+  deleteGuestError: state.groups.deleteGuestError,
+  addGroupError: state.groups.addGroupError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -140,7 +169,9 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   editGuest,
   editGuestReset,
   deleteGuest,
-  deleteGuestReset
+  deleteGuestReset,
+  addGroup,
+  addGroupReset
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Guests);

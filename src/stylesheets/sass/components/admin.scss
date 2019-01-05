@@ -2,8 +2,16 @@
   max-width: 500px;
 
   .guests {
+    > .buttons {
+      margin-bottom: 0;
+    }
+
     > ul {
       padding: 1rem;
+
+      > li:last-child > ul {
+        padding-bottom: 0;
+      }
     }
 
     > ul > li > ul {
@@ -33,6 +41,18 @@
         padding: .25rem;
         margin: 0 0 0 .5rem;
         border-radius: $radius;
+      }
+    }
+
+    .add-group {
+      background-color: $light;
+      padding: 1rem;
+      margin: 0 1.5rem 1rem;
+      border-radius: $radius;
+
+      .group-limit {
+        text-align: center;
+        width: 50px;
       }
     }
   }

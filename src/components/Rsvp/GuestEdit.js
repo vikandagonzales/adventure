@@ -54,7 +54,7 @@ class GuestEdit extends React.Component {
               </p>
             </div>
           </div>
-          <div className="field guest-actions">
+          <div className="field actions">
             <div className="buttons">
               {guest.plus_one ? <span className="pointer" onClick={this.props.toggle}><i className="fa fas fa-trash-alt"></i></span> : null}
               <button className="pointer"><i className="fa fas fa-check"></i></button>

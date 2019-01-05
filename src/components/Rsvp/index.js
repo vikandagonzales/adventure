@@ -147,6 +147,13 @@ class Rsvp extends React.Component {
                   />
                 ) : null
               }
+              {
+                this.props.addGuestError ? (
+                  <p className="help is-danger has-text-centered">
+                    Could not add guest.
+                  </p>
+                ) : null
+              }
             </ul>
           </div>
         </div>

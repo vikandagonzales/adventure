@@ -77,7 +77,7 @@ class Guest extends React.Component {
                   {guest.first_name} {guest.last_name}
                 </label>
               </div>
-              <div className="guest-actions">
+              <div className="actions">
                 <span className="pointer" onClick={this.edit}><i className="fas fa-pen"></i></span>
               </div>             
             </div>

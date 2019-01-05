@@ -7537,6 +7537,7 @@ body {
     background: #f3c85f url(../assets/adventure-link.jpg) no-repeat center/cover; }
 
 .input {
+  background-color: transparent;
   height: inherit;
   border: 0;
   border-bottom: 2px solid #337d70;
@@ -7617,10 +7618,33 @@ iframe {
 .buttons.is-right {
   justify-content: flex-end; }
 
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 1rem;
+  width: 65px; }
+  .actions .buttons {
+    margin-bottom: 0; }
+  .actions .pointer {
+    background-color: transparent;
+    color: #f3c85f;
+    font-size: 1rem;
+    display: inline-block;
+    border: 0;
+    padding: 0;
+    margin: 0 .25rem;
+    transition: 300ms all ease; }
+    .actions .pointer:hover {
+      color: #d8a32f; }
+
 #admin-modal {
   max-width: 500px; }
+  #admin-modal .guests > .buttons {
+    margin-bottom: 0; }
   #admin-modal .guests > ul {
     padding: 1rem; }
+    #admin-modal .guests > ul > li:last-child > ul {
+      padding-bottom: 0; }
   #admin-modal .guests > ul > li > ul {
     padding: 1rem 1rem 1rem .5rem; }
   #admin-modal .guests .level {
@@ -7639,6 +7663,14 @@ iframe {
       padding: .25rem;
       margin: 0 0 0 .5rem;
       border-radius: 4px; }
+  #admin-modal .guests .add-group {
+    background-color: whitesmoke;
+    padding: 1rem;
+    margin: 0 1.5rem 1rem;
+    border-radius: 4px; }
+    #admin-modal .guests .add-group .group-limit {
+      text-align: center;
+      width: 50px; }
   #admin-modal .details {
     padding: 1rem; }
     #admin-modal .details > .columns > .column:first-child {
@@ -7957,21 +7989,3 @@ iframe {
     .guest-li .guest-info .fa {
       color: #dbdbdb;
       margin: 0 .5rem; }
-  .guest-li .guest-actions {
-    display: flex;
-    justify-content: flex-end;
-    margin-left: 1rem;
-    width: 65px; }
-    .guest-li .guest-actions .buttons {
-      margin-bottom: 0; }
-    .guest-li .guest-actions .pointer {
-      background-color: transparent;
-      color: #f3c85f;
-      font-size: 1rem;
-      display: inline-block;
-      border: 0;
-      padding: 0;
-      margin: 0 .25rem;
-      transition: 300ms all ease; }
-      .guest-li .guest-actions .pointer:hover {
-        color: #d8a32f; }
