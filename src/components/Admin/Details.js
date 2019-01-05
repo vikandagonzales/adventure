@@ -10,8 +10,8 @@ import {connect} from 'react-redux';
 class Details extends React.Component {
   render () {
     const details = this.props.details;
-    const leftColumn = 'column is-3';
-    const rightColumn = 'column is-9';
+    const leftColumn = 'column is-4';
+    const rightColumn = 'column is-8';
     return (
       <div>
         <div className="buttons is-centered">

@@ -1,5 +1,15 @@
 #admin-modal {
+  max-width: 500px;
+
   .guests {
+    > ul {
+      padding: 1rem;
+    }
+
+    > ul > li > ul {
+      padding: 1rem;
+    }
+
     .group-title {
       display: flex;
       align-items: center;
@@ -47,6 +57,10 @@
 
     > .columns > .column:last-child {
       word-break: break-all;
+
+      @media (max-width: 768px) {
+        padding-left: 2.75rem;
+      }
     }
   }
 
@@ -59,7 +73,7 @@
 
       @media (max-width: 768px) {
         max-width: 430px;
-        margin: 2rem auto;
+        margin: 2rem auto .5rem;
       }
     }
 

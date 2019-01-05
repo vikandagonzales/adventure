@@ -7617,81 +7617,84 @@ iframe {
 .buttons.is-right {
   justify-content: flex-end; }
 
-#admin-modal .guests .group-title {
-  display: flex;
-  align-items: center; }
-  #admin-modal .guests .group-title .title {
-    color: #337d70;
-    margin: 0; }
-  #admin-modal .guests .group-title .menu-label {
+#admin-modal {
+  max-width: 500px; }
+  #admin-modal .guests > ul {
+    padding: 1rem; }
+  #admin-modal .guests > ul > li > ul {
+    padding: 1rem; }
+  #admin-modal .guests .group-title {
+    display: flex;
+    align-items: center; }
+    #admin-modal .guests .group-title .title {
+      color: #337d70;
+      margin: 0; }
+    #admin-modal .guests .group-title .menu-label {
+      background-color: whitesmoke;
+      line-height: 1;
+      padding: .25rem;
+      margin: 0 0 0 .5rem;
+      border-radius: 4px; }
+    #admin-modal .guests .group-title .add-guest {
+      color: #f3c85f;
+      margin-left: .5rem;
+      transition: all ease 300ms; }
+      #admin-modal .guests .group-title .add-guest:hover {
+        color: #d8a32f; }
+  #admin-modal .details {
+    padding: 1rem; }
+    #admin-modal .details > .columns > .column:first-child {
+      color: #337d70;
+      font-weight: 600;
+      text-transform: uppercase; }
+      #admin-modal .details > .columns > .column:first-child .fa {
+        color: #f3c85f;
+        text-align: center;
+        width: 20px;
+        margin-right: .75rem; }
+    #admin-modal .details > .columns > .column:last-child {
+      word-break: break-all; }
+      @media (max-width: 768px) {
+        #admin-modal .details > .columns > .column:last-child {
+          padding-left: 2.75rem; } }
+  #admin-modal .registry > div > .columns {
     background-color: whitesmoke;
-    line-height: 1;
-    padding: .25rem;
-    margin: 0 0 0 .5rem;
+    margin: 1rem 1rem .5rem;
+    padding: .5rem;
     border-radius: 4px; }
-  #admin-modal .guests .group-title .add-guest {
-    color: #f3c85f;
-    margin-left: .5rem;
-    transition: all ease 300ms; }
-    #admin-modal .guests .group-title .add-guest:hover {
-      color: #d8a32f; }
-
-#admin-modal .details {
-  padding: 1rem; }
-  #admin-modal .details > .columns > .column:first-child {
-    color: #337d70;
-    font-weight: 600;
-    text-transform: uppercase; }
-    #admin-modal .details > .columns > .column:first-child .fa {
+    @media (max-width: 768px) {
+      #admin-modal .registry > div > .columns {
+        max-width: 430px;
+        margin: 2rem auto .5rem; } }
+  #admin-modal .registry > div > .columns > .column:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    @media (max-width: 768px) {
+      #admin-modal .registry > div > .columns > .column:first-child {
+        padding: 2rem 2rem 1rem; } }
+  #admin-modal .registry > div > .columns > .column:last-child {
+    display: flex;
+    align-items: center; }
+    #admin-modal .registry > div > .columns > .column:last-child li {
+      word-break: break-all;
+      text-indent: -1.5rem;
+      margin-left: 2.5rem; }
+    #admin-modal .registry > div > .columns > .column:last-child .fa {
       color: #f3c85f;
       text-align: center;
       width: 20px;
-      margin-right: .75rem; }
-  #admin-modal .details > .columns > .column:last-child {
-    word-break: break-all; }
-
-#admin-modal .registry > div > .columns {
-  background-color: whitesmoke;
-  margin: 1rem 1rem .5rem;
-  padding: .5rem;
-  border-radius: 4px; }
-  @media (max-width: 768px) {
-    #admin-modal .registry > div > .columns {
-      max-width: 430px;
-      margin: 2rem auto; } }
-
-#admin-modal .registry > div > .columns > .column:first-child {
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  @media (max-width: 768px) {
-    #admin-modal .registry > div > .columns > .column:first-child {
-      padding: 2rem 2rem 1rem; } }
-
-#admin-modal .registry > div > .columns > .column:last-child {
-  display: flex;
-  align-items: center; }
-  #admin-modal .registry > div > .columns > .column:last-child li {
-    word-break: break-all;
-    text-indent: -1.5rem;
-    margin-left: 2.5rem; }
-  #admin-modal .registry > div > .columns > .column:last-child .fa {
-    color: #f3c85f;
-    text-align: center;
-    width: 20px;
-    margin-right: .25rem; }
-  #admin-modal .registry > div > .columns > .column:last-child a {
-    color: #4a4a4a; }
-
-#admin-modal .registry img {
-  width: auto;
-  max-height: 70px; }
-  @media (max-width: 768px) {
-    #admin-modal .registry img {
-      max-height: 150px; } }
-
-#admin-modal .registry .buttons {
-  margin: 0 1rem; }
+      margin-right: .25rem; }
+    #admin-modal .registry > div > .columns > .column:last-child a {
+      color: #4a4a4a; }
+  #admin-modal .registry img {
+    width: auto;
+    max-height: 70px; }
+    @media (max-width: 768px) {
+      #admin-modal .registry img {
+        max-height: 150px; } }
+  #admin-modal .registry .buttons {
+    margin: 0 1rem; }
 
 #details-modal {
   width: 100%;
