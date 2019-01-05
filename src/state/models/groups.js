@@ -26,13 +26,13 @@ class Groups {
     return Groups.getGroups();
   };
 
-  static editGuest = async (guest, guest_id) => {
-    await request(`/guests/${guest_id}`, 'put', guest);
+  static editGuest = async (guest, id) => {
+    await request(`/guests/${id}`, 'put', guest);
     return Groups.getGroups();
   };
 
-  static deleteGuest = async (guest_id) => {
-    await request(`/guests/${guest_id}`, 'delete');
+  static deleteGuest = async id => {
+    await request(`/guests/${id}`, 'delete');
     return Groups.getGroups();
   };
 };

@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {addGuest, addGuestReset, editGuest, editGuestReset, deleteGuest, deleteGuestReset} from '../../state/actions/guests';
+import {addGuest, addGuestReset, editGuest, editGuestReset, deleteGuest, deleteGuestReset} from '../../state/actions/groups';
 
 // COMPONENTS
 import Guest from './Guest';
@@ -39,20 +39,16 @@ class Rsvp extends React.Component {
     await this.state.selected.forEach(id => {
       switch (action) {
         case 'accept':
-          this.props.editGuest({accepted: true}, id, this.props.group.id);
+          this.props.editGuest({accepted: true}, id);
           break;
         case 'decline':
-          this.props.editGuest({accepted: false}, id, this.props.group.id);
+          this.props.editGuest({accepted: false}, id);
           break;
         default:
           break;
       }
-    });
+    });    
     this.setState({selected: [], refresh: !this.state.refresh});
-  };
-
-  deleteGuest = id => {
-    this.props.deleteGuest(id, this.props.group.id);
   };
 
   componentDidMount = () => {
@@ -127,12 +123,10 @@ class Rsvp extends React.Component {
                       editGuest={this.props.editGuest}
                       editGuestReset={this.props.editGuestReset}
                       editGuestError={this.props.editGuestError}
-                      deleteGuest={this.deleteGuest}
+                      deleteGuest={this.props.deleteGuest}
                       deleteGuestReset={this.props.deleteGuestReset}
                       deleteGuestError={this.props.deleteGuestError}
                       refresh={this.state.refresh}
-                      getGroup={this.props.getGroup}
-                      getGroups={this.props.getGroups}
                     />
                   );
                 })
@@ -151,8 +145,6 @@ class Rsvp extends React.Component {
                     addGuest={this.props.addGuest}
                     addGuestError={this.props.addGuestError}
                     group={group}
-                    getGroup={this.props.getGroup}
-                    getGroups={this.props.getGroups}
                   />
                 ) : null
               }
@@ -165,10 +157,9 @@ class Rsvp extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  group: state.guests.group,
-  addGuestError: state.guests.addGuestError,
-  editGuestError: state.guests.editGuestError,
-  deleteGuestError: state.guests.deleteGuestError
+  addGuestError: state.groups.addGuestError,
+  editGuestError: state.groups.editGuestError,
+  deleteGuestError: state.groups.deleteGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

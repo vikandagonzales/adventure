@@ -17,11 +17,7 @@ class GuestAdd extends React.Component {
     const {first_name, last_name} = this.state;
     const guest = {group_id: this.props.group.id, first_name, last_name, plus_one: true};
     await this.props.addGuest(guest, this.props.group.id);
-    if (!this.props.addGuestError) {
-      await this.props.getGroup(this.props.group.id);
-      await this.props.getGroups();
-      this.props.add();
-    } 
+    if (!this.props.addGuestError) this.props.add();
   };
 
   render () {

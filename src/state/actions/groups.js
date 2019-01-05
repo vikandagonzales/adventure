@@ -1,4 +1,4 @@
-import Admin from '../models/admin';
+import Groups from '../models/groups';
 
 export const GET_GROUPS = 'GET_GROUPS';
 export const ADD_GROUP_SUCCESS = 'ADD_GROUP_SUCCESS';
@@ -22,7 +22,7 @@ export const DELETE_GUEST_RESET = 'DELETE_GUEST_RESET';
 
 export const getGroups = () => {
   return async dispatch => {
-    const payload = await Admin.getGroups();
+    const payload = await Groups.getGroups();
     dispatch({type: GET_GROUPS, payload});
   };
 };
@@ -30,7 +30,7 @@ export const getGroups = () => {
 export const addGroup = group => {
   return async dispatch => {
     try {
-      const payload = await Admin.addGroup(group);
+      const payload = await Groups.addGroup(group);
       dispatch({type: ADD_GROUP_SUCCESS, payload});
     } catch (err) {
       dispatch({type: ADD_GROUP_FAILURE, payload: err});
@@ -47,7 +47,7 @@ export const addGroupReset = () => {
 export const editGroup = (group, id) => {
   return async dispatch => {
     try {
-      const payload = await Admin.editGroup(group, id);
+      const payload = await Groups.editGroup(group, id);
       dispatch({type: EDIT_GROUP_SUCCESS, payload});
     } catch (err) {
       dispatch({type: EDIT_GROUP_FAILURE, payload: err});
@@ -64,7 +64,7 @@ export const editGroupReset = () => {
 export const deleteGroup = id => {
   return async dispatch => {
     try {
-      const payload = await Admin.deleteGroup(id);
+      const payload = await Groups.deleteGroup(id);
       dispatch({type: DELETE_GROUP_SUCCESS, payload});
     } catch (err) {
       dispatch({type: DELETE_GROUP_FAILURE, payload: err});
@@ -81,7 +81,7 @@ export const deleteGroupReset = () => {
 export const addGuest = guest => {
   return async dispatch => {
     try {
-      const payload = await Admin.addGuest(guest);
+      const payload = await Groups.addGuest(guest);
       dispatch({type: ADD_GUEST_SUCCESS, payload});
     } catch (err) {
       dispatch({type: ADD_GUEST_FAILURE, payload: err});
@@ -95,10 +95,10 @@ export const addGuestReset = () => {
   };
 };
 
-export const editGuest = (guest, guest_id) => {
+export const editGuest = (guest, id) => {
   return async dispatch => {
     try {
-      const payload = await Admin.editGuest(guest, guest_id);
+      const payload = await Groups.editGuest(guest, id);
       dispatch({type: EDIT_GUEST_SUCCESS, payload});
     } catch (err) {
       dispatch({type: EDIT_GUEST_FAILURE, payload: err});
@@ -112,10 +112,10 @@ export const editGuestReset = () => {
   };
 };
 
-export const deleteGuest = (guest_id) => {
+export const deleteGuest = id => {
   return async dispatch => {
     try {
-      const payload = await Admin.deleteGuest(guest_id);
+      const payload = await Groups.deleteGuest(id);
       dispatch({type: DELETE_GUEST_SUCCESS, payload});
     } catch (err) {
       dispatch({type: DELETE_GUEST_FAILURE, payload: err});

@@ -4,8 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getGroup} from '../state/actions/guests';
-import {getGroups} from '../state/actions/admin';
+import {getGroups} from '../state/actions/groups';
 import {getDetails} from '../state/actions/details';
 import {getRegistries} from '../state/actions/registries';
 
@@ -43,19 +42,21 @@ class Invitation extends React.Component {
   };
 
   componentDidMount () {
-    this.props.getGroup(this.props.user.group_id);
     this.props.getGroups();
     this.props.getDetails();
     this.props.getRegistries();
   };
 
   render () {
+    const user = this.props.user;
+    const groups = this.props.groups;
+    const userGroup = groups.find(group => group.id === user.group_id);
     const group = {
-      id: this.props.group.id,
-      name: this.props.group.name,
-      limit: this.props.group.limit,
-      guests: this.props.group.guests
-    };
+      id: groups.length !== 0 ? userGroup.id : null,
+      name: groups.length !== 0 ? userGroup.name : null,
+      limit: groups.length !== 0 ? userGroup.limit : null,
+      guests: groups.length !== 0 ? userGroup.guests : null
+    };   
     const details = {
       mother: this.props.details.mother,
       father: this.props.details.father,
@@ -67,8 +68,7 @@ class Invitation extends React.Component {
       map: this.props.details.map,
       rsvp_date: this.props.details.rsvp_date
     };
-    const registries = this.props.registries;
-    const groups = this.props.groups;
+    const registries = this.props.registries; 
     return (
       <div id="invitation">
         <div className="card invite">
@@ -108,10 +108,9 @@ class Invitation extends React.Component {
             <div className="buttons">
               <span className="button is-primary is-outlined" onClick={() => this.toggle('details')}>details</span>
               <span className="button is-primary is-outlined" onClick={() => this.toggle('rsvp')}>rsvp</span>
-              {this.props.user.admin ? <span className="button is-primary is-outlined" onClick={() => this.toggle('admin')}>admin</span> : null}
+              {user.admin ? <span className="button is-primary is-outlined" onClick={() => this.toggle('admin')}>admin</span> : null}
             </div>
-          </div>
-          
+          </div>         
         </div>        
         <div className={this.state.modalClasses}>
           <div className="modal-background" onClick={this.toggle}></div>
@@ -128,17 +127,14 @@ class Invitation extends React.Component {
                 case 'rsvp':
                   return (
                     <Rsvp
+                      group={group}
                       allowance={group.allowance}
-                      getGroup={this.props.getGroup}
-                      getGroups={this.props.getGroups}
                     />
                   );
                 case 'admin':
                   return (
                     <Admin
                       groups={groups}
-                      getGroup={this.props.getGroup}
-                      getGroups={this.props.getGroups}
                       details={details}
                       registries={registries}
                     />
@@ -157,14 +153,12 @@ class Invitation extends React.Component {
 
 const mapStateToProps = state => ({
   user: state.auth.user,
-  group: state.guests.group,
-  groups: state.admin.groups,
+  groups: state.groups.groups,
   details: state.details.details,
   registries: state.registries.registries
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getGroup,
   getGroups,
   getDetails,
   getRegistries

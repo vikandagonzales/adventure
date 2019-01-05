@@ -18,7 +18,7 @@ import {
   DELETE_GUEST_SUCCESS,
   DELETE_GUEST_FAILURE,
   DELETE_GUEST_RESET
-} from '../actions/admin';
+} from '../actions/groups';
 
 let initial = {
   groups: [],

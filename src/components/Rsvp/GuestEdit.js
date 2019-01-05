@@ -16,10 +16,8 @@ class GuestEdit extends React.Component {
     event.preventDefault();
     const {first_name, last_name} = this.state;
     const guest = {first_name, last_name};
-    await this.props.editGuest(guest, this.props.guest.id, this.props.guest.group_id);
+    await this.props.editGuest(guest, this.props.guest.id);
     if (!this.props.editGuestError) {
-      await this.props.getGroup(this.props.guest.group_id);
-      await this.props.getGroups();
       if (this.props.guest.id === this.props.user.id) await this.props.getUser();
       this.props.edit();
     }

@@ -4,7 +4,7 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {editGuest, editGuestReset, deleteGuest, deleteGuestReset} from '../../state/actions/admin';
+import {editGuest, editGuestReset, deleteGuest, deleteGuestReset} from '../../state/actions/groups';
 
 // COMPONENTS
 import Group from './Group';
@@ -29,6 +29,7 @@ class Guests extends React.Component {
   };
 
   editGuest = async action => {
+    console.log('step 1')
     await this.state.selected.forEach(id => {
       switch (action) {
         case 'accept':
@@ -44,7 +45,19 @@ class Guests extends React.Component {
           break;
       }
     });
-    this.setState({selected: [], refresh: !this.state.refresh});
+    console.log('step 2')
+    await this.setState({selected: [], refresh: !this.state.refresh});
+    console.log('step 3')
+    this.props.getGroup();
+    console.log('step 4')
+    this.props.getGroups();
+    console.log('all done')
+  };
+
+  deleteGuest = async id => {
+    await this.props.deleteGuest(id);
+    this.props.getGroup();
+    this.props.getGroups();
   };
 
   componentDidMount = () => {
@@ -104,7 +117,7 @@ class Guests extends React.Component {
                   editGuest={this.props.editGuest}
                   editGuestReset={this.props.editGuestReset}
                   editGuestError={this.props.editGuestError}
-                  deleteGuest={this.props.deleteGuest}
+                  deleteGuest={this.deleteGuest}
                   deleteGuestReset={this.props.deleteGuestReset}
                   deleteGuestError={this.props.deleteGuestError}
                   refresh={this.state.refresh}
@@ -121,9 +134,9 @@ class Guests extends React.Component {
 };
 
 const mapStateToProps = state => ({
-  groups: state.admin.groups,
-  editGuestError: state.admin.editGuestError,
-  deleteGuestError: state.admin.deleteGuestError
+  groups: state.groups.groups,
+  editGuestError: state.groups.editGuestError,
+  deleteGuestError: state.groups.deleteGuestError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({

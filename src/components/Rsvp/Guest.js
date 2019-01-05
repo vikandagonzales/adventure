@@ -90,19 +90,16 @@ class Guest extends React.Component {
               guest={guest}
               user={this.props.user}
               getUser={this.props.getUser}
-              getGroup={this.props.getGroup}
-              getGroups={this.props.getGroups}
             />
           )
         }
         <GuestDelete
           modalClasses={this.state.modalClasses}
           toggle={this.toggle}
+          edit={this.edit}
           deleteGuest={this.props.deleteGuest}
           deleteGuestError={this.props.deleteGuestError}
           guest={guest}
-          getGroup={this.props.getGroup}
-          getGroups={this.props.getGroups}
         />
       </li>
     );
