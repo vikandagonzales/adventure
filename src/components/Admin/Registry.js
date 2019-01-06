@@ -4,10 +4,26 @@ import React from 'react';
 // REDUX
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import {addRegistry, addRegistryReset} from '../../state/actions/registries';
+
+// COMPONENTS
+import RegistryAdd from './RegistryAdd';
 
 // ==========
 
 class Registry extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      add: false
+    };
+  };
+
+  add = () => {
+    this.props.addRegistryReset();
+    this.setState({add: !this.state.add});
+  };
+
   render () {
     const registries = this.props.registries;
     const leftColumn = "column is-3";
@@ -15,13 +31,22 @@ class Registry extends React.Component {
     return (
       <div className="registry">
         <div className="buttons is-centered">
-          <span className="button is-primary">
+          <span className="button is-primary" onClick={this.add}>
             <span className="icon">
               <i className="fa fas fa-plus"></i>
             </span>
             <span>Add Registry</span>
           </span>
-        </div>       
+        </div>
+        {
+          this.state.add ? (
+            <RegistryAdd
+              add={this.add}
+              addRegistry={this.props.addRegistry}
+              addRegistryError={this.props.addRegistryError}
+            />
+          ) : null
+        }  
         {
           registries.map((registry, i) => {
             return (
@@ -75,11 +100,12 @@ class Registry extends React.Component {
 };
 
 const mapStateToProps = state => ({
-
+  addRegistryError: state.registries.addRegistryError
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-
+  addRegistry,
+  addRegistryReset
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registry);

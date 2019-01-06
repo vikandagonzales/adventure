@@ -7,17 +7,17 @@ class Registries {
   };
 
   static addRegistry = async registry => {
-    await request(`/registry`, 'post', registry);
+    await request(`/registries`, 'post', registry);
     return Registries.getRegistries();
   };
 
   static editRegistry = async (registry, id) => {
-    await request(`/registry/${id}`, 'put', registry);
+    await request(`/registries/${id}`, 'put', registry);
     return Registries.getRegistries();
   };
 
   static deleteRegistry = async id => {
-    await request(`/registry/${id}`, 'delete');
+    await request(`/registries/${id}`, 'delete');
     return Registries.getRegistries();
   };
 };

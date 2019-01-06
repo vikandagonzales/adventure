@@ -106,7 +106,7 @@
   }
 
   .registry {
-    > div > .columns {
+    > div > .columns, .add-registry {
       background-color: $light;
       margin: 1rem 1rem .5rem;
       padding: .5rem;
@@ -116,6 +116,10 @@
         max-width: 430px;
         margin: 2rem auto .5rem;
       }
+    }
+
+    .add-registry {
+      padding: 1rem 1.5rem 1.5rem;
     }
 
     > div > .columns > .column:first-child {

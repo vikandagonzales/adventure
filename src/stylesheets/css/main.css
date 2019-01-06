@@ -7706,15 +7706,17 @@ iframe {
       @media (max-width: 768px) {
         #admin-modal .details > .columns > .column:last-child {
           padding-left: 2.75rem; } }
-  #admin-modal .registry > div > .columns {
+  #admin-modal .registry > div > .columns, #admin-modal .registry .add-registry {
     background-color: whitesmoke;
     margin: 1rem 1rem .5rem;
     padding: .5rem;
     border-radius: 4px; }
     @media (max-width: 768px) {
-      #admin-modal .registry > div > .columns {
+      #admin-modal .registry > div > .columns, #admin-modal .registry .add-registry {
         max-width: 430px;
         margin: 2rem auto .5rem; } }
+  #admin-modal .registry .add-registry {
+    padding: 1rem 1.5rem 1.5rem; }
   #admin-modal .registry > div > .columns > .column:first-child {
     display: flex;
     justify-content: center;
