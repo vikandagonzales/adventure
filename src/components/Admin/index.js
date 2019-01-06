@@ -1,14 +1,10 @@
 // REACT
 import React from 'react';
 
-// REDUX
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-
 // COMPONENTS
 import Guests from './Guests';
 import Details from './Details';
-import Registry from './Registry';
+import Registries from './Registries';
 
 // ==========
 
@@ -58,7 +54,7 @@ class Admin extends React.Component {
                 case 'details':
                   return <Details details={details} />;
                 case 'registry':
-                  return <Registry registries={registries} />;
+                  return <Registries registries={registries} />;
                 default:
                   break;
               }
@@ -70,12 +66,4 @@ class Admin extends React.Component {
   };
 };
 
-const mapStateToProps = state => ({
-
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Admin);
+export default Admin;

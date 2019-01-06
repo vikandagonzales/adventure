@@ -9,9 +9,13 @@
 .delete-modal {
   max-width: 450px;
 
+  .box {
+    padding: 2rem;
+  }
+
   .buttons {
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem !important;
   }
 }
 

@@ -1,10 +1,6 @@
 // REACT
 import React from 'react';
 
-// REDUX
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-
 // COMPONENTS
 import Guest from '../Rsvp/Guest';
 import GuestAdd from '../Rsvp/GuestAdd';
@@ -144,12 +140,4 @@ class Group extends React.Component {
   };
 };
 
-const mapStateToProps = state => ({
-
-});
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-
-}, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Group);
+export default Group;
