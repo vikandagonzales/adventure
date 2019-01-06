@@ -7708,37 +7708,40 @@ iframe {
       @media (max-width: 768px) {
         #admin-modal .details > .columns > .column:last-child {
           padding-left: 2.75rem; } }
-  #admin-modal .registries > div > .columns, #admin-modal .registries .add-registry {
+  #admin-modal .registries form > .columns, #admin-modal .registries .add-registry {
     background-color: whitesmoke;
     margin: 1rem 1rem .5rem;
     padding: .5rem;
     border-radius: 4px; }
     @media (max-width: 768px) {
-      #admin-modal .registries > div > .columns, #admin-modal .registries .add-registry {
+      #admin-modal .registries form > .columns, #admin-modal .registries .add-registry {
         max-width: 430px;
         margin: 2rem auto .5rem; } }
   #admin-modal .registries .add-registry {
     padding: 1rem 1.5rem 1.5rem; }
-  #admin-modal .registries > div > .columns > .column:first-child {
+  #admin-modal .registries .edit-registry ul, #admin-modal .registries .edit-registry .field {
+    width: 100%; }
+  #admin-modal .registries form > .columns > .column:first-child {
     display: flex;
     justify-content: center;
     align-items: center; }
     @media (max-width: 768px) {
-      #admin-modal .registries > div > .columns > .column:first-child {
+      #admin-modal .registries form > .columns > .column:first-child {
         padding: 2rem 2rem 1rem; } }
-  #admin-modal .registries > div > .columns > .column:last-child {
+  #admin-modal .registries form > .columns > .column:last-child {
     display: flex;
     align-items: center; }
-    #admin-modal .registries > div > .columns > .column:last-child li {
+    #admin-modal .registries form > .columns > .column:last-child li {
       word-break: break-all;
-      text-indent: -1.5rem;
-      margin-left: 2.5rem; }
-    #admin-modal .registries > div > .columns > .column:last-child .fa {
+      display: flex;
+      align-items: center;
+      min-height: 2rem; }
+    #admin-modal .registries form > .columns > .column:last-child .fa {
       color: #f3c85f;
       text-align: center;
       width: 20px;
-      margin-right: .25rem; }
-    #admin-modal .registries > div > .columns > .column:last-child a {
+      margin-right: 1rem; }
+    #admin-modal .registries form > .columns > .column:last-child a {
       color: #4a4a4a; }
   #admin-modal .registries img {
     width: auto;

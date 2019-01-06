@@ -106,7 +106,7 @@
   }
 
   .registries {
-    > div > .columns, .add-registry {
+    form > .columns, .add-registry {
       background-color: $light;
       margin: 1rem 1rem .5rem;
       padding: .5rem;
@@ -122,7 +122,11 @@
       padding: 1rem 1.5rem 1.5rem;
     }
 
-    > div > .columns > .column:first-child {
+    .edit-registry ul, .edit-registry .field {
+      width: 100%;
+    }
+
+    form > .columns > .column:first-child {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -132,21 +136,22 @@
       }
     }
 
-    > div > .columns > .column:last-child {     
+    form > .columns > .column:last-child {     
       display: flex;
       align-items: center;
 
       li {
         word-break: break-all;
-        text-indent: -1.5rem;
-        margin-left: 2.5rem;
+        display: flex;
+        align-items: center;
+        min-height: 2rem;
       }
 
       .fa {
         color: $cheesecake;
         text-align: center;
         width: 20px;
-        margin-right: .25rem;       
+        margin-right: 1rem;  
       }
 
       a {
