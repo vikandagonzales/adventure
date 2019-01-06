@@ -72,12 +72,12 @@ class GuestEdit extends React.Component {
                   </span>
                 ) : null
               }
-              <button className="pointer">
-                <i className="fa fas fa-check"></i>
-              </button>
               <span className="pointer" onClick={this.props.edit}>
                 <i className="fa fas fa-times"></i>
               </span>
+              <button className="pointer">
+                <i className="fa fas fa-check"></i>
+              </button>             
             </div>
           </div>
         </div>

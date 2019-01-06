@@ -54,8 +54,8 @@ class GroupEdit extends React.Component {
           </div>
           <div className="field actions">
             <div className="buttons">
-              <button className="pointer"><i className="fa fas fa-check"></i></button>
               <span className="pointer" onClick={this.props.edit}><i className="fa fas fa-times"></i></span>
+              <button className="pointer"><i className="fa fas fa-check"></i></button>             
             </div>
           </div>
         </div>
