@@ -6,6 +6,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {getDetails} from '../state/actions/details';
 
+// SPRING
+import {Spring} from 'react-spring';
+
 // COMPONENTS
 import Login from './Login';
 
@@ -53,18 +56,22 @@ class Main extends React.Component {
       father: this.props.details.father
     };
     return (
-      <div id="main">
-        <div className="container has-text-centered">
-          <figure className="image logo">
-            <img src="./assets/adventure-logo.png" alt="The Adventure Begins" />
-          </figure>
-          <p className="subtitle is-4">
-            Join <strong>{details.father}</strong> & <strong>{details.mother}</strong> in welcoming the newest member of their party
-          </p>
-          <span className="button is-primary is-outlined is-large" onClick={this.invite}>View Invitation</span>
-        </div>       
-        <Login modalClasses={this.state.modalClasses} toggle={this.toggle} history={this.props.history} />
-      </div>
+      <Spring from={{opacity: 0, marginTop: -1000}} to={{opacity: 1, marginTop: 0}}>        
+        {slide => (
+          <div id="main" style={slide}>
+            <div className="container has-text-centered">
+              <figure className="image logo">
+                <img src="./assets/adventure-logo.png" alt="The Adventure Begins" />
+              </figure>
+              <p className="subtitle is-4">
+                Join <strong>{details.father}</strong> & <strong>{details.mother}</strong> in welcoming the newest member of their party
+              </p>
+              <span className="button is-primary is-outlined is-large" onClick={this.invite}>View Invitation</span>
+            </div>
+            <Login modalClasses={this.state.modalClasses} toggle={this.toggle} history={this.props.history} />
+          </div>
+        )}          
+      </Spring>
     );
   };
 };

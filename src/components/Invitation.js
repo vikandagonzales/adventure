@@ -8,6 +8,9 @@ import {getGroups} from '../state/actions/groups';
 import {getDetails} from '../state/actions/details';
 import {getRegistries} from '../state/actions/registries';
 
+// SPRING
+import {Spring} from 'react-spring';
+
 // COMPONENTS
 import Details from './Details';
 import Rsvp from './Rsvp';
@@ -77,46 +80,54 @@ class Invitation extends React.Component {
     const registries = this.props.registries; 
     return (
       <div id="invitation">
-        <div className="card invite">
-          <div className="card-content">
-            <figure className="image logo">
-              <img src="./assets/adventure-logo.png" alt="The Adventure Begins" />
-            </figure>
-            <div className="messaging has-text-centered">
-              <p className="intro">Join us for a <strong>baby shower</strong><br /> in honor of adventurers</p>
-              <span className="title is-5">{details.father}<i className="fa fas fa-plus"></i>{details.mother}</span>
-              <p>{details.date} at {details.time}</p>
-              <p>{details.location}</p>
+        <Spring from={{opacity: 0, marginTop: -1000}} to={{opacity: 1, marginTop: 0}}>
+          {slide => (
+            <div className="card invite" style={slide}>
+              <div className="card-content">
+                <figure className="image logo">
+                  <img src="./assets/adventure-logo.png" alt="The Adventure Begins" />
+                </figure>
+                <div className="messaging has-text-centered">
+                  <p className="intro">Join us for a <strong>baby shower</strong><br /> in honor of adventurers</p>
+                  <span className="title is-5">{details.father}<i className="fa fas fa-plus"></i>{details.mother}</span>
+                  <p>{details.date} at {details.time}</p>
+                  <p>{details.location}</p>
+                </div>
+              </div>
             </div>
-          </div>           
-        </div>
-        <div>
-          <div className="card envelope">
-            <div className="card-content has-text-centered">
-              <ul>
-                {
-                  (() => {
-                    if (group.guests) return group.guests.map((guest, i) => <li key={i}>{guest.first_name} {guest.last_name}</li>);
-                  })()
-                }
-                {
-                  (() => {
-                    if (group.guests) {
-                      if (group.allowance > 0) return <li className="guest">+{group.allowance} guest{group.allowance > 1 ? 's' : null}</li>
+          )}
+        </Spring>
+        <Spring from={{opacity: 0}} to={{opacity: 1}}>
+          {fadeIn => (
+            <div style={fadeIn}>
+              <div className="card envelope">
+                <div className="card-content has-text-centered">
+                  <ul>
+                    {
+                      (() => {
+                        if (group.guests) return group.guests.map((guest, i) => <li key={i}>{guest.first_name} {guest.last_name}</li>);
+                      })()
                     }
-                  })()
-                }
-              </ul>
-            </div>           
-          </div>
-          <div className="buttons-container">
-            <div className="buttons">
-              <span className="button is-primary is-outlined" onClick={() => this.toggle('details')}>details</span>
-              <span className="button is-primary is-outlined" onClick={() => this.toggle('rsvp')}>rsvp</span>
-              {user.admin ? <span className="button is-primary is-outlined" onClick={() => this.toggle('admin')}>admin</span> : null}
+                    {
+                      (() => {
+                        if (group.guests) {
+                          if (group.allowance > 0) return <li className="guest">+{group.allowance} guest{group.allowance > 1 ? 's' : null}</li>
+                        }
+                      })()
+                    }
+                  </ul>
+                </div>
+              </div>
+              <div className="buttons-container">
+                <div className="buttons">
+                  <span className="button is-primary is-outlined" onClick={() => this.toggle('details')}>details</span>
+                  <span className="button is-primary is-outlined" onClick={() => this.toggle('rsvp')}>rsvp</span>
+                  {user.admin ? <span className="button is-primary is-outlined" onClick={() => this.toggle('admin')}>admin</span> : null}
+                </div>
+              </div>
             </div>
-          </div>         
-        </div>        
+          )}
+        </Spring>        
         <div className={this.state.modalClasses}>
           <div className="modal-background" onClick={this.toggle}></div>
           {
