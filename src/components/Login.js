@@ -17,12 +17,12 @@ class Login extends React.Component {
     };
   };
 
-  login = event => {
+  login = async event => {
     event.preventDefault();
     const {first_name, last_name} = this.state;
     const credentials = {first_name, last_name};
-    this.props.login(credentials, this.props.history);
-    this.props.toggle();
+    await this.props.login(credentials, this.props.history);
+    if (!this.props.loginError) this.props.toggle();
   };
 
   componentDidMount () {
