@@ -79,10 +79,10 @@ class Invitation extends React.Component {
     };
     const registries = this.props.registries; 
     return (
-      <div id="invitation">
-        <Spring from={{opacity: 0, marginTop: -1000}} to={{opacity: 1, marginTop: 0}}>
-          {slide => (
-            <div className="card invite" style={slide}>
+      <Spring from={{opacity: 0}} to={{opacity: 1}}>
+        {fadeIn => (
+          <div id="invitation" style={fadeIn}>
+            <div className="card invite">
               <div className="card-content">
                 <figure className="image logo">
                   <img src="./assets/adventure-logo.png" alt="The Adventure Begins" />
@@ -95,11 +95,7 @@ class Invitation extends React.Component {
                 </div>
               </div>
             </div>
-          )}
-        </Spring>
-        <Spring from={{opacity: 0}} to={{opacity: 1}}>
-          {fadeIn => (
-            <div style={fadeIn}>
+            <div>
               <div className="card envelope">
                 <div className="card-content has-text-centered">
                   <ul>
@@ -126,27 +122,27 @@ class Invitation extends React.Component {
                 </div>
               </div>
             </div>
-          )}
-        </Spring>        
-        <div className={this.state.modalClasses}>
-          <div className="modal-background" onClick={this.toggle}></div>
-          {
-            (() => {
-              switch (this.state.action) {
-                case 'details':
-                  return <Details details={details} registries={registries} />;
-                case 'rsvp':
-                  return <Rsvp group={group} />;
-                case 'admin':
-                  return <Admin groups={groups} details={details} registries={registries} />;
-                default:
-                  break;
+            <div className={this.state.modalClasses}>
+              <div className="modal-background" onClick={this.toggle}></div>
+              {
+                (() => {
+                  switch (this.state.action) {
+                    case 'details':
+                      return <Details details={details} registries={registries} />;
+                    case 'rsvp':
+                      return <Rsvp group={group} />;
+                    case 'admin':
+                      return <Admin groups={groups} details={details} registries={registries} />;
+                    default:
+                      break;
+                  }
+                })()
               }
-            })()
-          }
-          <span className="modal-close is-large" onClick={this.toggle}></span>
-        </div>
-      </div>
+              <span className="modal-close is-large" onClick={this.toggle}></span>
+            </div>
+          </div>
+        )}
+      </Spring>
     );
   };
 };
