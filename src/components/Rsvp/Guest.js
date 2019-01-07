@@ -74,7 +74,7 @@ class Guest extends React.Component {
                       }
                     })()
                   }
-                  {guest.first_name} {guest.last_name}
+                  <span>{guest.first_name} {guest.last_name}</span>
                 </label>
               </div>
               <div className="actions">

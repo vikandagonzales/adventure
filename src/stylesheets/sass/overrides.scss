@@ -65,3 +65,9 @@ body {
 .is-checkradio[type="checkbox"] + label:before {
   transition: 300ms all ease;
 }
+
+@media (max-width: 768px) {
+  .level-left + .level-right {
+    margin-top: 0;
+  }
+}
