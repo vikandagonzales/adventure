@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/vikandagonzales/adventure/issues"
   },
-  "homepage": "https://github.com/vikandagonzales/adventure#readme",
+  "homepage": "http://baby-obrien.surge.sh",
   "dependencies": {
     "autoprefixer": "^9.4.3",
     "axios": "^0.18.0",
