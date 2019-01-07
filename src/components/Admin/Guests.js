@@ -20,7 +20,7 @@ import {
 } from '../../state/actions/groups';
 
 // COMPONENTS
-import Group from './Group.js';
+import Group from './Group';
 import GroupAdd from './GroupAdd';
 
 // ==========
