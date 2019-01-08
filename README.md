@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## The Adventure Begins
 
-## Available Scripts
+This full-stack web app was built to replace traditional my baby shower invitations, supplemented by a back-end and database for a guest list, event information repository, RSVP functionality, and admin control.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+* Guests are able to view their invitation on the main page by providing their first name and last name. 
+* If they are on the guest list, they will be taken to the invitation with their party's names (along with any additional plus ones allotted to their party).
+* Guests are able to view details with event information, any event requests, and the event registry list.
+* Guests are able to RSVP by using the checkboxes to accept or decline for each member of their party. They can also edit their name, add plus ones if their party has room, and delete plus ones they created.
+* Administrators are able to edit event details, edit the registry list, and manage all guest responses. They can also add more parties and guests to the guest list as well as edit each party's guest count limit for plus ones.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshots
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+![Main](assets/screenshot1.png)
+![Invitation](assets/screenshot2.png)
+![Details](assets/screenshot3.png)
+![RSVP](assets/screenshot4.png)
+![Admin](assets/screenshot5.png)
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Make sure the [back-end](https://github.com/vikandagonzales/adventure-backend) is already up and running.
+* Clone this repo to your local with your CLI.
+```
+$ git clone https://github.com/vikandagonzales/adventure
+```
+* Navigate into the repo.
+```
+$ cd adventure
+```
+* Install all packages and dependencies.
+```
+$ npm install
+```
+* Run the app in development mode.
+```
+$ npm start
+```
+You're all set!
 
-### `npm run build`
+## Tools & Technologies
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The front-end was built with HTML5, CSS3, Sass, [Bulma](https://bulma.io), JavaScript, [React](https://reactjs.org), [Redux](https://redux.js.org), and Axios. The [back-end](https://github.com/vikandagonzales/adventure-backend) was built with Node.js, Express.js, Knex.js, PostgreSQL.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Copyright
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright &copy; 2019 Vikanda Gonzales.

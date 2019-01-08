@@ -101,7 +101,7 @@ class Registry extends React.Component {
                       </div>
                     ) : (
                       <a href={registry.logo} target="_blank" rel="noopener noreferrer">
-                        {registry.logo.length > 30 ? registry.logo.substring(0, 30) + '...' : registry.logo}
+                        {registry.logo.length > 28 ? registry.logo.substring(0, 28) + '...' : registry.logo}
                       </a>
                     )
                   }
@@ -124,7 +124,7 @@ class Registry extends React.Component {
                       </div>
                     ) : (
                       <a href={registry.url} target="_blank" rel="noopener noreferrer">
-                        {registry.url.length > 30 ? registry.url.substring(0, 30) + '...' : registry.url}
+                        {registry.url.length > 28 ? registry.url.substring(0, 28) + '...' : registry.url}
                       </a>
                     )
                   }                 
