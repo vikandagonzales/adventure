@@ -1,6 +1,6 @@
 ## The Adventure Begins
 
-This full-stack web app was built to replace traditional my baby shower invitations, supplemented by a back-end and database for a guest list, event information repository, RSVP functionality, and admin control.
+This full-stack web app was built to replace my traditional baby shower invitations, supplemented by a back-end and database for a guest list, event information repository, RSVP functionality, and admin control.
 
 ## Features
 
@@ -20,24 +20,13 @@ This full-stack web app was built to replace traditional my baby shower invitati
 
 ## Installation
 
-* Make sure the [back-end](https://github.com/vikandagonzales/adventure-backend) is already up and running.
-* Clone this repo to your local with your CLI.
+Before starting, make sure the [back-end](https://github.com/vikandagonzales/adventure-backend) is already up and running.
 ```
 $ git clone https://github.com/vikandagonzales/adventure
-```
-* Navigate into the repo.
-```
 $ cd adventure
-```
-* Install all packages and dependencies.
-```
 $ npm install
-```
-* Run the app in development mode.
-```
 $ npm start
 ```
-You're all set!
 
 ## Tools & Technologies
 
