@@ -1,4 +1,4 @@
-## The Adventure Begins
+# The Adventure Begins
 
 This full-stack web app was built to replace my traditional baby shower invitations, supplemented by a back-end and database for a guest list, event information repository, RSVP functionality, and admin control.
 
