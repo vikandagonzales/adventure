@@ -9,6 +9,7 @@ import {
   DELETE_GROUP_SUCCESS,
   DELETE_GROUP_FAILURE,
   DELETE_GROUP_RESET,
+  GET_GUESTS,
   ADD_GUEST_SUCCESS,
   ADD_GUEST_FAILURE,
   ADD_GUEST_RESET,
@@ -25,6 +26,7 @@ let initial = {
   addGroupError: false,
   editGroupError: false,
   deleteGroupError: false,
+  guests: [],
   addGuestError: false,
   editGuestError: false,
   deleteGuestError: false
@@ -52,6 +54,8 @@ export default (state = initial, action) => {
       return {...state, deleteGroupError: true};
     case DELETE_GROUP_RESET:
       return {...state, deleteGroupError: false};
+    case GET_GUESTS:
+      return {...state, guests: action.payload};
     case ADD_GUEST_SUCCESS:
       return {...state, groups: action.payload, addGuestError: false};
     case ADD_GUEST_FAILURE:
