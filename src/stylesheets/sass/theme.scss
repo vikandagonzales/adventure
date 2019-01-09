@@ -19,6 +19,17 @@
   }
 }
 
+.confirmation-modal {
+  .title {
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+
+  ul {
+    margin-top: .5rem;
+  }
+}
+
 .tabs li span {   
   color: $tabs-link-color;
   text-transform: uppercase;

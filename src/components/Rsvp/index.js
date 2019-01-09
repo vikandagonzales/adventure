@@ -9,6 +9,7 @@ import {addGuest, addGuestReset, editGuest, editGuestReset, deleteGuest, deleteG
 // COMPONENTS
 import Guest from './Guest';
 import GuestAdd from './GuestAdd';
+import Confirmation from './Confirmation';
 
 // ==========
 
@@ -18,7 +19,9 @@ class Rsvp extends React.Component {
     this.state = {
       selected: [],
       refresh: false,
-      add: false
+      add: false,
+      modal: false,
+      modalClasses: 'modal'
     };
   };
 
@@ -47,8 +50,24 @@ class Rsvp extends React.Component {
         default:
           break;
       }
-    });    
-    this.setState({selected: [], refresh: !this.state.refresh});
+    });
+    this.toggle();
+  };
+
+  toggle = () => {
+    if (!this.state.modal) {
+      this.setState({
+        modal: true,
+        modalClasses: this.state.modalClasses + ' is-active'
+      });
+    } else {
+      this.setState({
+        modal: false,
+        modalClasses: 'modal',
+        selected: [],
+        refresh: !this.state.refresh
+      });
+    }
   };
 
   componentDidMount = () => {
@@ -158,6 +177,12 @@ class Rsvp extends React.Component {
             </ul>
           </div>
         </div>
+        <Confirmation
+          modalClasses={this.state.modalClasses}
+          toggle={this.toggle}
+          group={group}
+          selected={this.state.selected}
+        />
       </div>
     );
   };
