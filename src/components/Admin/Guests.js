@@ -73,31 +73,32 @@ class Guests extends React.Component {
 
   render () {
     const groups = this.props.groups;
+    const guests = [].concat(...groups.map(group => group.guests.map(guest => guest)));
     return (
       <div className="guests">
-        <div class="level">
-          <div class="level-item has-text-centered">
+        <div className="level guest-count">
+          <div className="level-item has-text-centered">
             <div>
-              <p class="heading">Total</p>
-              <p class="title">3,456</p>
+              <p className="heading">Accepted</p>
+              <p className="title is-4">{guests.filter(guest => guest.accepted === true).length}</p>
             </div>
           </div>
-          <div class="level-item has-text-centered">
+          <div className="level-item has-text-centered">
             <div>
-              <p class="heading">Tweets</p>
-              <p class="title">3,456</p>
+              <p className="heading">Declined</p>
+              <p className="title is-4">{guests.filter(guest => guest.accepted === false).length}</p>
             </div>
           </div>
-          <div class="level-item has-text-centered">
+          <div className="level-item has-text-centered">
             <div>
-              <p class="heading">Following</p>
-              <p class="title">123</p>
+              <p className="heading">Pending</p>
+              <p className="title is-4">{guests.filter(guest => guest.accepted === null).length}</p>
             </div>
           </div>
-          <div class="level-item has-text-centered">
+          <div className="level-item has-text-centered">
             <div>
-              <p class="heading">Likes</p>
-              <p class="title">789</p>
+              <p className="heading">Total</p>
+              <p className="title is-4">{guests.length}</p>
             </div>
           </div>
         </div>

@@ -21,11 +21,6 @@ class Groups {
     return Groups.getGroups();
   };
 
-  static getGuests = async () => {
-    const guests = await request(`/guests`);
-    return guests.data.data;
-  };
-
   static addGuest = async guest => {
     await request(`/guests`, 'post', guest);
     return Groups.getGroups();

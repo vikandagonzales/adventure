@@ -64,8 +64,8 @@ class Invitation extends React.Component {
       name: groups.length !== 0 ? userGroup.name : null,
       limit: groups.length !== 0 ? userGroup.limit : null,
       allowance: groups.length !== 0 ? userGroup.limit - userGroup.guests.length : null,
-      guests: groups.length !== 0 ? userGroup.guests : null,
-    };   
+      guests: groups.length !== 0 ? userGroup.guests : null
+    };
     const details = {
       mother: this.props.details.mother,
       father: this.props.details.father,

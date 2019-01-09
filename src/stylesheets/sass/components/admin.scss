@@ -2,6 +2,17 @@
   max-width: 500px;
 
   .guests {
+    .guest-count {
+      .level-item {
+        width: 25%;
+        margin-bottom: 1.5rem;
+      }
+
+      .title {
+        color: $turquoise;
+      }
+    }
+
     > .buttons {
       margin-bottom: 0;
     }

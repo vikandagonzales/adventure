@@ -7656,6 +7656,11 @@ iframe {
 
 #admin-modal {
   max-width: 500px; }
+  #admin-modal .guests .guest-count .level-item {
+    width: 25%;
+    margin-bottom: 1.5rem; }
+  #admin-modal .guests .guest-count .title {
+    color: #216055; }
   #admin-modal .guests > .buttons {
     margin-bottom: 0; }
   #admin-modal .guests > ul {

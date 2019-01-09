@@ -10,7 +10,6 @@ export const EDIT_GROUP_RESET = 'EDIT_GROUP_RESET';
 export const DELETE_GROUP_SUCCESS = 'DELETE_GROUP_SUCCESS';
 export const DELETE_GROUP_FAILURE = 'DELETE_GROUP_FAILURE';
 export const DELETE_GROUP_RESET = 'DELETE_GROUP_RESET';
-export const GET_GUESTS = 'GET_GUESTS';
 export const ADD_GUEST_SUCCESS = 'ADD_GUEST_SUCCESS';
 export const ADD_GUEST_FAILURE = 'ADD_GUEST_FAILURE';
 export const ADD_GUEST_RESET = 'ADD_GUEST_RESET';
@@ -76,13 +75,6 @@ export const deleteGroup = id => {
 export const deleteGroupReset = () => {
   return dispatch => {
     dispatch({type: DELETE_GROUP_RESET});
-  };
-};
-
-export const getGuests = () => {
-  return async dispatch => {
-    const payload = await Groups.getGuests();
-    dispatch({type: GET_GUESTS, payload});
   };
 };
 
