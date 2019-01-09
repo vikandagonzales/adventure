@@ -15,7 +15,7 @@ class GuestAdd extends React.Component {
   addGuest = async event => {
     event.preventDefault();
     const {first_name, last_name} = this.state;
-    const guest = {group_id: this.props.group.id, first_name, last_name, plus_one: true};
+    const guest = {group_id: this.props.group.id, first_name, last_name, plus_one: this.props.plus_one};
     await this.props.addGuest(guest, this.props.group.id);
     if (!this.props.addGuestError) this.props.add();
   };

@@ -124,6 +124,7 @@ class Group extends React.Component {
                 addGuest={this.props.addGuest}
                 addGuestError={this.props.addGuestError}
                 group={group}
+                plus_one={false}
               />
             ) : null
           }
