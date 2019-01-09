@@ -8041,3 +8041,7 @@ iframe {
     .guest-li .guest-info .fa {
       color: #dbdbdb;
       margin: 0 .5rem; }
+      .guest-li .guest-info .fa.fa-check-circle {
+        color: #83bf8a; }
+      .guest-li .guest-info .fa.fa-times-circle {
+        color: #d66667; }
