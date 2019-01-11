@@ -7832,6 +7832,7 @@ iframe {
   #details-modal .registry {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     padding: 2rem; }
     #details-modal .registry > .column {
       display: flex;
