@@ -7635,6 +7635,7 @@ iframe {
   display: flex;
   justify-content: flex-end; }
   .actions:first-child {
+    margin-right: 1rem;
     width: 26px; }
   .actions:last-child {
     margin-left: 1rem;
