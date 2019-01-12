@@ -78,35 +78,46 @@ iframe {
 }
 
 .actions {
-    display: flex;
-    justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
+
+  &:first-child {
+    width: 26px;
+  }
+
+  &:last-child {
     margin-left: 1rem;
     width: 65px;
+  }
+  
+  .buttons {
+    margin-bottom: 0;
+  }
 
-    .buttons {
-      margin-bottom: 0;
-    }
+  .pointer {
+    background-color: transparent;
+    color: $cheesecake;
+    font-size: 1rem;
+    display: inline-block;
+    border: 0;
+    padding: 0;
+    margin: 0 .25rem;
+    transition: 300ms all ease;
 
-    .pointer {
-      background-color: transparent;
-      color: $cheesecake;
-      font-size: 1rem;
-      display: inline-block;
-      border: 0;
-      padding: 0;
-      margin: 0 .25rem;
-      transition: 300ms all ease;
-
-      &:hover {
-        color: $crust;
-      }
-    }
-
-    .pointer.is-danger {
-      color: $red;
-
-      &:hover {
-        color: darken($red, 10%);
-      }
+    &:hover {
+      color: $crust;
     }
   }
+
+  .pointer.is-danger {
+    color: $red;
+
+    &:hover {
+      color: darken($red, 10%);
+    }
+  }
+
+  .far.fa-star {
+    font-weight: 400;
+  }
+}

@@ -31,6 +31,29 @@ class GuestEdit extends React.Component {
       <form onSubmit={this.editGuest}>
         <div className="field is-horizontal">
           <div className="field-body">
+            {
+              admin ? (
+                <div className="field actions">                  
+                  {
+                    user.id !== guest.id && !guest.plus_one ? (
+                      <div className="buttons">
+                        {
+                          guest.admin ? (
+                            <span className="pointer" onClick={this.props.toggle}>
+                              <i className="fa fas fa-star"></i>
+                            </span>
+                          ) : (
+                            <span className="pointer" onClick={this.props.toggle}>
+                              <i className="fa far fa-star"></i>
+                            </span>
+                          )
+                        }                       
+                      </div>
+                    ) : null
+                  }                 
+                </div>
+              ) : null
+            }
             <div className="field">
               <p className="control">
                 <input

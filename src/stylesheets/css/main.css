@@ -7633,9 +7633,12 @@ iframe {
 
 .actions {
   display: flex;
-  justify-content: flex-end;
-  margin-left: 1rem;
-  width: 65px; }
+  justify-content: flex-end; }
+  .actions:first-child {
+    width: 26px; }
+  .actions:last-child {
+    margin-left: 1rem;
+    width: 65px; }
   .actions .buttons {
     margin-bottom: 0; }
   .actions .pointer {
@@ -7653,6 +7656,8 @@ iframe {
     color: #d66667; }
     .actions .pointer.is-danger:hover {
       color: #cb3e3f; }
+  .actions .far.fa-star {
+    font-weight: 400; }
 
 #admin-modal {
   max-width: 500px; }
