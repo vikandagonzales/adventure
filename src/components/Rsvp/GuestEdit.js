@@ -23,6 +23,19 @@ class GuestEdit extends React.Component {
     }
   };
 
+  changeRole = role => {
+    switch (role) {
+      case 'admin':
+        this.props.editGuest({admin: true}, this.props.guest.id);
+        break;
+      case 'guest':
+        this.props.editGuest({admin: false}, this.props.guest.id);
+        break;
+      default:
+        break;
+    }
+  };
+
   render () {
     const guest = this.props.guest;
     const user = this.props.user;
@@ -39,11 +52,11 @@ class GuestEdit extends React.Component {
                       <div className="buttons">
                         {
                           guest.admin ? (
-                            <span className="pointer" onClick={this.props.toggle}>
+                            <span className="pointer" onClick={() => this.changeRole('guest')}>
                               <i className="fa fas fa-star"></i>
                             </span>
                           ) : (
-                            <span className="pointer" onClick={this.props.toggle}>
+                            <span className="pointer" onClick={() => this.changeRole('admin')}>
                               <i className="fa far fa-star"></i>
                             </span>
                           )
