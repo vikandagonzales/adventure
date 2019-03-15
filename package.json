@@ -1,7 +1,7 @@
 {
   "name": "adventure",
-  "version": "0.1.0",
-  "description": "Invitation and RSVP web app for my baby shower",
+  "version": "1.2.0",
+  "description": "Full-stack NERP web app built to replace my traditional baby shower invitations with a guest list, event information repository, RSVP functionality, and admin control.",
   "main": "./public/index.html",
   "repository": {
     "type": "git",
